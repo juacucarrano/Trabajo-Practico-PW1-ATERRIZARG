@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* TIPOGRAFIA GENERAL */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #dcd6f7, #f5f3ff);
+    overflow: hidden;
+}
+
+p{
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: #6c63ff;
+    padding: 0.5vh 1vh;
+    border-radius: 0.5rem;
+    margin: 1vh 0;
+}
+
+/* GRID BASE (tu estilo) */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 12vh 1fr;
+    height: 100vh;
+    width: 100vw;
+    padding: 2vh;
+    gap: 2vh;
+}
+
+/* HEADER */
+.a {
+    grid-column: 1 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh;
+    background: rgba(255,255,255,0.6);
+    border-radius: 1rem;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #6c63ff;
+}
+
+nav a {
+    margin-left: 2vh;
+    text-decoration: none;
+    color: #6c63ff;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #dcd6f7;
+    padding: 0.2vh 0.3vh;
+    border-radius: 0.5rem;
+}
+
+/* FILTROS */
+.b {
+    background: rgba(255,255,255,0.6);
+    border-radius: 1rem;
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+/* RESULTADOS */
+.c {
+    background: rgba(255,255,255,0.6);
+    border-radius: 1rem;
+    padding: 2vh;
+    overflow-y: auto;
+    grid-column: 2 / 4;
+}
+
+.card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2vh;
+    margin-bottom: 2vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    padding: 1vh 2vh;
+    border: none;
+    border-radius: 0.5rem;
+    background: #6c63ff;
+    color: white;
+    cursor: pointer;
+}
+
+/* LATERAL DERECHO */
+.d {
+    background: rgba(255,255,255,0.6);
+    border-radius: 1rem;
+    padding: 2vh;
+}
+
+/* RESPONSIVE (como vos lo hacés) */
+@media (max-width: 480px) {
+
+    .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .a, .b, .c, .d {
+        grid-column: 1;
+    }
+    nav a {
+    margin-left: 2vh;
+    text-decoration: none;
+    color: #6c63ff;
+    font-weight: bold;
+    font-size: 10px;
+    background-color: #dcd6f7;
+    padding: 0.2vh 0.3vh;
+    border-radius: 0.5rem;
+}
+button {
+    padding: 0.5vh 1vh;
+    font-size: 14px;
+
+}
