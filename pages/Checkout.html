@@ -20,10 +20,12 @@
     </section>
 
     <section class="c card form">
-        <h3>Pago</h3>
-        <input type="text" placeholder="Número de tarjeta">
-        <input type="text" placeholder="Nombre">
-        <button>Pagar</button>
+        <form action="../index.html" method="POST">
+            <h3>Pago</h3>
+            <input type="text" placeholder="Número de tarjeta" required>
+            <input type="text" placeholder="Nombre" required>
+            <button type="submit">Pagar</button>
+        </form>
     </section>
 
 </div>
