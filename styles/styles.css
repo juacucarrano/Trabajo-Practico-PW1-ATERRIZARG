@@ -7,7 +7,6 @@
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(to right, #dcd6f7, #f5f3ff);
-    overflow: hidden;
 }
 
 p{
@@ -22,11 +21,23 @@ p{
 .grid {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 12vh 1fr;
-    height: 100vh;
+    grid-template-rows: 12vh 1fr 12vh;
+    min-height: 100vh;
     width: 100vw;
     padding: 2vh;
     gap: 2vh;
+}
+
+footer {
+    grid-column: 1 / 4;
+    grid-row: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #6c63ff;
+    border-radius: 1rem;
+    padding: 2vh;
+    text-align: center;
 }
 
 .a {
@@ -63,6 +74,7 @@ nav a {
     display: flex;
     flex-direction: column;
     gap: 1vh;
+    grid-row: 2/3;
 }
 
 .c {
@@ -71,6 +83,14 @@ nav a {
     padding: 2vh;
     overflow-y: auto;
     grid-column: 2 / 4;
+}
+
+.d{
+        background: rgba(255,255,255,0.6);
+        border-radius: 1rem;
+        padding: 2vh;
+        grid-column: 1 / 4;
+        grid-row: 3;
 }
 
 .card {
