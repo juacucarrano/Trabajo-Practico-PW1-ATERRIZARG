@@ -71,6 +71,7 @@ header nav a {
     font-size: 1.17rem;
     text-decoration: none;
     gap: 1rem;
+    color: #6c63ff;
     background: white;
     border-radius: 1rem;
     padding: 2vh;
@@ -114,6 +115,17 @@ header nav a {
     overflow-y: auto;
     grid-column: 2 / 4;
 }
+.c .main-perfil-vacio{
+    width: 100%;
+}
+.c .main-perfil-vacio img {
+    width: 35%;
+    max-width: 35rem;
+    min-width: 15rem;
+    height: auto;
+    margin: 2rem auto;
+    display: block;
+}
 
 .d{
         background: rgba(255,255,255,0.6);
@@ -149,7 +161,7 @@ button {
     padding: 2vh;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE */        /* AGRANDAR UN POCO EL MAX-WIDTH PARA QUE NO SEA DEMASIADO AJUSTADO*/
 @media (max-width: 480px) {
 
     .grid {
