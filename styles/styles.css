@@ -67,37 +67,6 @@ header nav a {
     border-radius: 0.5rem;
 }
 
-.menu-usuario a {
-    font-size: 1.17rem;
-    text-decoration: none;
-    gap: 1rem;
-    color: #6c63ff;
-    background: white;
-    border-radius: 1rem;
-    padding: 2vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.menu-usuario ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.menu-usuario a:hover {
-    background: #8987b8;
-    color: white;
-}
-
-.menu-usuario {
-    margin-top: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
 .b {
     background: rgba(255,255,255,0.6);
     border-radius: 1rem;
@@ -114,17 +83,6 @@ header nav a {
     padding: 2vh;
     overflow-y: auto;
     grid-column: 2 / 4;
-}
-.c .main-perfil-vacio{
-    width: 100%;
-}
-.c .main-perfil-vacio img {
-    width: 35%;
-    max-width: 35rem;
-    min-width: 15rem;
-    height: auto;
-    margin: 2rem auto;
-    display: block;
 }
 
 .d{

@@ -1,0 +1,192 @@
+.c .main-perfil-vacio {
+    width: 100%;
+}
+
+.c .main-perfil-vacio img {
+    width: 35%;
+    max-width: 35rem;
+    min-width: 15rem;
+    height: auto;
+    margin: 2rem auto;
+    display: block;
+}
+
+.c-perfil fieldset {
+    padding: 0.5rem;
+}
+
+.c-perfil p {
+    all: unset;
+    /* esto borra los estilos seteados con anetrioridad */
+    display: block;
+    margin: 0.5em 0;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+.c-perfil #field-datos {
+    display: grid;
+    width: 100%;
+    height: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 1rem 2rem;
+}
+
+.form-nombre {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.form-apellido {
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.form-fec-nac {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.form-genero {
+    grid-column: 2/2;
+    grid-row: 2/3;
+}
+
+.form-boton {
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+
+.contenedor-gral {
+    margin: 1.5rem 0;
+}
+
+.contenedor-gral:first-child {
+    margin: 0;
+}
+
+.c-perfil fieldset {
+    background-color: white;
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.c-perfil .form-nombre label {
+    display: flex;
+    flex-direction: column;
+}
+
+.c-perfil .form-apellido label {
+    display: flex;
+    flex-direction: column;
+}
+
+.c-perfil .form-fec-nac label {
+    display: flex;
+    flex-direction: column;
+}
+
+.c-perfil .form-genero {
+    display: flex;
+    flex-direction: column;
+}
+
+.c-perfil input {
+    border: 1px gray solid;
+    border-radius: 6px;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.c-perfil select {
+    border: 1px gray solid;
+    border-radius: 6px;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.c-perfil summary {
+    margin: 0.5rem;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: #6c63ff;
+    padding: 0.5vh 1vh;
+    border-radius: 0.5rem;
+    margin: 1vh 0;
+}
+
+.c-perfil .correo-verificado span {
+    font-size: 0.8rem;
+    padding: 0 1.2rem 0 0;
+    color: gray;
+    border-right: 1px solid gray;
+}
+
+.c-perfil .correo-verificado span:last-child {
+    padding-left: 1rem;
+    padding-right: 0;
+    border: none;
+}
+
+.c-perfil .form-tel div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.c-perfil #field-tel .label {
+    display: flex;
+    flex-direction: column;
+}
+
+.c-perfil .form-tel label {
+    margin: 0.5 1rem;
+}
+
+.c-perfil .form-tel label:first-child {
+    margin-left: 0;
+}
+
+.c-perfil .contenedor-labels-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr 3fr;
+    grid-template-rows: 0.8fr;
+    gap: 1rem;
+}
+.form-tel .form-boton, #field-email .form-boton  {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.menu-usuario a {
+    font-size: 1.17rem;
+    text-decoration: none;
+    gap: 1rem;
+    color: #6c63ff;
+    background: white;
+    border-radius: 1rem;
+    padding: 2vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-usuario ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.menu-usuario a:hover {
+    background: #8987b8;
+    color: white;
+}
+
+.menu-usuario {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
