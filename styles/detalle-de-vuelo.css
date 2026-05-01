@@ -24,7 +24,6 @@
     display: grid;
     grid-template-columns: 0.3fr repeat(4, 1fr) 3fr repeat(4,1fr);
     grid-template-rows: 0.3fr repeat(8, 1fr);
-    gap: 10px;
     height: 70%;
     padding-top: 2em;
     justify-items: center;
@@ -32,10 +31,42 @@
 
 svg {
     height: 2em;
+}
+
+.disponible {
     fill: #6c63ff;
+}
+
+.ocupado {
+    fill: #b6b6b7;
 }
 
 .botones-container {
     display: flex;
     justify-content: space-around;
+}
+
+.pasillo {
+    width: 100%;
+    text-align: center;
+    border-left: 1px solid rgb(170, 169, 169);;
+    border-right: 1px solid rgb(170, 169, 169);
+}
+
+a {
+    text-decoration: none;
+}
+
+.disponible:hover {
+    fill: #b6b6b7;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.disponible:focus {
+    fill: rgb(237, 71, 71);
+}
+
+.ocupado:focus {
+    outline: none;
 }
