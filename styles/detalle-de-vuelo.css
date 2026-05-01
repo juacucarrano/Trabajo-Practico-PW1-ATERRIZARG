@@ -1,0 +1,41 @@
+.disponible-ocupado-container {
+    display: flex;
+    align-items: center;
+}
+
+.caja-disponible {
+    height: 1em;
+    width: 1em;
+    background-color: #6c63ff;
+    margin-right: 0.2em;
+    border-radius: 0.2em;
+}
+
+.caja-ocupado {
+    height: 1em;
+    width: 1em;
+    background-color: #b6b6b7;
+    margin-right: 0.2em;
+    border-radius: 0.2em;
+    margin-left: 1em;
+}
+
+.asiento-container {
+    display: grid;
+    grid-template-columns: 0.3fr repeat(4, 1fr) 3fr repeat(4,1fr);
+    grid-template-rows: 0.3fr repeat(8, 1fr);
+    gap: 10px;
+    height: 70%;
+    padding-top: 2em;
+    justify-items: center;
+}
+
+svg {
+    height: 2em;
+    fill: #6c63ff;
+}
+
+.botones-container {
+    display: flex;
+    justify-content: space-around;
+}
