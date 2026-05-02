@@ -1,3 +1,8 @@
+button {
+    font-size: 1rem;
+    padding: 1rem;
+}
+
 .c .main-perfil-vacio {
     width: 100%;
 }
@@ -174,6 +179,11 @@
 #field-email .form-boton {
     grid-column: 1/2;
     grid-row: 2/3;
+}
+#field-tarjeta .form-boton,
+#field-facturacion .form-boton {
+    grid-column: 1/2;
+    grid-row: 3/4;
 }
 
 .menu-usuario a {
