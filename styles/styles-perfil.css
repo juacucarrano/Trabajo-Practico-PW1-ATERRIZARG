@@ -88,7 +88,7 @@
     flex-direction: column;
 }
 
-.c-perfil .form-nacionalidad label{
+.c-perfil .form-nacionalidad label {
     display: flex;
     flex-direction: column;
 }
@@ -98,6 +98,7 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
 .c-perfil .form-genero div {
     padding: 0.5rem 0;
 }
@@ -224,4 +225,49 @@
 .body-perfil #field-facturacion .contenedor-labels-grid {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+}
+
+.c-perfil-sesiones .card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.c-perfil-sesiones .card .contenedor-ultima-sesion {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    height: 3rem;
+}
+
+.c-perfil-sesiones .card .contenedor-ultima-sesion div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.c-perfil-sesiones .card .contenedor-ultima-sesion img {
+    height: 3rem;
+    width: auto;
+    margin: 0 1rem;
+}
+
+.c-perfil-sesiones .card .texto-ultima-sesion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.c-perfil-sesiones .card .texto-ultima-sesion .ultimo-acceso {
+    color: gray;
+}
+
+.contenedor-ultima-sesion {
+    margin: 1rem 0;
+}
+
+.trashcan-icon {
+    width: 1rem;
+    height: auto;
+    margin-left: auto;
 }
