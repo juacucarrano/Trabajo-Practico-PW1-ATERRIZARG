@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Reserva - ATERRIZARG</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/styles-confirmacion.css">
+</head>
+<body>
+<div class="grid-confirmacion">
+
+    <!-- HEADER -->
+    <header class="confirmacion-header">
+        <div class="logo">✈ ATERRIZARG</div>
+        <nav style="margin-left: auto;">
+            <a href="../index.html">Inicio</a>
+            <a href="#">Vuelos</a>
+            <a href="#">Ofertas</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- SECCIÓN: CONFIRMACIÓN EXITOSA -->
+    <section class="confirmacion-container success-section">
+        <div class="success-icon">✓</div>
+        <h1>¡Reserva Confirmada!</h1>
+        <p class="success-message">Tu vuelo ha sido reservado exitosamente. Revisa los detalles a continuación.</p>
+    </section>
+
+    <!-- SECCIÓN: NÚMERO DE RESERVA -->
+    <section class="confirmacion-container reservation-number">
+        <h2>Número de Reserva</h2>
+        <div class="reservation-code">ARZ-2026-0847</div>
+        <p class="reservation-note">Guarda este número para tu checkin</p>
+    </section>
+
+    <!-- SECCIÓN: DATOS DEL PASAJERO -->
+    <section class="confirmacion-container passenger-info">
+        <h2>Datos del Pasajero</h2>
+        
+        <div class="info-item">
+            <span class="info-label">Nombre:</span>
+            <span class="info-value">Juan García López</span>
+        </div>
+
+        <div class="info-item">
+            <span class="info-label">Documento:</span>
+            <span class="info-value">12345678</span>
+        </div>
+
+        <div class="info-item">
+            <span class="info-label">Correo:</span>
+            <span class="info-value">correo@email.com</span>
+        </div>
+
+        <div class="info-item">
+            <span class="info-label">Teléfono:</span>
+            <span class="info-value">+54 9 11 1234-5678</span>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: DETALLES DEL VUELO -->
+    <section class="confirmacion-container flight-details">
+        <h2>Detalles del Vuelo</h2>
+        
+        <div class="flight-section">
+            <h3>Vuelo de Ida</h3>
+            <div class="flight-info">
+                <div class="info-row">
+                    <span class="label">Ruta:</span>
+                    <span class="value">Buenos Aires (EZE) → Madrid (MAD)</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Fecha:</span>
+                    <span class="value">15 de junio de 2026</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Hora de Salida:</span>
+                    <span class="value">22:30</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Hora de Llegada:</span>
+                    <span class="value">10:45 (+1 día)</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Duración:</span>
+                    <span class="value">12 horas 15 minutos</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Número de Vuelo:</span>
+                    <span class="value">AR-2185</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flight-section">
+            <h3>Vuelo de Vuelta</h3>
+            <div class="flight-info">
+                <div class="info-row">
+                    <span class="label">Ruta:</span>
+                    <span class="value">Madrid (MAD) → Buenos Aires (EZE)</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Fecha:</span>
+                    <span class="value">22 de junio de 2026</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Hora de Salida:</span>
+                    <span class="value">14:00</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Hora de Llegada:</span>
+                    <span class="value">06:30 (+1 día)</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Duración:</span>
+                    <span class="value">12 horas 30 minutos</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Número de Vuelo:</span>
+                    <span class="value">AR-2810</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: RESUMEN DEL PAGO -->
+    <section class="confirmacion-container payment-summary">
+        <h2>Resumen del Pago</h2>
+
+        <div class="summary-detail">
+            <span class="detail-label">Pasajeros:</span>
+            <span class="detail-value">1 × $550 USD</span>
+        </div>
+
+        <div class="summary-detail">
+            <span class="detail-label">Descuento:</span>
+            <span class="detail-value">-$0 USD</span>
+        </div>
+
+        <div class="summary-detail total">
+            <span class="detail-label">Total Pagado:</span>
+            <span class="detail-value">$550 USD</span>
+        </div>
+
+        <div class="summary-detail">
+            <span class="detail-label">Método de Pago:</span>
+            <span class="detail-value">Tarjeta de Crédito (terminación ****3456)</span>
+        </div>
+
+        <div class="summary-detail">
+            <span class="detail-label">Fecha de Pago:</span>
+            <span class="detail-value">02/05/2026 - 14:32 UTC</span>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: PRÓXIMOS PASOS -->
+    <section class="confirmacion-container next-steps">
+        <h2>Próximos Pasos</h2>
+        
+        <div class="steps-list">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Confirmación por Email</h4>
+                    <p>Se ha enviado un email con tu reserva a correo@email.com</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Check-in Online</h4>
+                    <p>Abre tu check-in 24 horas antes de tu vuelo</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Presentarse en Aeropuerto</h4>
+                    <p>Llega con 3 horas de anticipación para vuelos internacionales</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>¡Buen Viaje!</h4>
+                    <p>¡Disfruta tu experiencia de viaje con ATERRIZARG!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOTONES DE ACCIÓN -->
+    <div class="action-buttons">
+        <button type="button" class="btn-primary" onclick="window.location.href='reservas.html'">Ver mis Reservas</button>
+        <button type="button" class="btn-secondary" onclick="window.location.href='../index.html'">Volver al Inicio</button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="confirmacion-footer">
+        <p>&copy; 2026 ATERRIZARG - Vuelos a precios increíbles | Contacto: info@aterrizarg.com | Teléfono: +54 11 1234-5678</p>
+    </footer>
+
+</div>
+</body>
+</html>

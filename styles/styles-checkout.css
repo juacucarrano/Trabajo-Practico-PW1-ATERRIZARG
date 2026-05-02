@@ -1,0 +1,553 @@
+/* ESTILOS ESPECÍFICOS PARA CHECKOUT */
+
+/* Redefinir grid para checkout - dividir en 3 columnas */
+.grid-checkout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr auto auto;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    padding: 2vh;
+    gap: 2vh;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Header */
+.checkout-header {
+    grid-column: 1 / 4;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh;
+    background: rgba(255,255,255,0.6);
+    border-radius: 1rem;
+}
+
+.checkout-header .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #6c63ff;
+}
+
+/* Secciones principales */
+.section-container {
+    background: rgba(255,255,255,0.6);
+    border-radius: 1rem;
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+}
+
+/* Datos del pasajero */
+.passenger-data {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.passenger-data h3 {
+    color: #6c63ff;
+    margin-bottom: 1.5vh;
+    font-size: 1.2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5vh;
+}
+
+.form-group label {
+    display: block;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 0.5vh;
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8vh;
+    border: 1px solid #dcd6f7;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: 3px solid #6c63ff;
+    outline-offset: 2px;
+    border-color: #6c63ff;
+    box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
+}
+
+.optional-text {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 0.3vh;
+}
+
+/* Método de pago */
+.payment-method {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.payment-method h3 {
+    color: #6c63ff;
+    margin-bottom: 1.5vh;
+    font-size: 1.2rem;
+}
+
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2vh;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    padding: 1.2vh;
+    border: 2px solid #dcd6f7;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.payment-option:hover {
+    border-color: #6c63ff;
+    background-color: #f9f8ff;
+}
+
+.payment-option input[type="radio"] {
+    margin-right: 1vh;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    accent-color: #6c63ff;
+}
+
+.payment-option input[type="radio"]:focus {
+    outline: 2px solid #6c63ff;
+    outline-offset: 2px;
+}
+
+.payment-option label {
+    cursor: pointer;
+    font-weight: 500;
+    color: #333;
+    flex: 1;
+}
+
+.payment-option input[type="radio"]:checked + label {
+    color: #6c63ff;
+}
+
+/* Resumen de vuelo */
+.flight-summary {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.flight-summary h3 {
+    color: #6c63ff;
+    margin-bottom: 1.5vh;
+    font-size: 1.2rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.95rem;
+}
+
+.summary-item:last-of-type {
+    border-bottom: none;
+}
+
+.summary-item-label {
+    color: #666;
+    font-weight: 500;
+}
+
+.summary-item-value {
+    color: #333;
+    font-weight: bold;
+}
+
+.discount-section {
+    margin-top: 1.5vh;
+    padding-top: 1.5vh;
+    border-top: 2px solid #dcd6f7;
+}
+
+.discount-section label {
+    display: block;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 0.5vh;
+    font-size: 0.95rem;
+}
+
+.discount-section input {
+    width: 100%;
+    padding: 0.8vh;
+    border: 1px solid #dcd6f7;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    margin-bottom: 0.8vh;
+    transition: border-color 0.3s;
+}
+
+.discount-section input:focus {
+    outline: 3px solid #6c63ff;
+    outline-offset: 2px;
+    border-color: #6c63ff;
+    box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
+}
+
+/* Grid para campos de expiry y CVV */
+.card-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1vh;
+}
+
+/* Estilos para seccion de detalles de tarjeta */
+.card-details {
+    margin-top: 1.5vh;
+    padding-top: 1.5vh;
+    border-top: 1px solid #dcd6f7;
+}
+
+.apply-discount-btn {
+    width: 100%;
+    padding: 0.8vh;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.apply-discount-btn:hover {
+    background-color: #5a52d5;
+}
+
+.apply-discount-btn:focus {
+    outline: 3px solid #6c63ff;
+    outline-offset: 2px;
+}
+
+.total-section {
+    margin-top: 1.5vh;
+    padding: 1.5vh;
+    background-color: #f0efff;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.total-section .label {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5vh;
+}
+
+.total-section .amount {
+    font-size: 1.8rem;
+    color: #6c63ff;
+    font-weight: bold;
+}
+
+/* Footer */
+.checkout-footer {
+    grid-column: 1 / 4;
+    grid-row: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #6c63ff;
+    border-radius: 1rem;
+    padding: 2vh;
+    text-align: center;
+}
+
+.checkout-footer p {
+    margin: 0;
+}
+
+/* Botón de envío */
+.submit-btn {
+    grid-column: 1 / 4;
+    grid-row: 3;
+    display: flex;
+    justify-content: center;
+    gap: 1vh;
+    margin-bottom: 1vh;
+}
+
+.submit-btn button {
+    padding: 1.2vh 3vh;
+    border: none;
+    border-radius: 0.5rem;
+    background: #6c63ff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.submit-btn button:hover {
+    background-color: #5a52d5;
+}
+
+.submit-btn button:focus {
+    outline: 3px solid #6c63ff;
+    outline-offset: 2px;
+}
+
+.submit-btn button.cancel {
+    background-color: #d0d0d0;
+    color: #333;
+}
+
+.submit-btn button.cancel:hover {
+    background-color: #b8b8b8;
+}
+
+.submit-btn button.cancel:focus {
+    outline: 3px solid #333;
+    outline-offset: 2px;
+}
+
+/* RESPONSIVE - Tablet (768px a 1200px) */
+@media (max-width: 1200px) and (min-width: 769px) {
+    .grid-checkout {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5vh;
+        padding: 1.5vh;
+    }
+
+    .checkout-header {
+        grid-column: 1 / 3;
+    }
+
+    .checkout-header nav a {
+        font-size: 14px;
+        padding: 0.3vh 0.5vh;
+        margin-left: 1vh;
+    }
+
+    .passenger-data {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .payment-method {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .flight-summary {
+        grid-column: 1 / 3;
+        grid-row: 3;
+    }
+
+    .submit-btn {
+        grid-column: 1 / 3;
+        gap: 1vh;
+    }
+
+    .submit-btn button {
+        flex: 1;
+    }
+}
+
+@media (max-width: 1200px) {
+    .grid-checkout {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto 1fr auto auto;
+    }
+
+    .checkout-header {
+        grid-column: 1 / 3;
+        grid-row: 1;
+    }
+
+    .passenger-data {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .payment-method {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .flight-summary {
+        grid-column: 1 / 3;
+        grid-row: 3;
+    }
+
+    .submit-btn {
+        grid-column: 1 / 3;
+        grid-row: 4;
+    }
+
+    .checkout-footer {
+        grid-column: 1 / 3;
+        grid-row: 5;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-checkout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto auto;
+        padding: 1.5vh;
+        gap: 1.5vh;
+    }
+
+    .checkout-header {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .passenger-data {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .payment-method {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .flight-summary {
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+    .submit-btn {
+        grid-column: 1;
+        grid-row: 5;
+    }
+
+    .checkout-footer {
+        grid-column: 1;
+        grid-row: 6;
+    }
+
+    .payment-options {
+        flex-direction: column;
+    }
+
+    .section-container {
+        padding: 1.5vh;
+    }
+
+    .checkout-header {
+        padding: 1.5vh;
+    }
+
+    .checkout-header .logo {
+        font-size: 1.2rem;
+    }
+
+    header nav {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-checkout {
+        padding: 1vh;
+        gap: 1vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto auto;
+    }
+
+    .section-container {
+        padding: 1.2vh;
+    }
+
+    .form-group input,
+    .discount-section input {
+        font-size: 16px; /* Previene zoom en moviles */
+        padding: 1vh;
+        min-height: 44px; /* Accesibilidad: touch target minimo */
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .submit-btn button {
+        padding: 1.2vh 1.5vh;
+        font-size: 0.9rem;
+        width: 100%;
+        min-height: 44px; /* Touch target */
+    }
+
+    .submit-btn {
+        flex-direction: column;
+        grid-column: 1;
+    }
+
+    .checkout-header {
+        flex-direction: column;
+        gap: 1vh;
+    }
+
+    .checkout-header .logo {
+        font-size: 1rem;
+    }
+
+    .checkout-header nav {
+        margin-left: 0 !important;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5vh;
+    }
+
+    .checkout-header nav a {
+        font-size: 12px;
+        padding: 0.3vh 0.5vh;
+        margin-left: 0;
+    }
+
+    .section-container h3 {
+        font-size: 1rem;
+    }
+
+    .payment-option {
+        padding: 1.2vh;
+    }
+
+    .card-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-item {
+        flex-direction: column;
+        gap: 0.5vh;
+    }
+
+    .checkout-footer p {
+        font-size: 0.8rem;
+    }
+}

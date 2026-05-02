@@ -1,0 +1,558 @@
+/* ESTILOS ESPECÍFICOS PARA CONFIRMACIÓN DE RESERVA */
+
+/* Screen reader only - para accesibilidad */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Grid principal */
+.grid-confirmacion {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
+    min-height: 100vh;
+    width: 100%;
+    padding: 2vh;
+    gap: 2vh;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background: linear-gradient(to right, #dcd6f7, #f5f3ff);
+}
+
+/* Header */
+.confirmacion-header {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    gap: 2vh;
+    box-shadow: 0 2px 8px rgba(108, 99, 255, 0.1);
+}
+
+.confirmacion-header .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #6c63ff;
+}
+
+.confirmacion-header nav {
+    display: flex;
+    gap: 1vh;
+    margin-left: auto;
+}
+
+.confirmacion-header nav a {
+    text-decoration: none;
+    color: #6c63ff;
+    font-weight: bold;
+    padding: 0.5vh 1vh;
+    border-radius: 0.5rem;
+    background-color: #dcd6f7;
+    transition: background-color 0.3s;
+}
+
+.confirmacion-header nav a:hover,
+.confirmacion-header nav a:focus {
+    background-color: #c4b5fd;
+    outline: none;
+}
+
+/* Secciones principales */
+.confirmacion-container {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 1rem;
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.08);
+    grid-column: 1;
+}
+
+/* Sección de éxito */
+.success-section {
+    text-align: center;
+    padding: 3vh 2vh;
+    grid-row: 2;
+    border-left: 5px solid #22c55e;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #22c55e;
+    margin-bottom: 1vh;
+    font-weight: bold;
+}
+
+.success-section h1 {
+    color: #22c55e;
+    font-size: 2rem;
+    margin-bottom: 1vh;
+}
+
+.success-message {
+    color: #ffffff;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Número de reserva */
+.reservation-number {
+    grid-row: 3;
+    text-align: center;
+}
+
+.reservation-number h2 {
+    color: #6c63ff;
+    margin-bottom: 1.5vh;
+    font-size: 1.3rem;
+}
+
+.reservation-code {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #6c63ff;
+    font-family: 'Courier New', monospace;
+    padding: 1.5vh;
+    background-color: #f0efff;
+    border-radius: 0.5rem;
+    border: 2px dashed #6c63ff;
+    margin-bottom: 1vh;
+    letter-spacing: 2px;
+}
+
+.reservation-note {
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Datos del pasajero */
+.passenger-info {
+    grid-row: 4;
+}
+
+.passenger-info h2 {
+    color: #6c63ff;
+    margin-bottom: 1.5vh;
+    font-size: 1.3rem;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh;
+    border-bottom: 1px solid #e0e0e0;
+    align-items: center;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    color: #666;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.info-value {
+    color: #333;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Detalles del vuelo */
+.flight-details {
+    grid-row: 5;
+}
+
+.flight-details h2 {
+    color: #6c63ff;
+    margin-bottom: 1.5vh;
+    font-size: 1.3rem;
+}
+
+.flight-section {
+    margin-bottom: 2vh;
+    padding-bottom: 1.5vh;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.flight-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.flight-section h3 {
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 1vh;
+    padding-bottom: 0.5vh;
+    border-bottom: 2px solid #dcd6f7;
+}
+
+.flight-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1vh;
+}
+
+.info-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3vh;
+}
+
+.info-row .label {
+    color: #999;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.info-row .value {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Resumen del pago */
+.payment-summary {
+    grid-row: 6;
+}
+
+.payment-summary h2 {
+    color: #6c63ff;
+    margin-bottom: 1.5vh;
+    font-size: 1.3rem;
+}
+
+.summary-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-detail.total {
+    border-bottom: none;
+    background-color: #f0efff;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    color: #6c63ff;
+    font-size: 1.1rem;
+}
+
+.detail-label {
+    color: #666;
+    font-weight: 600;
+}
+
+.detail-value {
+    color: #333;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Próximos pasos */
+.next-steps {
+    grid-row: 7;
+}
+
+.next-steps h2 {
+    color: #6c63ff;
+    margin-bottom: 1.5vh;
+    font-size: 1.3rem;
+}
+
+.steps-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5vh;
+}
+
+.step {
+    display: flex;
+    gap: 1.2vh;
+    padding: 1.5vh;
+    background-color: #f9f8ff;
+    border-radius: 0.5rem;
+    border-left: 4px solid #6c63ff;
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #6c63ff;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.step-content h4 {
+    color: #333;
+    margin: 0 0 0.5vh 0;
+    font-size: 0.95rem;
+}
+
+.step-content p {
+    color: #ffffff;
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+/* Botones de acción */
+.action-buttons {
+    grid-row: 8;
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    gap: 1vh;
+    padding: 1vh;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 1.2vh 2.5vh;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s;
+    min-height: 44px;
+}
+
+.btn-primary {
+    background-color: #6c63ff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #5a52d5;
+}
+
+.btn-primary:focus {
+    outline: 3px solid #6c63ff;
+    outline-offset: 2px;
+}
+
+.btn-secondary {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #c8c8c8;
+}
+
+.btn-secondary:focus {
+    outline: 3px solid #333;
+    outline-offset: 2px;
+}
+
+/* Footer */
+.confirmacion-footer {
+    grid-column: 1;
+    grid-row: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #6c63ff;
+    border-radius: 1rem;
+    padding: 2vh;
+    text-align: center;
+}
+
+.confirmacion-footer p {
+    margin: 0;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVE - Tablet (768px a 1200px) */
+@media (max-width: 1200px) and (min-width: 769px) {
+    .grid-confirmacion {
+        padding: 1.5vh;
+        gap: 1.5vh;
+    }
+
+    .confirmacion-header nav a {
+        font-size: 14px;
+        padding: 0.3vh 0.5vh;
+    }
+
+    .flight-info {
+        grid-template-columns: 1fr;
+    }
+
+    .steps-list {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        flex-wrap: wrap;
+    }
+}
+
+/* RESPONSIVE - Mobile (hasta 768px) */
+@media (max-width: 768px) {
+    .grid-confirmacion {
+        padding: 1.5vh;
+        gap: 1.5vh;
+    }
+
+    .confirmacion-header {
+        flex-direction: column;
+        gap: 1vh;
+    }
+
+    .confirmacion-header nav {
+        margin-left: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .confirmacion-container {
+        padding: 1.5vh;
+    }
+
+    .reservation-code {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    .flight-info {
+        grid-template-columns: 1fr;
+    }
+
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5vh;
+    }
+
+    .info-value {
+        text-align: left;
+    }
+
+    .steps-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* RESPONSIVE - Mobile pequeño (hasta 480px) */
+@media (max-width: 480px) {
+    .grid-confirmacion {
+        padding: 1vh;
+        gap: 1vh;
+    }
+
+    .confirmacion-header {
+        flex-direction: column;
+        gap: 0.8vh;
+        padding: 1.2vh;
+    }
+
+    .confirmacion-header .logo {
+        font-size: 1.2rem;
+    }
+
+    .confirmacion-header nav {
+        width: 100%;
+        gap: 0.3vh;
+    }
+
+    .confirmacion-header nav a {
+        font-size: 12px;
+        padding: 0.4vh 0.6vh;
+        flex: 1;
+        text-align: center;
+    }
+
+    .confirmacion-container {
+        padding: 1.2vh;
+    }
+
+    .success-section {
+        padding: 2vh;
+    }
+
+    .success-icon {
+        font-size: 3rem;
+    }
+
+    .success-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .reservation-code {
+        font-size: 1.2rem;
+        padding: 1vh;
+        letter-spacing: 0.5px;
+    }
+
+    .passenger-info h2,
+    .flight-details h2,
+    .payment-summary h2,
+    .next-steps h2 {
+        font-size: 1.1rem;
+    }
+
+    .step {
+        gap: 0.8vh;
+        padding: 1vh;
+    }
+
+    .step-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .step-content h4 {
+        font-size: 0.85rem;
+    }
+
+    .step-content p {
+        font-size: 0.75rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 0.8vh;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 1vh 1.5vh;
+        font-size: 0.9rem;
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .confirmacion-footer {
+        padding: 1.2vh;
+    }
+
+    .confirmacion-footer p {
+        font-size: 0.75rem;
+    }
+}

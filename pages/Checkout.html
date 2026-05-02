@@ -1,33 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout ATERRIZARG</title>
+    <title>Checkout - ATERRIZARG</title>
     <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/styles-checkout.css">
 </head>
 <body>
-<div class="grid">
+<div class="grid-checkout">
 
-    <header class="a">
+    <!-- HEADER -->
+    <header class="checkout-header">
         <div class="logo">✈ ATERRIZARG</div>
+        <nav style="margin-left: auto;">
+            <a href="../index.html">Inicio</a>
+            <a href="#">Vuelos</a>
+            <a href="#">Ofertas</a>
+            <a href="#">Contacto</a>
+        </nav>
     </header>
 
-    <section class="b card">
-        <h3>Resumen</h3>
-        <p>Vuelo: Buenos Aires → Madrid</p>
-        <p>$540 USD</p>
-    </section>
+    <!-- SECCIÓN 1: DATOS DEL PASAJERO -->
+    <section class="section-container passenger-data">
+        <h3>Datos del Pasajero</h3>
+        <form>
+            <div class="form-group">
+                <label>Nombre Completo *</label>
+                <input type="text" placeholder="Ej: Juan García López">
+            </div>
 
-    <section class="c card form">
-        <form action="../index.html" method="POST">
-            <h3>Pago</h3>
-            <input type="text" placeholder="Número de tarjeta" required>
-            <input type="text" placeholder="Nombre" required>
-            <button type="submit">Pagar</button>
+            <div class="form-group">
+                <label>Documento *</label>
+                <input type="text" placeholder="Ej: 12345678">
+            </div>
+
+            <div class="form-group">
+                <label>Correo Electrónico *</label>
+                <input type="email" placeholder="Ej: correo@email.com">
+            </div>
+
+            <div class="form-group">
+                <label>Teléfono</label>
+                <input type="tel" placeholder="Ej: +54 9 11 1234-5678">
+                <span class="optional-text">(Opcional)</span>
+            </div>
         </form>
     </section>
 
+    <!-- SECCIÓN 2: MÉTODO DE PAGO -->
+    <section class="section-container payment-method">
+        <h3>Método de Pago</h3>
+        <fieldset class="payment-options">
+            <legend class="sr-only">Métodos de pago disponibles</legend>
+            <div class="payment-option">
+                <input type="radio" id="creditCard" name="payment" value="creditCard" checked>
+                <label for="creditCard">💳 Tarjeta de Crédito/Débito</label>
+            </div>
+
+            <div class="payment-option">
+                <input type="radio" id="paypal" name="payment" value="paypal">
+                <label for="paypal">🅿️ PayPal</label>
+            </div>
+
+            <div class="payment-option">
+                <input type="radio" id="transfer" name="payment" value="transfer">
+                <label for="transfer">🏦 Transferencia Bancaria</label>
+            </div>
+        </fieldset>
+
+        <!-- Detalles de tarjeta (visible por defecto) -->
+        <div id="creditCardDetails" class="card-details">
+            <div class="form-group">
+                <label>Número de Tarjeta *</label>
+                <input type="text" placeholder="1234 5678 9012 3456">
+            </div>
+            <div class="card-details-grid">
+                <div class="form-group">
+                    <label>Vencimiento *</label>
+                    <input type="text" placeholder="MM/YY" >
+                </div>
+                <div class="form-group">
+                    <label>CVV *</label>
+                    <input type="text" placeholder="123">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: RESUMEN DE VUELO -->
+    <section class="section-container flight-summary">
+        <h3>Resumen de Vuelo</h3>
+        
+        <div class="summary-item">
+            <span class="summary-item-label">Ruta:</span>
+            <span class="summary-item-value">Buenos Aires → Madrid</span>
+        </div>
+
+        <div class="summary-item">
+            <span class="summary-item-label">Ida:</span>
+            <span class="summary-item-value">15/06/2026</span>
+        </div>
+
+        <div class="summary-item">
+            <span class="summary-item-label">Vuelta:</span>
+            <span class="summary-item-value">22/06/2026</span>
+        </div>
+
+        <div class="summary-item">
+            <span class="summary-item-label">Pasajeros:</span>
+            <span class="summary-item-value">1</span>
+        </div>
+
+        <div class="summary-item">
+            <span class="summary-item-label">Subtotal:</span>
+            <span class="summary-item-value">$550 USD</span>
+        </div>
+
+        <!-- Sección de código de descuento -->
+        <div class="discount-section">
+            <label>Código de Descuento</label>
+            <input type="text" placeholder="Ingresa tu código">
+            <button type="button" class="apply-discount-btn">Aplicar Descuento</button>
+        </div>
+
+        <!-- Total -->
+        <div class="total-section">
+            <div class="label">Total a Pagar</div>
+            <div class="amount">$550 USD</div>
+        </div>
+    </section>
+
+    <!-- BOTONES DE ACCIÓN -->
+    <div class="submit-btn">
+        <button type="button" class="cancel" onclick="window.history.back()">Cancelar</button>
+        <button type="button" onclick="window.location.href='confirmacion-reserva.html'">Confirmar y Pagar</button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="checkout-footer">
+        <p>&copy; 2026 ATERRIZARG - Vuelos a precios increíbles | Contacto: info@aterrizarg.com | Teléfono: +54 11 1234-5678</p>
+    </footer>
+
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const paymentRadios = document.querySelectorAll('input[name="payment"]');
+        const creditCardDetails = document.getElementById('creditCardDetails');
+
+        // Manejar cambio de método de pago
+        paymentRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'creditCard') {
+                    creditCardDetails.style.display = 'block';
+                } else {
+                    creditCardDetails.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
