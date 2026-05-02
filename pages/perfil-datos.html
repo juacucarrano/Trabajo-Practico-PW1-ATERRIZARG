@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../styles/styles-perfil.css">
 </head>
 
-<body>
+<body class="body-perfil">
 
     <div class="grid">
 
@@ -27,16 +27,16 @@
             <nav class="menu-usuario">
                 <ul>
                     <li>
-                        <a href="">Datos personales</a>
+                        <a href="./perfil-datos.html" class="active">Datos personales</a>
                     </li>
                     <li>
-                        <a href="">Medios de pago</a>
+                        <a href="./perfil-medios-pago.html">Medios de pago</a>
                     </li>
                     <li>
-                        <a href="">Sesiones activas</a>
+                        <a href="./perfil-sesiones.html">Sesiones activas</a>
                     </li>
                     <li>
-                        <a href="">Eliminar cuenta</a>
+                        <a href="./perfil-eliminar.html">Eliminar cuenta</a>
                     </li>
                 </ul>
             </nav>
@@ -45,7 +45,7 @@
         <main class="c c-perfil">
             <form action="./perfil-datos.html" method="post">
                 <div class="contenedor-gral">
-                    <h3>Datos Personales</h3>
+                    <h2>Datos Personales</h2>
                     <fieldset id="field-datos" name="datos-personales">
 
                         <div class="form-nombre">
@@ -61,6 +61,26 @@
                                 <input type="text" name="lastName" placeholder="Como figura en el documento de viaje"
                                     class="input-perfil" value="Zapata" id="apellido" required>
                             </label>
+                        </div>
+                        <div class="form-nacionalidad">
+                            <label>
+                                <span>Nacionalidad</span>
+                                <input type="text" name="nacionality" placeholder="Ingresá tu país de nacimiento"
+                                    class="input-perfil" value="Argentina" id="nacionalidad" required>
+                            </label>
+                        </div>
+                        <div class="form-genero">
+                            <span>Género</span>
+                            <div>
+                                <label>
+                                    <input type="radio" name="genre" value="Femenino" required>
+                                    <span>Femenino</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="genre" value="Masculino">
+                                    <span>Masculino</span>
+                                </label>
+                            </div>
                         </div>
                         <div class="form-fec-nac">
                             <label>
@@ -218,19 +238,6 @@
                                 </div>
                             </label>
                         </div>
-                        <div class="form-genero">
-                            <span>Género</span>
-                            <div>
-                                <label>
-                                    <input type="radio" name="genre" value="Femenino" required>
-                                    <span>Femenino</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="genre" value="Masculino">
-                                    <span>Masculino</span>
-                                </label>
-                            </div>
-                        </div>
                         <div class="form-boton">
                             <input type="submit" name="save" id="datos-enviar" value="Guardar">
                         </div>
@@ -248,7 +255,8 @@
                                     <label class="label-tel-1">
                                         <span>Código de país</span>
                                         <div class="form-prefijo-pais">
-                                            <input type="tel" name="cod-pais" class="input-tel cod" placeholder="+" value="+">
+                                            <input type="tel" name="cod-pais" class="input-tel cod" placeholder="+"
+                                                value="+">
                                         </div>
                                     </label>
                                     <label class="label-tel-2">
@@ -285,15 +293,15 @@
                         <details>
                             <summary>Agregar email</summary>
                             <div class="contenedor-labels-grid">
-                            <label>
-                                <span>Correo electrónico</span>
-                                <div class="form-correo">
-                                    <input type="email" name="email" id="email" placeholder="minombre@ejemplo.com">
+                                <label>
+                                    <span>Correo electrónico</span>
+                                    <div class="form-correo">
+                                        <input type="email" name="email" id="email" placeholder="minombre@ejemplo.com">
+                                    </div>
+                                </label>
+                                <div class="form-boton">
+                                    <input type="submit" name="save" id="datos-enviar" value="Guardar">
                                 </div>
-                            </label>
-                            <div class="form-boton">
-                                <input type="submit" name="save" id="datos-enviar" value="Guardar">
-                            </div>
                             </div>
                         </details>
                     </fieldset>

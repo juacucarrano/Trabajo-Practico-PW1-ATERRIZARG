@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi perfil</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/styles-perfil.css">
+</head>
+
+<body class="body-perfil">
+
+    <div class="grid">
+
+        <header class="a">
+            <div class="logo">✈ ATERRIZARG</div>
+            <nav>
+                <a href="../index.html">Inicio</a>
+                <a href="../pages/reservas.html">Mis Reservas</a>
+                <a href="../pages/ofertas.html">Ofertas</a>
+            </nav>
+        </header>
+
+        <aside class="b">
+            <h3>Menú de usuario</h3>
+            <nav class="menu-usuario">
+                <ul>
+                    <li>
+                        <a href="./perfil-datos.html">Datos personales</a>
+                    </li>
+                    <li>
+                        <a href="./perfil-medios-pago.html" class="active">Medios de pago</a>
+                    </li>
+                    <li>
+                        <a href="./perfil-sesiones.html">Sesiones activas</a>
+                    </li>
+                    <li>
+                        <a href="./perfil-eliminar.html">Eliminar cuenta</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="c c-perfil">
+            <form action="./perfil-medios-pago.html" method="post">
+                <h2>Medios de pago</h2>
+                <div class="contenedor-gral">
+                    <h3>Tarjetas de crédito</h3>
+                    <fieldset id="field-tarjeta" name="telefono">
+                        <div class="form-tarjeta">
+                            <p>Ingresá los datos de tus tarjetas de crédito.</p>
+                            <details>
+                                <summary>Agregar tarjeta</summary>
+                                <div class="contenedor-labels-grid">
+                                    <label class="label-tarjeta-1">
+                                        <span>Número</span>
+                                        <div class="form-nro-tarjeta">
+                                            <input type="tel" name="nro-tarjeta" class="input-tarj nro"
+                                                placeholder="Ingrese los 16 dígitos de la tarjeta" maxlength="16"
+                                                pattern="[0-9]{16}" required>
+                                        </div>
+                                    </label>
+                                    <label class="label-tarjeta-2">
+                                        <span>Titular</span>
+                                        <div>
+                                            <input type="text" name="titular-tarjeta" class="input-tarj titular"
+                                                placeholder="Como figura en la tarjeta" required>
+                                        </div>
+                                    </label>
+                                    <label class="label-tarjeta-3">
+                                        <span>Vencimiento</span>
+                                        <div>
+                                            <select name="mes-vto" id="mes-vto" required>
+                                                <option value="" disabled selected hidden>Mes</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>
+                                            <select name="anio-vto" id="anio-vto" required>
+                                                <option value="" disabled selected hidden>Año</option>
+                                                <option value="2026">2026</option>
+                                                <option value="2027">2027</option>
+                                                <option value="2028">2028</option>
+                                                <option value="2029">2029</option>
+                                                <option value="2030">2030</option>
+                                                <option value="2031">2031</option>
+                                                <option value="2032">2032</option>
+                                                <option value="2033">2033</option>
+                                                <option value="2034">2034</option>
+                                                <option value="2035">2035</option>
+                                            </select>
+                                        </div>
+                                    </label>
+                                    <label class="label-tarjeta-4">
+                                        <span>Documento</span>
+                                        <div>
+                                            <input type="tel" name="titular-tarjeta" class="input-tarj titular"
+                                                placeholder="Número" maxlength="18" pattern="[0-9]{5,18}" required>
+                                        </div>
+                                    </label>
+                                    <label class="label-tarjeta-5">
+                                        <span>Código de seguridad (CVV)</span>
+                                        <div>
+                                            <input type="tel" name="cod-seguridad" class="input-tarj cvv"
+                                                placeholder="***" maxlength="4" pattern="[0-9]{3,4}" required>
+                                        </div>
+                                    </label>
+                                    <div class="form-boton">
+                                        <input type="submit" name="save" id="datos-enviar" value="Guardar">
+                                    </div>
+
+                                </div>
+                            </details>
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+
+            <form action="./perfil-medios-pago.html" method="post">
+                <div class="contenedor-gral">
+                    <h3>Facturación</h3>
+                    <fieldset id="field-facturacion" name="facturacion">
+                        <p>Completá tus datos de facturación.</p>
+                        <details>
+                            <summary>Agregar datos de facturación</summary>
+                            <div class="contenedor-labels-grid">
+                                <label>
+                                    <span>País</span>
+                                    <div class="form-domicilio">
+                                        <input type="text" name="pais" class="input-domicilio pais"
+                                            placeholder="Ej: Argentina" required>
+                                    </div>
+                                </label>
+                                <label>
+                                    <span>Domicilio</span>
+                                    <div class="form-domicilio">
+                                        <input type="text" name="domicilio" class="input-domicilio domicilio"
+                                            placeholder="Calle y número (Ej: Av. Mayo 123)" required>
+                                    </div>
+                                </label>
+                                <label>
+                                    <span>Localidad</span>
+                                    <div class="form-localidad">
+                                        <input type="text" name="localidad" class="input-domicilio localidad"
+                                            placeholder="Ej: San Justo" required>
+                                    </div>
+                                </label>
+                                <label>
+                                    <span>Provincia</span>
+                                    <div class="form-provincia">
+                                        <select name="provincia" class="input-domicilio provincia" id="provincia"
+                                            required>
+                                            <option value="" disabled selected hidden>Seleccioná tu provincia</option>
+                                            <option value="caba">Ciudad Autónoma de Buenos Aires</option>
+                                            <option value="buenos-aires">Buenos Aires</option>
+                                            <option value="catamarca">Catamarca</option>
+                                            <option value="chaco">Chaco</option>
+                                            <option value="chubut">Chubut</option>
+                                            <option value="cordoba">Córdoba</option>
+                                            <option value="corrientes">Corrientes</option>
+                                            <option value="entre-rios">Entre Ríos</option>
+                                            <option value="formosa">Formosa</option>
+                                            <option value="jujuy">Jujuy</option>
+                                            <option value="la-pampa">La Pampa</option>
+                                            <option value="la-rioja">La Rioja</option>
+                                            <option value="mendoza">Mendoza</option>
+                                            <option value="misiones">Misiones</option>
+                                            <option value="neuquen">Neuquén</option>
+                                            <option value="rio-negro">Río Negro</option>
+                                            <option value="salta">Salta</option>
+                                            <option value="san-juan">San Juan</option>
+                                            <option value="san-luis">San Luis</option>
+                                            <option value="santa-cruz">Santa Cruz</option>
+                                            <option value="santa-fe">Santa Fe</option>
+                                            <option value="santiago-del-estero">Santiago del Estero</option>
+                                            <option value="tierra-del-fuego">Tierra del Fuego</option>
+                                            <option value="tucuman">Tucumán</option>
+                                        </select>
+                                    </div>
+                                </label>
+                                <label>
+                                    <span>Código postal</span>
+                                    <div class="form-cod-postal">
+                                        <input type="text" name="cod-postal" class="input-domicilio cod-postal"
+                                            placeholder="Ej: 1704 o B0704" maxlength="10" pattern="[A-Za-z0-9\s-]{3,10}"
+                                            required>
+                                    </div>
+                                </label>
+                                <div class="form-boton">
+                                    <input type="submit" name="save" id="datos-enviar" value="Guardar">
+                                </div>
+                            </div>
+                        </details>
+                    </fieldset>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <p>© 2023 ATERRIZARG. Todos los derechos reservados.</p>
+        </footer>

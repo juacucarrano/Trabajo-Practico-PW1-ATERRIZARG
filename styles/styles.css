@@ -7,6 +7,7 @@
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(to right, #dcd6f7, #f5f3ff);
+    width: 100%;
 }
 
 p{

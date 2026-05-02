@@ -45,16 +45,21 @@
 
 .form-fec-nac {
     grid-column: 1/2;
-    grid-row: 2/3;
+    grid-row: 3/4;
 }
 
 .form-genero {
-    grid-column: 2/2;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.form-nacionalidad {
+    grid-column: 1/2;
     grid-row: 2/3;
 }
 
 .form-boton {
-    grid-column: 1/2;
+    grid-column: 2/3;
     grid-row: 3/4;
 }
 
@@ -83,12 +88,21 @@
     flex-direction: column;
 }
 
-.c-perfil .form-fec-nac label {
+.c-perfil .form-nacionalidad label{
     display: flex;
     flex-direction: column;
 }
 
 .c-perfil .form-genero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.c-perfil .form-genero div {
+    padding: 0.5rem 0;
+}
+
+.c-perfil .form-fec-nac label {
     display: flex;
     flex-direction: column;
 }
@@ -151,10 +165,12 @@
 .c-perfil .contenedor-labels-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr 3fr;
-    grid-template-rows: 0.8fr;
+    grid-template-rows: 1fr auto;
     gap: 1rem;
 }
-.form-tel .form-boton, #field-email .form-boton  {
+
+#field-tel .form-boton,
+#field-email .form-boton {
     grid-column: 1/2;
     grid-row: 2/3;
 }
@@ -179,6 +195,15 @@
     gap: 1rem;
 }
 
+.menu-usuario .active {
+    background: #6c63ff;
+    color: white;
+}
+
+.menu-usuario .active:hover {
+    background: #6c63ff;
+}
+
 .menu-usuario a:hover {
     background: #8987b8;
     color: white;
@@ -189,4 +214,14 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+.body-perfil #field-tarjeta .contenedor-labels-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.body-perfil #field-facturacion .contenedor-labels-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
