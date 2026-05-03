@@ -70,3 +70,14 @@ a {
 .ocupado:focus {
     outline: none;
 }
+
+.ida-vuelta {
+    color: black;
+    background-color: rgba(255,255,255,0.6);
+}
+
+.detalle-card {
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 1em;
+}
+
