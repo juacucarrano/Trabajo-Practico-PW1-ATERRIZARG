@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultados</title>
+    <title>Inicio</title>
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
@@ -11,97 +11,55 @@
 <div class="grid">
 
     <header class="a">
-        <div class="logo">✈ ATERRIZARG</div>
-            <nav>
-                <a href="./index.html">Inicio</a>
-            <a href="./Busqueda.html">Busqueda</a>
-                <a href="../pages/reservas.html">Mis reservas</a>
-                <a href="../pages/ofertas.html">Ofertas</a>
-                <a href="./pages/perfil.html">Perfil</a>
-            </nav>
+        <img class="logo-card" src="./images/LOGO ATERRIZARG.png" alt="Logo">
+        <div class="logo">ATERRIZARG</div>
+        <nav>
+            <a href="./pages/Busqueda.html">Busqueda</a>
+            <a href="./pages/reservas.html">Mis Reservas</a>
+            <a href="./pages/ofertas.html">Ofertas</a>
+            <a href="./pages/perfil.html">Perfil</a>
+        </nav>
     </header>
 
-    <aside class="b">
-        <h3>Filtrar por</h3>
+    <main class="d">
+        <h2>Buscar vuelos</h2>
 
-        <p>Precio</p>
-        <input type="range">
+        <form class="buscador" action="./index.html" method="post">
 
-        <p>Tipo de vuelo</p>
-        <label><input type="checkbox"> Directo</label>
-        <label><input type="checkbox"> Con escalas</label>
+            <label>Origen</label>
+            <input type="text" placeholder="Ej: Buenos Aires">
 
-        <p>Aerolínea</p>
-        <label><input type="checkbox"> FlyNow</label>
-        <label><input type="checkbox"> SkyAir</label>
-    </aside>
+            <label>Destino</label>
+            <input type="text" placeholder="Ej: Madrid">
 
-    <main class="c">
-        <h2>Resultados de Búsqueda</h2>
+            <label>Fecha de ida</label>
+            <input type="date">
 
-        <div class="card">
-            <div>
-                <h4>Aerolínea</h4>
-                <p>Buenos Aires → Madrid</p>
-            </div>
-            <div>
-                <h4>SALIDA: 10:00 AM | LLEGADA: 2:00 PM</h4>
-            </div>
-            <div>
-                <img class="logo-card" src="./images/Flybondi_logo_simple.svg.png" alt="Flybondi">
-            </div>
-            <div>
-                <p>$390 USD</p>
-                <a href="./pages/detalle-de-vuelo-bsas-madrid.html"><button>Seleccionar</button></a>
-            </div>
-        </div>
+            <label>Fecha de vuelta</label>
+            <input type="date">
 
-        <div class="card">
-            <div>
-                <h4>Aerolínea</h4>
-                <p>Buenos Aires → Lima</p>
-            </div>
-            <div>
-                <h4>SALIDA: 10:00 AM | LLEGADA: 2:00 PM</h4>
-            </div>
-            <div>
-             <img class="logo-card" src="./images/aerolineasargentinas-logo-l.png" alt="Aerolineas argentinas">
-            </div>
-            <div>
-                <p>$540 USD</p>
-                <a href="./pages/detalle-de-vuelo-bsas-lima.html"><button>Seleccionar</button></a>
-            </div>
-        </div>
+            <label>Número de pasajeros</label>
+            <input type="number" min="1" value="1">
 
-        <div class="card">
-            <div>
-                <h4>Aerolínea</h4>
-                <p>Buenos Aires → Miami</p>
-            </div>
-            <div>
-                <h4>SALIDA: 10:00 AM | LLEGADA: 2:00 PM</h4>
-            </div>
-            <div>
-             <img class="logo-card" src="./images/aerolineasargentinas-logo-l.png" alt="Aerolineas argentinas">
-            </div>
-            <div>
-                <p>$200 USD</p>
-                <a href="./pages/detalle-de-vuelo-bsas-miami.html"><button>Seleccionar</button></a>
-            </div>
-        </div>
+            <label>Clase</label>
+            <select>
+                <option>Turista</option>
+                <option>Ejecutiva</option>
+                <option>Primera clase</option>
+            </select>
 
-        
+            <button type="submit">Buscar</button>
 
+        </form>
     </main>
 
     <footer>
-    <div>
-        <p class="footerContacto">© 2026 ATERRIZARG. Todos los derechos reservados</p>
-        <p class="footerContacto">📧 Email: contacto@aterrizarg.com</p>
-        <p class="footerContacto">📞 Teléfono: +54 11 1234-5678</p>
-        <p class="footerContacto">📍 Buenos Aires, Argentina</p>
-    </div>
-</footer>
+        <div>
+            <p>© 2023 ATERRIZARG. Todos los derechos reservados.</p>
+            <p>📧 contacto@aterrizarg.com</p>
+            <p>📞 +54 11 1234-5678</p>
+        </div>
+    </footer>
 
 </div>
 
