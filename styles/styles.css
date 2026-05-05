@@ -20,6 +20,25 @@ p{
     margin: 1vh 0;
 }
 
+.buscador {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.buscador input,
+.buscador select {
+    padding: 0.8vh;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+}
+
+.footerContacto {
+    font-size: 1.6rem;
+    color: #dfdfdf;
+    margin: 1vh 0;
+}
+
 .grid {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
@@ -41,6 +60,11 @@ footer {
     padding: 2vh;
     text-align: center;
 }
+footer div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
 .a {
     grid-column: 1 / 4;
@@ -48,7 +72,7 @@ footer {
     justify-content: center;
     align-items: center;
     padding: 2vh;
-    background: rgba(255,255,255,0.6);
+    background: rgb(255, 255, 255);
     border-radius: 1rem;
 }
 
@@ -92,7 +116,7 @@ header nav a {
         border-radius: 1rem;
         padding: 2vh;
         grid-column: 1 / 4;
-        grid-row: 3;
+        grid-row: 2/3;
 }
 
 .card {
@@ -112,6 +136,11 @@ button {
     background: #6c63ff;
     color: white;
     cursor: pointer;
+}
+
+.logo-card {
+    width: 80px;
+    height: auto;
 }
 
 /* LATERAL DERECHO */
