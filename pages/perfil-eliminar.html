@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi perfil</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/styles-perfil.css">
+</head>
+
+<body class="body-perfil">
+
+    <div class="grid">
+
+        <header class="a">
+            <div class="logo">✈ ATERRIZARG</div>
+            <nav>
+                <a href="../index.html">Inicio</a>
+                <a href="../pages/reservas.html">Mis reservas</a>
+                <a href="../pages/ofertas.html">Ofertas</a>
+                <a href="./perfil.html">Perfil</a>
+            </nav>
+        </header>
+
+        <aside class="b">
+            <h3>Menú de usuario</h3>
+            <nav class="menu-usuario">
+                <ul>
+                    <li>
+                        <a href="./perfil-datos.html">Datos personales</a>
+                    </li>
+                    <li>
+                        <a href="./perfil-medios-pago.html">Medios de pago</a>
+                    </li>
+                    <li>
+                        <a href="./perfil-sesiones.html">Sesiones activas</a>
+                    </li>
+                    <li>
+                        <a href="./perfil-eliminar.html" class="active">Eliminar cuenta</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="c c-perfil" c-perfil-eliminar>
+            <h2>Eliminar cuenta</h2>
+            <div class="contenedor-gral">
+                <h3>Sentimos tu partida</h3>
+
+                <form action="../index.html" method="post">
+                    <div class="form-eliminar">
+                        <p>Nos gustaría saber, ¿por qué eliminás tu cuenta?</p>
+                        <div class="contenedores">
+                            <label class="radio-label">
+                                <input type="radio" name="motivo" value="motivo1" required>
+                                <span class="radio-texto">Tengo otra cuenta</span>
+                            </label>
+                            <div class="contenido-extra">
+                                <p>Recordá que podés unir tus cuentas desde Mi perfil con la opción <a
+                                        href="./perfil-datos.html#email">Agregar email.</a></p>
+                            </div>
+                        </div>
+                        <div class="contenedores">
+                            <label class="radio-label">
+                                <input type="radio" name="motivo" value="motivo2">
+                                <span class="radio-texto">Quiero editar o eliminar ciertos datos de mi cuenta</span>
+                            </label>
+                            <div class="contenido-extra">
+                                <p>Podés editar o eliminar todos los datos que quieras desde <a href="./perfil.html">Mi
+                                        Perfil.</a></p>
+                            </div>
+                        </div>
+                        <div class="contenedores">
+                            <label class="radio-label">
+                                <input type="radio" name="motivo" value="motivo3">
+                                <span class="radio-texto">No estoy obteniendo ningún beneficio por ser miembro</span>
+                            </label>
+                        </div>
+                        <div class="contenedores">
+                            <label class="radio-label">
+                                <input type="radio" name="motivo" value="motivo4">
+                                <span class="radio-texto">Otro</span>
+                            </label>
+                            <div class="contenido-extra">
+                                <input type="text">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-eliminar">Eliminar mi cuenta</button>
+                        <a href="./perfil.html" class="btn-cancelar">Cancelar</a>
+                    </div>
+            </div>
+            </form>
+        </main>
+
+        <footer>
+            <p>© 2023 ATERRIZARG. Todos los derechos reservados.</p>
+        </footer>

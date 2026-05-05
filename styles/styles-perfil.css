@@ -281,3 +281,41 @@ button {
     height: auto;
     margin-left: auto;
 }
+
+.contenido-extra {
+    background-color: rgb(224, 224, 224);
+    padding: 0.2rem;
+    font-size: 0.8rem;
+    padding-left: .5rem;
+}
+
+.form-eliminar .contenedores {
+    margin: 0.25rem 0;
+}
+.form-eliminar .contenedores .contenido-extra {
+    margin: 0.25rem;
+}
+.form-eliminar input[type="text"]{
+    width: 50%;
+    height: 3rem;
+}
+.btn-eliminar {
+    padding: 1vh 2vh;
+    border: none;
+    border-radius: 0.5rem;
+    background: #c21010;
+    color: white;
+    cursor: pointer;
+}
+.btn-eliminar:hover {
+    background: #a81313;
+}
+.btn-cancelar {
+    padding: 1vh 2vh;
+    border: none;
+    border-radius: 0.5rem;
+    background: #6c63ff;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
