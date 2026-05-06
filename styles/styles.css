@@ -33,12 +33,6 @@ p{
     border: 1px solid #ccc;
 }
 
-.footerContacto {
-    font-size: 1.6rem;
-    color: #dfdfdf;
-    margin: 1vh 0;
-}
-
 .grid {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
