@@ -93,6 +93,16 @@ footer {
     margin-bottom: 1.5vh;
 }
 
+.selected {
+    background-color: rgb(211, 211, 211);
+}
+.selected p {
+    background-color: #4f46ee;
+}
+.b-reservas .card a{
+    text-decoration: none;
+}
+
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: 1fr;

@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
     <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/styles-contacto.css">
 </head>
+
 <body>
 
-<div class="grid">
+    <div class="grid">
 
-    <header class="a">
+        <header class="a">
             <img class="logo-card" src="../images/LOGO ATERRIZARG.png" alt="Logo">
             <div class="logo">ATERRIZARG</div>
             <nav>
@@ -24,20 +27,49 @@
             </nav>
         </header>
 
-    <main class="d">
-        
-    </main>
-        
-    <footer>
-        <div>
-            <p>© 2023 ATERRIZARG. Todos los derechos reservados.</p>
-            <p>📧 contacto@aterrizarg.com</p>
-            <p>📞 +54 11 1234-5678</p>
-            <p>📍 Buenos Aires, Argentina</p>
-        </div>
-    </footer>
+        <main class="main-contacto">
+            <h2>Contacto</h2>
+            <form action="./contacto.html">
+                <label>
+                    <p>Ingresá nombre y apellido</p>
+                    <input type="text" placeholder="Ingresá tu nombre" required>
+                </label>
+                <label>
+                    <p>Email de contacto</p>
+                    <input type="email" placeholder="Ingresá tu email" required>
+                </label>
+                <label>
+                    <p>Asunto</p>
+                    <select name="asunto" id="asunto" required>
+                        <option value="" selected hidden disabled>Elegí una opción</option>
+                        <option value="daño-maletas">Demora en la entrega, daño de maletas o pérdida total</option>
+                        <option value="vuelos">Cancelaciones, retrasos excesivos o pérdida de conexiones</option>
+                        <option value="atencion-cliente">Quejas sobre el personal de check-in, seguridad o puertas de embarque</option>
+                        <option value="infraestructura">Limpieza de baños, falta de asientos o problemas con el Wi-Fi/enchufes</option>
+                        <option value="precios">Disconformidad con costos de estacionamiento o locales comerciales</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </label>
+                <label>
+                    <p>Tu mensaje (opcional)</p>
+                    <textarea></textarea>
+                </label>
+                <button type="submit">Ingresar</button>
+            </form>
+            <p>¿No tenés cuenta? <a href="./registro.html">Registrate</a></p>
+        </main>
 
-</div>
+        <footer>
+            <div>
+                <p>© 2023 ATERRIZARG. Todos los derechos reservados.</p>
+                <p>📧 contacto@aterrizarg.com</p>
+                <p>📞 +54 11 1234-5678</p>
+                <p>📍 Buenos Aires, Argentina</p>
+            </div>
+        </footer>
+
+    </div>
 
 </body>
+
 </html>
