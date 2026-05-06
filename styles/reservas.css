@@ -1,0 +1,116 @@
+.grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 12vh auto auto 12vh;
+}
+
+main.b {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+}
+
+.confirmacion-container {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 1rem;
+    padding: 2vh;
+    overflow-y: auto;
+}
+
+.confirmacion-container.flight-details {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.confirmacion-container.payment-summary {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+
+.flight-details {
+    margin-bottom: 0;
+}
+
+footer {
+    grid-column: 1 / 3;
+    grid-row: 4 / 5;
+}
+
+.flight-section {
+    margin-bottom: 2vh;
+}
+
+.flight-section h3 {
+    color: #6c63ff;
+    margin-bottom: 1vh;
+}
+
+.flight-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5vh 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.label {
+    font-weight: bold;
+    color: #6c63ff;
+}
+
+.value {
+    color: #333;
+}
+
+.summary-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #6c63ff;
+}
+
+.detail-value {
+    color: #333;
+}
+
+.summary-detail.total {
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #6c63ff;
+}
+
+.payment-summary h2,
+.flight-details h2 {
+    color: #6c63ff;
+    margin-bottom: 1.5vh;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    main.b {
+        grid-column: 1 / 2;
+    }
+
+    .confirmacion-container {
+        grid-column: 1 / 2;
+    }
+
+    .confirmacion-container.flight-details {
+        grid-row: 3 / 4;
+    }
+
+    .confirmacion-container.payment-summary {
+        grid-row: 4 / 5;
+    }
+}
