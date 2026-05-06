@@ -1,6 +1,4 @@
-/* ESTILOS ESPECÍFICOS PARA CONFIRMACIÓN DE RESERVA */
 
-/* Screen reader only - para accesibilidad */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -13,7 +11,6 @@
     border-width: 0;
 }
 
-/* Grid principal */
 .grid-confirmacion {
     display: grid;
     grid-template-columns: 1fr;
@@ -27,7 +24,6 @@
     background: linear-gradient(to right, #dcd6f7, #f5f3ff);
 }
 
-/* Header */
 .confirmacion-header {
     grid-column: 1;
     grid-row: 1;
@@ -69,7 +65,6 @@
     outline: none;
 }
 
-/* Secciones principales */
 .confirmacion-container {
     background: rgba(255, 255, 255, 0.85);
     border-radius: 1rem;
@@ -81,7 +76,6 @@
     grid-column: 1;
 }
 
-/* Sección de éxito */
 .success-section {
     text-align: center;
     padding: 3vh 2vh;
@@ -108,7 +102,6 @@
     margin: 0;
 }
 
-/* Número de reserva */
 .reservation-number {
     grid-row: 3;
     text-align: center;
@@ -139,7 +132,6 @@
     margin: 0;
 }
 
-/* Datos del pasajero */
 .passenger-info {
     grid-row: 4;
 }
@@ -174,7 +166,6 @@
     text-align: right;
 }
 
-/* Detalles del vuelo */
 .flight-details {
     grid-row: 5;
 }
@@ -228,7 +219,6 @@
     font-weight: bold;
 }
 
-/* Resumen del pago */
 .payment-summary {
     grid-row: 6;
 }
@@ -266,7 +256,6 @@
     text-align: right;
 }
 
-/* Próximos pasos */
 .next-steps {
     grid-row: 7;
 }
@@ -318,7 +307,6 @@
     font-size: 0.85rem;
 }
 
-/* Botones de acción */
 .action-buttons {
     grid-row: 8;
     grid-column: 1;
@@ -368,7 +356,6 @@
     outline-offset: 2px;
 }
 
-/* Footer */
 .confirmacion-footer {
     grid-column: 1;
     grid-row: 9;
@@ -387,7 +374,6 @@
     font-size: 0.9rem;
 }
 
-/* RESPONSIVE - Tablet (768px a 1200px) */
 @media (max-width: 1200px) and (min-width: 769px) {
     .grid-confirmacion {
         padding: 1.5vh;
@@ -412,7 +398,6 @@
     }
 }
 
-/* RESPONSIVE - Mobile (hasta 768px) */
 @media (max-width: 768px) {
     .grid-confirmacion {
         padding: 1.5vh;
@@ -458,7 +443,6 @@
     }
 }
 
-/* RESPONSIVE - Mobile pequeño (hasta 480px) */
 @media (max-width: 480px) {
     .grid-confirmacion {
         padding: 1vh;

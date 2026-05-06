@@ -137,14 +137,12 @@ button {
     height: auto;
 }
 
-/* LATERAL DERECHO */
 .d {
     background: rgba(255,255,255,0.6);
     border-radius: 1rem;
     padding: 2vh;
 }
 
-/* RESPONSIVE */        /* AGRANDAR UN POCO EL MAX-WIDTH PARA QUE NO SEA DEMASIADO AJUSTADO*/
 @media (max-width: 480px) {
 
     .grid {

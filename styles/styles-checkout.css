@@ -1,6 +1,4 @@
-/* ESTILOS ESPECÍFICOS PARA CHECKOUT */
 
-/* Redefinir grid para checkout - dividir en 3 columnas */
 .grid-checkout {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -14,7 +12,7 @@
     overflow-x: hidden;
 }
 
-/* Header */
+
 .checkout-header {
     grid-column: 1 / 4;
     grid-row: 1;
@@ -32,7 +30,6 @@
     color: #6c63ff;
 }
 
-/* Secciones principales */
 .section-container {
     background: rgba(255,255,255,0.6);
     border-radius: 1rem;
@@ -42,7 +39,6 @@
     gap: 1.5vh;
 }
 
-/* Datos del pasajero */
 .passenger-data {
     grid-column: 1;
     grid-row: 2;
@@ -89,7 +85,6 @@
     margin-top: 0.3vh;
 }
 
-/* Método de pago */
 .payment-method {
     grid-column: 2;
     grid-row: 2;
@@ -149,7 +144,6 @@
     color: #6c63ff;
 }
 
-/* Resumen de vuelo */
 .flight-summary {
     grid-column: 3;
     grid-row: 2;
@@ -215,14 +209,12 @@
     box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
 }
 
-/* Grid para campos de expiry y CVV */
 .card-details-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1vh;
 }
 
-/* Estilos para seccion de detalles de tarjeta */
 .card-details {
     margin-top: 1.5vh;
     padding-top: 1.5vh;
@@ -270,7 +262,6 @@
     font-weight: bold;
 }
 
-/* Footer */
 .checkout-footer {
     grid-column: 1 / 4;
     grid-row: 4;
@@ -287,7 +278,6 @@
     margin: 0;
 }
 
-/* Botón de envío */
 .submit-btn {
     grid-column: 1 / 4;
     grid-row: 3;
@@ -332,7 +322,6 @@
     outline-offset: 2px;
 }
 
-/* RESPONSIVE - Tablet (768px a 1200px) */
 @media (max-width: 1200px) and (min-width: 769px) {
     .grid-checkout {
         grid-template-columns: 1fr 1fr;
@@ -485,9 +474,9 @@
 
     .form-group input,
     .discount-section input {
-        font-size: 16px; /* Previene zoom en moviles */
+        font-size: 16px;
         padding: 1vh;
-        min-height: 44px; /* Accesibilidad: touch target minimo */
+        min-height: 44px;
     }
 
     .form-group label {
@@ -498,7 +487,7 @@
         padding: 1.2vh 1.5vh;
         font-size: 0.9rem;
         width: 100%;
-        min-height: 44px; /* Touch target */
+        min-height: 44px; 
     }
 
     .submit-btn {

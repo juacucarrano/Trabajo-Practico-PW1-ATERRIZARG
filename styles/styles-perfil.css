@@ -22,7 +22,6 @@ button {
 
 .c-perfil p {
     all: unset;
-    /* esto borra los estilos seteados con anetrioridad */
     display: block;
     margin: 0.5em 0;
     color: #333;
