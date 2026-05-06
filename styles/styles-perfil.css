@@ -281,22 +281,20 @@ button {
     margin-left: auto;
 }
 
-.contenido-extra {
-    background-color: rgb(224, 224, 224);
-    padding: 0.2rem;
-    font-size: 0.8rem;
-    padding-left: .5rem;
-}
-
 .form-eliminar .contenedores {
     margin: 0.25rem 0;
+    width: 100%;
 }
 .form-eliminar .contenedores .contenido-extra {
-    margin: 0.25rem;
+    margin: 0.8rem;
+    background-color: rgb(224, 224, 224);
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    width: fit-content;
 }
-.form-eliminar input[type="text"]{
-    width: 50%;
-    height: 3rem;
+.contenido-extra textarea{
+    width: 20rem;
+    height: 4rem;
 }
 .btn-eliminar {
     padding: 1vh 2vh;
