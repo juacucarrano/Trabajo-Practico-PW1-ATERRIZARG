@@ -30,15 +30,15 @@
         <main class="main-contacto">
             <h2>Contacto</h2>
             <form action="./contacto.html">
-                <label>
+                <label for="nombre-apellido">
                     <p>Ingresá nombre y apellido</p>
-                    <input type="text" placeholder="Ingresá tu nombre" required>
+                    <input id="nombre-apellido" type="text" placeholder="Ingresá tu nombre" required>
                 </label>
-                <label>
+                <label for="email-contacto">
                     <p>Email de contacto</p>
-                    <input type="email" placeholder="Ingresá tu email" required>
+                    <input id="email-contacto" type="email" placeholder="Ingresá tu email" required>
                 </label>
-                <label>
+                <label for="asunto">
                     <p>Asunto</p>
                     <select name="asunto" id="asunto" required>
                         <option value="" selected hidden disabled>Elegí una opción</option>
@@ -50,9 +50,9 @@
                         <option value="otro">Otro</option>
                     </select>
                 </label>
-                <label>
+                <label for="mensaje">
                     <p>Tu mensaje (opcional)</p>
-                    <textarea></textarea>
+                    <textarea id="mensaje"></textarea>
                 </label>
                 <button type="submit">Ingresar</button>
             </form>

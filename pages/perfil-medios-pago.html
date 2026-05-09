@@ -51,22 +51,22 @@
                             <details>
                                 <summary>Agregar tarjeta</summary>
                                 <div class="contenedor-labels-grid">
-                                    <label class="label-tarjeta-1">
+                                    <label class="label-tarjeta-1" for="nro-tarjeta">
                                         <span>Número</span>
                                         <div class="form-nro-tarjeta">
-                                            <input type="tel" name="nro-tarjeta" class="input-tarj nro"
+                                            <input id="nro-tarjeta" type="tel" name="nro-tarjeta" class="input-tarj nro"
                                                 placeholder="Ingrese los 16 dígitos de la tarjeta" maxlength="16"
                                                 pattern="[0-9]{16}" required>
                                         </div>
                                     </label>
-                                    <label class="label-tarjeta-2">
+                                    <label class="label-tarjeta-2" for="titular-tarjeta">
                                         <span>Titular</span>
                                         <div>
-                                            <input type="text" name="titular-tarjeta" class="input-tarj titular"
+                                            <input id="titular-tarjeta" type="text" name="titular-tarjeta" class="input-tarj titular"
                                                 placeholder="Como figura en la tarjeta" required>
                                         </div>
                                     </label>
-                                    <label class="label-tarjeta-3">
+                                    <label class="label-tarjeta-3" for="mes-vto">
                                         <span>Vencimiento</span>
                                         <div>
                                             <select name="mes-vto" id="mes-vto" required>
@@ -99,17 +99,17 @@
                                             </select>
                                         </div>
                                     </label>
-                                    <label class="label-tarjeta-4">
+                                    <label class="label-tarjeta-4" for="documento">
                                         <span>Documento</span>
                                         <div>
-                                            <input type="tel" name="titular-tarjeta" class="input-tarj titular"
+                                            <input id="documento" type="tel" name="documento" class="input-tarj titular"
                                                 placeholder="Número" maxlength="18" pattern="[0-9]{5,18}" required>
                                         </div>
                                     </label>
-                                    <label class="label-tarjeta-5">
+                                    <label class="label-tarjeta-5" for="cvv">
                                         <span>Código de seguridad (CVV)</span>
                                         <div>
-                                            <input type="tel" name="cod-seguridad" class="input-tarj cvv"
+                                            <input id="cvv" type="tel" name="cod-seguridad" class="input-tarj cvv"
                                                 placeholder="***" maxlength="4" pattern="[0-9]{3,4}" required>
                                         </div>
                                     </label>
@@ -132,28 +132,28 @@
                         <details>
                             <summary>Agregar datos de facturación</summary>
                             <div class="contenedor-labels-grid">
-                                <label>
+                                <label for="pais">
                                     <span>País</span>
                                     <div class="form-domicilio">
-                                        <input type="text" name="pais" class="input-domicilio pais"
+                                        <input id="pais" type="text" name="pais" class="input-domicilio pais"
                                             placeholder="Ej: Argentina" required>
                                     </div>
                                 </label>
-                                <label>
+                                <label for="domicilio">
                                     <span>Domicilio</span>
                                     <div class="form-domicilio">
-                                        <input type="text" name="domicilio" class="input-domicilio domicilio"
+                                        <input id="domicilio" type="text" name="domicilio" class="input-domicilio domicilio"
                                             placeholder="Calle y número (Ej: Av. Mayo 123)" required>
                                     </div>
                                 </label>
-                                <label>
+                                <label for="localidad">
                                     <span>Localidad</span>
                                     <div class="form-localidad">
-                                        <input type="text" name="localidad" class="input-domicilio localidad"
+                                        <input id="localidad" type="text" name="localidad" class="input-domicilio localidad"
                                             placeholder="Ej: San Justo" required>
                                     </div>
                                 </label>
-                                <label>
+                                <label for="provincia">
                                     <span>Provincia</span>
                                     <div class="form-provincia">
                                         <select name="provincia" class="input-domicilio provincia" id="provincia"
@@ -186,10 +186,10 @@
                                         </select>
                                     </div>
                                 </label>
-                                <label>
+                                <label for="cod-postal">
                                     <span>Código postal</span>
                                     <div class="form-cod-postal">
-                                        <input type="text" name="cod-postal" class="input-domicilio cod-postal"
+                                        <input id="cod-postal" type="text" name="cod-postal" class="input-domicilio cod-postal"
                                             placeholder="Ej: 1704 o B0704" maxlength="10" pattern="[A-Za-z0-9\s-]{3,10}"
                                             required>
                                     </div>
