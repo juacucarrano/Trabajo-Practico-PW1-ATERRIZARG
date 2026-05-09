@@ -6,17 +6,76 @@
     flex-direction: column;
     grid-row: 2/3;
     grid-column: 1/4;
-    justify-content: center;
-    align-items: center;
     height: 100%;
-    align-self: center;
+    width: 100%;
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-ofertas p {
+    all: unset;
+}
+
+.main-ofertas div {
+    margin: 1rem;
+}
+.main-ofertas .ofertas-section {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+div.card-oferta {
+    margin: 0;
+}
+.main-ofertas .ofertas-section .contenedor-cards {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 .grid-ofertas {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 5fr 1fr;
     grid-template-rows: 12vh 1fr 12vh;
     min-height: 100vh;
     width: 100vw;
     padding: 2vh;
     gap: 2vh;
+}
+
+.card-oferta {
+    min-width: 15rem;
+    max-width: 18rem;
+    max-height: 21rem;
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.473) ;
+    margin: 0;
+    color: #6c63ff;
+}
+
+.links-cards {
+    text-decoration: none;
+    margin: 1rem;
+}
+
+.card-oferta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card-oferta .imagen-oferta {
+    aspect-ratio: 16 / 11;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+}
+.card-oferta .descripcion-oferta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
