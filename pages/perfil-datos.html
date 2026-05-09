@@ -47,21 +47,21 @@
                     <fieldset id="field-datos" name="datos-personales">
 
                         <div class="form-nombre">
-                            <label>
+                            <label for="nombre">
                                 <span>Nombres</span>
                                 <input type="text" name="name" placeholder="Como figura en el documento de viaje"
                                     class="input-perfil" value="Juan García" id="nombre" required>
                             </label>
                         </div>
                         <div class="form-apellido">
-                            <label>
+                            <label for="apellido">
                                 <span>Apellidos</span>
                                 <input type="text" name="lastName" placeholder="Como figura en el documento de viaje"
                                     class="input-perfil" value="Lopez" id="apellido" required>
                             </label>
                         </div>
                         <div class="form-nacionalidad">
-                            <label>
+                            <label for="nacionalidad">
                                 <span>Nacionalidad</span>
                                 <input type="text" name="nacionality" placeholder="Ingresá tu país de nacimiento"
                                     class="input-perfil" value="Argentina" id="nacionalidad" required>
@@ -70,18 +70,18 @@
                         <div class="form-genero">
                             <span>Género</span>
                             <div>
-                                <label>
-                                    <input type="radio" name="genre" value="Femenino" required>
+                                <label for="femenino">
+                                    <input type="radio" name="genre" value="Femenino" id="femenino" required>
                                     <span>Femenino</span>
                                 </label>
-                                <label>
-                                    <input type="radio" name="genre" value="Masculino">
+                                <label for="masculino">
+                                    <input type="radio" name="genre" value="Masculino" id="masculino">
                                     <span>Masculino</span>
                                 </label>
                             </div>
                         </div>
                         <div class="form-fec-nac">
-                            <label>
+                            <label for="fecha-nac">
                                 <span>Fecha de nacimiento</span>
                                 <div>
                                     <select name="fecha-nacimiento" id="fecha-nac" required>
@@ -250,23 +250,23 @@
                             <details>
                                 <summary>Agregar Teléfono</summary>
                                 <div class="contenedor-labels-grid">
-                                    <label class="label-tel-1">
+                                    <label class="label-tel-1" for="cod-pais">
                                         <span>Código de país</span>
                                         <div class="form-prefijo-pais">
-                                            <input type="tel" name="cod-pais" class="input-tel cod" placeholder="+"
+                                            <input id="cod-pais" type="tel" name="cod-pais" class="input-tel cod" placeholder="+"
                                                 value="+ 54">
                                         </div>
                                     </label>
-                                    <label class="label-tel-2">
+                                    <label class="label-tel-2" for="cod-area">
                                         <span>Código de área</span>
                                         <div>
-                                            <input type="tel" name="cod-area" class="input-tel area" placeholder="011" value="911">
+                                            <input id="cod-area" type="tel" name="cod-area" class="input-tel area" placeholder="011" value="911">
                                         </div>
                                     </label>
-                                    <label class="label-tel-3">
+                                    <label class="label-tel-3" for="nro-tel">
                                         <span>Número de teléfono</span>
                                         <div>
-                                            <input type="tel" name="nro-tel" class="input-tel nro"
+                                            <input id="nro-tel" type="tel" name="nro-tel" class="input-tel nro"
                                                 placeholder="22334455" value="1134344545">
                                         </div>
                                     </label>
@@ -291,10 +291,10 @@
                         <details>
                             <summary>Agregar email</summary>
                             <div class="contenedor-labels-grid">
-                                <label>
+                                <label for="email-nuevo">
                                     <span>Correo electrónico</span>
                                     <div class="form-correo">
-                                        <input type="email" name="email" id="email" placeholder="minombre@ejemplo.com">
+                                        <input type="email" name="email" id="email-nuevo" placeholder="minombre@ejemplo.com">
                                     </div>
                                 </label>
                                 <div class="form-boton">
