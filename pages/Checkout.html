@@ -30,7 +30,8 @@
             <form>
                 <div class="form-group">
                     <label for="nombre-completo">Nombre Completo *</label>
-                    <input id="nombre-completo" type="text" placeholder="Ej: Juan García López" value="Juan García López">
+                    <input id="nombre-completo" type="text" placeholder="Ej: Juan García López"
+                        value="Juan García López">
                 </div>
 
                 <div class="form-group">
@@ -40,7 +41,8 @@
 
                 <div class="form-group">
                     <label for="correo-electronico">Correo Electrónico *</label>
-                    <input id="correo-electronico" type="email" placeholder="Ej: correo@email.com" value="JuanGarcia@gmail.com">
+                    <input id="correo-electronico" type="email" placeholder="Ej: correo@email.com"
+                        value="JuanGarcia@gmail.com">
                 </div>
 
                 <div class="form-group">
@@ -79,7 +81,36 @@
                 <div class="card-details-grid">
                     <div class="form-group">
                         <label for="vencimiento">Vencimiento *</label>
-                        <input id="vencimiento" type="text" placeholder="MM/YY">
+                        <div>
+                            <select name="mes-vto" id="mes-vto" required>
+                                <option value="" disabled selected hidden>Mes</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <select name="anio-vto" id="anio-vto" required>
+                                <option value="" disabled selected hidden>Año</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                                <option value="2030">2030</option>
+                                <option value="2031">2031</option>
+                                <option value="2032">2032</option>
+                                <option value="2033">2033</option>
+                                <option value="2034">2034</option>
+                                <option value="2035">2035</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="cvv">CVV *</label>

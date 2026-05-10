@@ -322,6 +322,29 @@
     outline-offset: 2px;
 }
 
+
+
+select {
+    border: 1px gray solid;
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 40%;
+    padding: 0.8vh;
+    border: 1px solid #dcd6f7;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    margin-bottom: 0.8vh;
+    transition: border-color 0.3s;
+}
+
+select:focus {
+    outline: 3px solid #6c63ff;
+    outline-offset: 2px;
+    border-color: #6c63ff;
+    box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
+}
+
 @media (max-width: 1200px) and (min-width: 769px) {
     .grid-checkout {
         grid-template-columns: 1fr 1fr;
