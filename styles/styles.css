@@ -20,6 +20,10 @@ p {
     margin: 1vh 0;
 }
 
+h2 {
+    margin-bottom: 2vh;
+}
+
 .buscador {
     display: flex;
     flex-direction: column;
@@ -57,8 +61,8 @@ footer {
 
 footer div {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    flex-wrap: wrap;   
+    justify-content: center;
     align-items: center;
 
 }
@@ -77,6 +81,7 @@ footer div {
     font-weight: bold;
     font-size: 1.5rem;
     color: #6c63ff;
+    vertical-align: middle;
 }
 
 .icono {
@@ -93,12 +98,8 @@ header nav a {
     font-weight: bold;
     font-size: 20px;
     background-color: #dcd6f7;
-    padding: 0.2vh 0.3vh;
+    padding: 1vh;
     border-radius: 0.5rem;
-}
-header nav {
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .b {
@@ -107,7 +108,6 @@ header nav {
     padding: 2vh;
     display: flex;
     flex-direction: column;
-    gap: 1vh;
     grid-row: 2/3;
 }
 
@@ -138,14 +138,6 @@ header nav {
     padding: 2vh;
     overflow-y: auto;
     grid-column: 2 / 4;
-}
-
-.d {
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 1rem;
-    padding: 2vh;
-    grid-column: 1 / 4;
-    grid-row: 2/3;
 }
 
 .card {
@@ -179,19 +171,12 @@ button {
     padding: 2vh;
 }
 
-@media (max-width: 700px) {
-    header {
-        display: grid;
-        grid-template-columns: auto;
-    }
+@media (max-width: 480px) {
     .grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
-        gap: 2vh 0;
-    }
-
-    footer div p {
-        font-size: 1rem;
+        gap: 1vh;
+        padding: 1vh;
     }
 
     .a,
@@ -199,20 +184,62 @@ button {
     .c,
     .d {
         grid-column: 1;
+        padding: 1vh;
     }
 
-    nav a {
-        margin-left: 2vh;
-        text-decoration: none;
-        color: #6c63ff;
-        font-weight: bold;
-        font-size: 10px;
-        background-color: #dcd6f7;
-        padding: 0.2vh 0.3vh;
-        border-radius: 0.5rem;
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    header nav a {
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 0.5rem;
+    }
+    h2{
+        font-size: 1rem;
+        padding: 1vh 1vh;
+    }
+    h4{
+        font-size: 0.4rem;
+    }
+
+    .b-filtro summary {
+        font-size: 1rem;
+        padding: 0.3vh 0.5vh;
     }
 
     button {
-        font-size: 14px;
+        font-size: 12px;
+        padding: 0.5vh 1vh;
+    }
+
+    footer {
+        grid-column: 1;
+        grid-row: auto;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0.5vh;
+    }
+
+    footer div p {
+        font-size: 0.9rem;
+        margin: 0.1vh;
+    }
+
+    .card {
+        padding: 1vh;
+        flex-direction: row;
+    }
+
+    .logo-card {
+        width: 40px;
+    }
+
+    .icono {
+        width: 7px;
     }
 }
+
