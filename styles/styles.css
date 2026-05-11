@@ -11,7 +11,7 @@ body {
     overflow-x: hidden;
 }
 
-p{
+p {
     font-size: 1.2rem;
     color: #ffffff;
     background-color: #6c63ff;
@@ -36,7 +36,7 @@ p{
 .grid {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 12vh 1fr 12vh;
+    grid-template-rows: auto 1fr auto;
     min-height: 100vh;
     width: 100vw;
     padding: 2vh;
@@ -45,7 +45,7 @@ p{
 
 footer {
     grid-column: 1 / 4;
-    grid-row: 3;
+    grid-row: 3/4;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,6 +54,7 @@ footer {
     padding: 2vh;
     height: fit-content;
 }
+
 footer div {
     display: flex;
     flex-wrap: wrap;
@@ -79,7 +80,7 @@ footer div {
 }
 
 header nav a {
-    margin-left: 2vh;
+    margin: 0.5vh 0 0.5vh 2vh;
     text-decoration: none;
     color: #6c63ff;
     font-weight: bold;
@@ -88,9 +89,13 @@ header nav a {
     padding: 0.2vh 0.3vh;
     border-radius: 0.5rem;
 }
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .b {
-    background: rgba(255,255,255,0.6);
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 1rem;
     padding: 2vh;
     display: flex;
@@ -99,20 +104,41 @@ header nav a {
     grid-row: 2/3;
 }
 
+.b-filtro details {
+    width: 100%;
+}
+
+.b-filtro details input[type="range"] {
+    width: 100%;
+}
+
+.b-filtro summary {
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: #6c63ff;
+    padding: 0.5vh 1vh;
+    border-radius: 0.5rem;
+    margin: 1vh 0;
+}
+
+.b-filtro details input[type="checkbox"]{
+    margin-left: 1vh;
+}
+
 .c {
-    background: rgba(255,255,255,0.6);
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 1rem;
     padding: 2vh;
     overflow-y: auto;
     grid-column: 2 / 4;
 }
 
-.d{
-        background: rgba(255,255,255,0.6);
-        border-radius: 1rem;
-        padding: 2vh;
-        grid-column: 1 / 4;
-        grid-row: 2/3;
+.d {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 1rem;
+    padding: 2vh;
+    grid-column: 1 / 4;
+    grid-row: 2/3;
 }
 
 .card {
@@ -141,33 +167,45 @@ button {
 }
 
 .d {
-    background: rgba(255,255,255,0.6);
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 1rem;
     padding: 2vh;
 }
 
 @media (max-width: 700px) {
-
+    header {
+        display: grid;
+        grid-template-columns: auto;
+    }
     .grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         gap: 2vh 0;
     }
 
-    .a, .b, .c, .d {
+    footer div p {
+        font-size: 1rem;
+    }
+
+    .a,
+    .b,
+    .c,
+    .d {
         grid-column: 1;
     }
+
     nav a {
-    margin-left: 2vh;
-    text-decoration: none;
-    color: #6c63ff;
-    font-weight: bold;
-    font-size: 10px;
-    background-color: #dcd6f7;
-    padding: 0.2vh 0.3vh;
-    border-radius: 0.5rem;
-}
-button {
-    font-size: 14px;
-}
+        margin-left: 2vh;
+        text-decoration: none;
+        color: #6c63ff;
+        font-weight: bold;
+        font-size: 10px;
+        background-color: #dcd6f7;
+        padding: 0.2vh 0.3vh;
+        border-radius: 0.5rem;
+    }
+
+    button {
+        font-size: 14px;
+    }
 }

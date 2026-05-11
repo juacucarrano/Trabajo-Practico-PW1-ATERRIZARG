@@ -1,6 +1,6 @@
 .grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 12vh auto auto 12vh;
+    grid-template-rows: auto 1fr auto;
 }
 
 main.b {
@@ -116,11 +116,11 @@ footer {
         grid-column: 1 / 2;
     }
 
-    .confirmacion-container.flight-details {
+    .confirmacion-container .flight-details {
         grid-row: 3 / 4;
     }
 
-    .confirmacion-container.payment-summary {
+    .confirmacion-container .payment-summary {
         grid-row: 4 / 5;
     }
 }
