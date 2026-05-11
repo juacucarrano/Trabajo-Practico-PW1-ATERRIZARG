@@ -15,6 +15,7 @@
 
 .main-ofertas p {
     all: unset;
+    display: block;
 }
 
 .main-ofertas div {
@@ -24,7 +25,6 @@
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
     flex-direction: column;
 }
 div.card-oferta {
@@ -35,15 +35,17 @@ div.card-oferta {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    max-width: 100%;
 }
 .grid-ofertas {
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-template-rows: 12vh 1fr 12vh;
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
     padding: 2vh;
     gap: 2vh;
+    margin: 0 auto
 }
 
 .card-oferta {
@@ -78,4 +80,26 @@ div.card-oferta {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.main-ofertas .equipaje-section {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+.equipaje-section h2 {
+    margin-left: auto;
+    margin-right: auto;
+}
+.equipaje-section article {
+    padding: 2rem 2rem;
+    background-color: white;
+    border-radius: 1rem;
+}
+.equipaje-section .guia-equipaje p {
+    width: 50%;
+}
+
+@media screen and (max-width:) {
+    
 }
