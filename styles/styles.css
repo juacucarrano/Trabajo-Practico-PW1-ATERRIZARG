@@ -52,12 +52,14 @@ footer {
     background: #6c63ff;
     border-radius: 1rem;
     padding: 2vh;
-    text-align: center;
+    height: fit-content;
 }
 footer div {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
+
 }
 
 .a {
@@ -130,6 +132,7 @@ button {
     background: #6c63ff;
     color: white;
     cursor: pointer;
+    margin: 1vh 0;
 }
 
 .logo-card {
@@ -143,11 +146,12 @@ button {
     padding: 2vh;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 700px) {
 
     .grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
+        gap: 2vh 0;
     }
 
     .a, .b, .c, .d {
@@ -164,8 +168,6 @@ button {
     border-radius: 0.5rem;
 }
 button {
-    padding: 0.5vh 1vh;
     font-size: 14px;
-
 }
 }

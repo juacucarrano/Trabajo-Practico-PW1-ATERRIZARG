@@ -21,22 +21,27 @@
 .main-ofertas div {
     margin: 1rem;
 }
+
 .main-ofertas .ofertas-section {
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
 }
+
 div.card-oferta {
     margin: 0;
 }
+
 .main-ofertas .ofertas-section .contenedor-cards {
     height: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
     max-width: 100%;
 }
+
 .grid-ofertas {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -44,7 +49,6 @@ div.card-oferta {
     min-height: 100vh;
     width: 100%;
     padding: 2vh;
-    gap: 2vh;
     margin: 0 auto
 }
 
@@ -55,7 +59,7 @@ div.card-oferta {
     background-color: white;
     border-radius: 1rem;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.473) ;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.473);
     margin: 0;
     color: #6c63ff;
 }
@@ -70,12 +74,14 @@ div.card-oferta {
     height: 100%;
     object-fit: cover;
 }
+
 .card-oferta .imagen-oferta {
     aspect-ratio: 16 / 11;
     width: 100%;
     overflow: hidden;
     margin: 0;
 }
+
 .card-oferta .descripcion-oferta {
     display: flex;
     align-items: center;
@@ -87,19 +93,49 @@ div.card-oferta {
     width: 100%;
     justify-content: center;
 }
+
 .equipaje-section h2 {
     margin-left: auto;
     margin-right: auto;
 }
-.equipaje-section article {
+
+.main-ofertas section {
     padding: 2rem 2rem;
     background-color: white;
     border-radius: 1rem;
+    margin-bottom: 2vh;
 }
+
+.main-ofertas section:last-child {
+    margin-bottom: 1vh;
+}
+
 .equipaje-section .guia-equipaje p {
     width: 50%;
 }
 
-@media screen and (max-width:) {
-    
+/* * {
+    outline: 1px solid red !important;
+} */
+
+@media screen and (max-width: 700px) {
+    body {
+        width: 100%;
+    }
+
+    .grid-ofertas {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 2vh 0;
+    }
 }
+/* .grid-ofertas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: 12vh 1fr 12vh;
+    min-height: 100vh;
+    width: 100%;
+    padding: 2vh;
+    margin: 0 auto
+} */
