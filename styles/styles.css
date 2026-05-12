@@ -122,7 +122,6 @@ header nav a {
     background: rgba(255, 255, 255, 0.6);
     border-radius: 1rem;
     padding: 3vh;
-    overflow-y: auto;
     grid-column: 2 / 4;
 }
 
@@ -179,11 +178,14 @@ button {
     }
 
     header nav a {
-        font-size: 14px;
+        font-size: 12px;
+        padding: 0.1vh 0.5vh;
     }
 
     p {
         font-size: 0.5rem;
+        padding-left: 2.5vh;
+        
     }
     h2{
         font-size: 1rem;
