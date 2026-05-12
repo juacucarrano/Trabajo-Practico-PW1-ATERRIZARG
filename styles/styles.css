@@ -24,19 +24,6 @@ h2 {
     margin-bottom: 2vh;
 }
 
-.buscador {
-    display: flex;
-    flex-direction: column;
-    gap: 1vh;
-}
-
-.buscador input,
-.buscador select {
-    padding: 0.8vh;
-    border-radius: 0.5rem;
-    border: 1px solid #ccc;
-}
-
 .grid {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
@@ -134,7 +121,7 @@ header nav a {
 .c {
     background: rgba(255, 255, 255, 0.6);
     border-radius: 1rem;
-    padding: 2vh;
+    padding: 3vh;
     overflow-y: auto;
     grid-column: 2 / 4;
 }
