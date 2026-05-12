@@ -157,6 +157,24 @@ button {
     padding: 2vh;
 }
 
+.buscador {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.buscador input,
+.buscador select {
+    padding: 1vh;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+}
+
+.buscador label {
+    font-weight: bold;
+    color: #6c63ff;
+}
+
 @media (max-width: 480px) {
     .grid {
         grid-template-columns: 1fr;
@@ -180,6 +198,7 @@ button {
     header nav a {
         font-size: 12px;
         padding: 0.1vh 0.5vh;
+        margin: 0.5vh 0 0.5vh 1vh;
     }
 
     p {
