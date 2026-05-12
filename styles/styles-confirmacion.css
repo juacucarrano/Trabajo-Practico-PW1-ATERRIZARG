@@ -66,6 +66,7 @@
 }
 
 .confirmacion-container {
+    grid-column: 1 / 4;
     background: rgba(255, 255, 255, 0.85);
     border-radius: 1rem;
     padding: 2vh;
@@ -73,7 +74,6 @@
     flex-direction: column;
     gap: 1.5vh;
     box-shadow: 0 4px 12px rgba(108, 99, 255, 0.08);
-    grid-column: 1;
 }
 
 .success-section {
