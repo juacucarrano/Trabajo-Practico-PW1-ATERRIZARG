@@ -1,3 +1,7 @@
+html {
+    background: linear-gradient(to right, #dcd6f7, #f5f3ff);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +10,6 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #dcd6f7, #f5f3ff);
     width: 100%;
     overflow-x: hidden;
 }
@@ -35,7 +38,7 @@ h2 {
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
     padding: 2vh;
     gap: 2vh;
 }
@@ -126,7 +129,7 @@ header nav a {
 .c {
     background: rgba(255, 255, 255, 0.6);
     border-radius: 1rem;
-    padding: 3vh;
+    padding: 2vh;
     grid-column: 2 / 4;
 }
 
@@ -195,6 +198,10 @@ button {
         grid-column: 1;
         padding: 1vh;
     }
+    .c {
+        
+    height: fit-content;
+    }
 
     .logo {
         font-size: 1.2rem;
@@ -207,17 +214,18 @@ button {
     }
 
     p {
-        font-size: 0.5rem;
-        padding-left: 2.5vh;
-
+        font-size: 0.9rem;
+        padding-left: 1vh;
+    }
 
     h2 {
-        font-size: 1rem;
+        font-size: 1.2rem;
         padding: 1vh 1vh;
     }
 
     h4 {
-        font-size: 0.4rem;
+        font-size: 0.9rem;
+    }
 
     .b-filtro summary {
         font-size: 1rem;
@@ -225,10 +233,9 @@ button {
     }
 
     button {
-        font-size: 12px;
-        padding: 0.5vh 1vh;
         font-size: 1rem;
-        padding: 1vh 1.5    }
+        padding: 1vh 1.5vh;
+    }
 
     footer {
         grid-column: 1;
