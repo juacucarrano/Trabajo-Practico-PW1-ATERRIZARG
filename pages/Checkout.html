@@ -76,7 +76,8 @@
             <div id="creditCardDetails" class="card-details">
                 <div class="form-group">
                     <label for="numero-tarjeta">Número de Tarjeta *</label>
-                    <input id="numero-tarjeta" type="text" placeholder="1234 5678 9012 3456">
+                    <input id="numero-tarjeta" type="text" placeholder="1234 5678 9012 3456" maxlength="16"
+                        pattern="[0-9]{16}" required>
                 </div>
                 <div class="card-details-grid">
                     <div class="form-group">
@@ -114,7 +115,7 @@
                     </div>
                     <div class="form-group">
                         <label for="cvv">CVV *</label>
-                        <input id="cvv" type="text" placeholder="123">
+                        <input id="cvv" type="text" placeholder="123" maxlength="16" pattern="[0-9]{3}" required>
                     </div>
                 </div>
             </div>
@@ -165,9 +166,17 @@
             <button type="button" onclick="window.location.href='confirmacion-reserva.html'">Confirmar y Pagar</button>
         </div>
 
-        <footer class="checkout-footer">
-            <p>&copy; 2026 ATERRIZARG - Vuelos a precios increíbles | Contacto: info@aterrizarg.com | Teléfono: +54 11
-                1234-5678</p>
+
+        <footer>
+            <div>
+                <p class="footerContacto">© 2026 ATERRIZARG. Todos los derechos reservados</p>
+                <p class="footerContacto"><img class="icono" src="../images/envelope-open-solid.png" alt="Email"> Email:
+                    contacto@aterrizarg.com</p>
+                <p class="footerContacto"><img class="icono" src="../images/phone-solid.png" alt="Teléfono"> Teléfono:
+                    +54 11 1234-5678</p>
+                <p class="footerContacto"><img class="icono" src="../images/map-pin-solid.png" alt="Ubicación"> Buenos
+                    Aires, Argentina</p>
+            </div>
         </footer>
 
     </div>

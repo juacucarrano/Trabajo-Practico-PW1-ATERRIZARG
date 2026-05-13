@@ -203,12 +203,14 @@ footer {
     color: #6c63ff;
     margin-bottom: 1.5vh;
 }
-
+.card {
+    background-color: rgb(255, 255, 255);
+}
 .selected {
-    background-color: rgb(211, 211, 211);
+    background-color: #6c63ff
 }
 .selected p {
-    background-color: #4f46ee;
+    color: white
 }
 .b-reservas a{
     text-decoration: none;
