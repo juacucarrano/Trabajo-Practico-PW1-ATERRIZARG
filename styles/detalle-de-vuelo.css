@@ -109,6 +109,7 @@ a {
 
     .c.c-detalle {
         min-height: fit-content;
+        margin-bottom: 1rem;
     }
 
     .asiento-container {
