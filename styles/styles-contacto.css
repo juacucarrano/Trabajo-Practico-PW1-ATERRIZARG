@@ -63,3 +63,16 @@
     border-radius: 6px;
     margin-bottom: 1.7rem;
 }
+
+@media screen and (max-width: 700px) {
+    .grid-contacto {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+    }
+
+    .main-contacto {
+        grid-column: 1 / 2;
+        width: 100%;
+        height: auto;
+    }
+}

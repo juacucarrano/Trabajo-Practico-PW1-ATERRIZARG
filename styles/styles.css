@@ -10,11 +10,13 @@ body {
     width: 100%;
     overflow-x: hidden;
 }
+
 .selected-nav {
     background-color: #6c63ff;
     color: #ffffff;
-    box-shadow: 2px 6px 14px 0px rgba(0,0,0,0.66);
+    box-shadow: 2px 6px 14px 0px rgba(0, 0, 0, 0.66);
 }
+
 p {
     font-size: 1.2rem;
     color: #ffffff;
@@ -51,7 +53,7 @@ footer {
 
 footer div {
     display: flex;
-    flex-wrap: wrap;   
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 
@@ -117,7 +119,7 @@ header nav a {
     margin: 1vh 0;
 }
 
-.b-filtro details input[type="checkbox"]{
+.b-filtro details input[type="checkbox"] {
     margin-left: 1vh;
 }
 
@@ -178,10 +180,10 @@ button {
     color: #6c63ff;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .grid {
         grid-template-columns: 1fr;
-        grid-template-rows: auto;
+        grid-auto-rows: auto;
         gap: 1vh;
         padding: 1vh;
     }
@@ -207,13 +209,15 @@ button {
     p {
         font-size: 0.5rem;
         padding-left: 2.5vh;
-        
+
     }
-    h2{
+
+    h2 {
         font-size: 1rem;
         padding: 1vh 1vh;
     }
-    h4{
+
+    h4 {
         font-size: 0.4rem;
     }
 
@@ -253,4 +257,3 @@ button {
         width: 7px;
     }
 }
-

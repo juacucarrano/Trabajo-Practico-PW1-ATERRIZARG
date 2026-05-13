@@ -278,8 +278,8 @@ details .accordion-summary::marker {
     display: none;
 }
 
-@media (max-width: 768px) {
-    .grid {
+@media (max-width: 700px) {
+    .grid-reservas {
         grid-template-columns: 1fr;
     }
 
