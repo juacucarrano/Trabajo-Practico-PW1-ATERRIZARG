@@ -176,3 +176,10 @@ div.card-oferta {
     padding: 2vh;
     margin: 0 auto
 } */
+
+@media screen and (max-width: 480px) {
+    .card-oferta {
+        max-width: 100%;
+        min-width: 100%;
+    }
+}

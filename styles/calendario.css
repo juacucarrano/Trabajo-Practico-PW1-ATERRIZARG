@@ -120,3 +120,14 @@
         height: auto;
     }
 }
+
+@media screen and (max-width: 480px) {
+    .calendario {
+        width: 100%;
+    }
+    
+    .dia {
+        height: 35px;
+        font-size: 0.8rem;
+    }
+}

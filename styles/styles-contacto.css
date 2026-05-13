@@ -76,3 +76,13 @@
         height: auto;
     }
 }
+
+@media screen and (max-width: 480px) {
+    .main-contacto form {
+        width: 95%;
+    }
+
+    .main-contacto textarea {
+        width: 100%;
+    }
+}

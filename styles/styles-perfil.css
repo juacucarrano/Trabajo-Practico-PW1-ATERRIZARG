@@ -336,3 +336,12 @@ button {
         gap: 1rem;
     }
 }
+
+@media screen and (max-width: 480px) {
+    .btn-eliminar, .btn-cancelar {
+        width: 100%;
+    }
+    .contenido-extra textarea {
+        width: 100%;
+    }
+}

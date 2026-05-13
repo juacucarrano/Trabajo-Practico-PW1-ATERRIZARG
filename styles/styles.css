@@ -262,3 +262,16 @@ button {
         width: 7px;
     }
 }
+
+@media (max-width: 480px) {
+    header nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
