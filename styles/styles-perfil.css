@@ -168,7 +168,7 @@ button {
 }
 
 .c-perfil .contenedor-labels-grid {
-    display: grid !important;
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr 3fr;
     grid-template-rows: 1fr auto;
     gap: 1rem;
@@ -179,6 +179,7 @@ button {
     grid-column: 1/2;
     grid-row: 2/3;
 }
+
 #field-tarjeta .form-boton,
 #field-facturacion .form-boton {
     grid-column: 1/2;
@@ -285,6 +286,7 @@ button {
     margin: 0.25rem 0;
     width: 100%;
 }
+
 .form-eliminar .contenedores .contenido-extra {
     margin: 0.8rem;
     background-color: rgb(224, 224, 224);
@@ -292,10 +294,12 @@ button {
     font-size: 0.8rem;
     width: fit-content;
 }
-.contenido-extra textarea{
+
+.contenido-extra textarea {
     width: 20rem;
     height: 4rem;
 }
+
 .btn-eliminar {
     padding: 1vh 2vh;
     border: none;
@@ -304,9 +308,11 @@ button {
     color: white;
     cursor: pointer;
 }
+
 .btn-eliminar:hover {
     background: #a81313;
 }
+
 .btn-cancelar {
     padding: 1vh 2vh;
     border: none;
@@ -315,4 +321,18 @@ button {
     color: white;
     cursor: pointer;
     text-decoration: none;
+}
+
+@media screen and (max-width:600px) {
+    .c-perfil #field-datos {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .c-perfil .contenedor-labels-grid {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        gap: 1rem;
+    }
 }
