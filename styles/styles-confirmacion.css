@@ -26,7 +26,7 @@
 
 .confirmacion-header {
     grid-column: 1;
-    grid-row: 1;
+    grid-row: 1/2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -376,8 +376,10 @@
 
 @media (max-width: 1200px) and (min-width: 769px) {
     .grid-confirmacion {
-        padding: 1.5vh;
+        padding: 1vh;
         gap: 1.5vh;
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
     }
 
     .confirmacion-header nav a {
@@ -400,7 +402,7 @@
 
 @media (max-width: 768px) {
     .grid-confirmacion {
-        padding: 1.5vh;
+        padding: 1vh;
         gap: 1.5vh;
     }
 

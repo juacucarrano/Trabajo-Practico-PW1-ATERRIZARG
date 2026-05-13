@@ -54,7 +54,9 @@
 @media screen and (max-width: 700px) {
     .grid-iniciar-sesion {
         grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr auto;
+        grid-auto-rows: auto;
+        gap: 1vh;
+        padding: 1vh;
     }
 
     .main-iniciar-sesion {

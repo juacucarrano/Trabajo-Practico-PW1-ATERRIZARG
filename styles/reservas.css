@@ -284,6 +284,8 @@ details .accordion-summary::marker {
 
 @media (max-width: 700px) {
     .grid-reservas {
+        padding: 1vh;
+        gap: 1vh;
         grid-template-columns: 1fr;
         grid-template-rows: auto;
     }

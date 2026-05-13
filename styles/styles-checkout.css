@@ -391,6 +391,8 @@ select:focus {
     .grid-checkout {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto 1fr auto auto;
+        gap: 1vh;
+        padding: 1vh;
     }
 
     .checkout-header {
@@ -428,8 +430,6 @@ select:focus {
     .grid-checkout {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto auto auto;
-        padding: 1.5vh;
-        gap: 1.5vh;
     }
 
     .checkout-header {

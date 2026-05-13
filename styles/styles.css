@@ -195,7 +195,7 @@ button {
     .b,
     .c,
     .d {
-        grid-column: 1;
+        grid-column: 1/2;
         padding: 1vh;
     }
     .c-detalles {
