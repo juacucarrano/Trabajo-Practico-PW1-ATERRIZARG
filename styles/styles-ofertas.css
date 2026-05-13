@@ -86,6 +86,7 @@ div.card-oferta {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1vw;
 }
 
 .main-ofertas .equipaje-section {
@@ -131,7 +132,7 @@ div.card-oferta {
 
 .grid-pasos {
     width: 100%;
-    margin: 0;
+    margin: 1rem 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
