@@ -10,16 +10,6 @@ document.getElementById(
 ).textContent =
 usuario.nombre;
 
-function cerrarSesion(){
-
-    localStorage.removeItem(
-        "logueado"
-    );
-
-    window.location.href =
-    "../index.html";
-
-}
 const formulario =
 document.getElementById(
 "formPerfil"

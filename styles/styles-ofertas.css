@@ -22,6 +22,10 @@ header, .a {
     display: block;
 }
 
+.a {
+    grid-column: 1 / 2;
+}
+
 .ofertas-section div {
     margin: 1rem;
 }
@@ -151,6 +155,10 @@ div.card-oferta {
     border-radius: 8px;
     height: 100%;
     padding: 1vh;
+}
+
+footer {
+    grid-column: 1 / 2;
 }
 
 @media screen and (max-width: 700px) {

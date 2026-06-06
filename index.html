@@ -1,71 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
+
 <body>
 
-<div class="grid">
+    <div class="grid">
 
-    <header class="a">
-        <img class="logo-card" src="./images/LOGO ATERRIZARG.png" alt="Logo">
-        <div class="logo">ATERRIZARG</div>
-        <nav>
-            <a href="./index.html" class="selected-nav">Inicio</a>
-            <a href="./pages/reservas.html">Mis reservas</a>
-            <a href="./pages/ofertas.html">Ofertas</a>
-            <a href="./pages/contacto.html">Contacto</a>
-            <a href="./pages/login.html">Iniciar sesion</a>
-        </nav>
-    </header>
+        <header class="a">
+            <img class="logo-card" src="./images/LOGO ATERRIZARG.png" alt="Logo">
+            <div class="logo">ATERRIZARG</div>
+            <nav>
+                <a href="./index.html" class="selected-nav">Inicio</a>
+                <a href="./pages/reservas.html">Mis reservas</a>
+                <a href="./pages/ofertas.html">Ofertas</a>
+                <a href="./pages/contacto.html">Contacto</a>
+                <a href="./pages/perfil.html" id="nav-perfil">Perfil</a>
+                <a href="./pages/login.html" id="nav-iniciar-sesion">Iniciar sesion</a>
+                <a href="./index.html" onclick="cerrarSesion()" id="nav-cerrar-sesion">Cerrar sesion</a>
+            </nav>
+        </header>
 
-    <main class="d">
-        <h2>Buscar vuelos</h2>
+        <main class="d">
+            <h2>Buscar vuelos</h2>
 
-        <form class="buscador" action="./pages/busqueda.html" method="get">
+            <form class="buscador" action="./pages/busqueda.html" method="get">
 
-            <label for="origen">Origen</label>
-            <input id="origen" type="text" placeholder="Ej: Buenos Aires">
+                <label for="origen">Origen</label>
+                <input id="origen" type="text" placeholder="Ej: Buenos Aires">
 
-            <label for="destino">Destino</label>
-            <input id="destino" type="text" placeholder="Ej: Madrid">
+                <label for="destino">Destino</label>
+                <input id="destino" type="text" placeholder="Ej: Madrid">
 
-            <label for="fecha-ida">Fecha de ida</label>
-            <input id="fecha-ida" type="date">
+                <label for="fecha-ida">Fecha de ida</label>
+                <input id="fecha-ida" type="date">
 
-            <label for="fecha-vuelta">Fecha de vuelta</label>
-            <input id="fecha-vuelta" type="date">
+                <label for="fecha-vuelta">Fecha de vuelta</label>
+                <input id="fecha-vuelta" type="date">
 
-            <label for="pasajeros">Número de pasajeros</label>
-            <input id="pasajeros" type="number" min="1" value="1">
+                <label for="pasajeros">Número de pasajeros</label>
+                <input id="pasajeros" type="number" min="1" value="1">
 
-            <label for="clase">Clase</label>
-            <select id="clase">
-                <option>Turista</option>
-                <option>Ejecutiva</option>
-                <option>Primera clase</option>
-            </select>
+                <label for="clase">Clase</label>
+                <select id="clase">
+                    <option>Turista</option>
+                    <option>Ejecutiva</option>
+                    <option>Primera clase</option>
+                </select>
 
-            <button type="submit">Buscar</button>
+                <button type="submit">Buscar</button>
 
-        </form>
-    </main>
+            </form>
+        </main>
 
-    <footer>
+        <footer>
             <div>
                 <p>© 2026 ATERRIZARG. Todos los derechos reservados</p>
-                <p><img class="icono" src="images\envelope-open-solid.png" alt="Email"> Email: contacto@aterrizarg.com</p>
+                <p><img class="icono" src="images\envelope-open-solid.png" alt="Email"> Email: contacto@aterrizarg.com
+                </p>
                 <p><img class="icono" src="images\phone-solid.png" alt="Teléfono"> Teléfono: +54 11 1234-5678</p>
                 <p><img class="icono" src="images\map-pin-solid.png" alt="Ubicación"> Buenos Aires, Argentina</p>
             </div>
         </footer>
 
-    
 
-</div>
-<script src="./JS/index.js"></script>
+
+    </div>
+    <script src="./JS/login.js"></script>
+    <script src="./JS/navbar.js"></script>
 </body>
+
 </html>

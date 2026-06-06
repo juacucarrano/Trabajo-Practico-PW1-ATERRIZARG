@@ -1,33 +1,41 @@
 const formulario =
-document.querySelector("form");
+    document.querySelector("form");
 
 formulario.addEventListener(
     "submit",
-    function(e){
+    function (e) {
 
         e.preventDefault();
+
+        if (document.getElementById("contrasena").value !== document.getElementById("contrasena-confirmar").value) {
+            alert("Las contraseñas no coinciden");
+            return;
+        }
+
+        const usuarioExistente = JSON.parse(localStorage.getItem("usuario"));
+        if(usuarioExistente && usuarioExistente.correo === correo) alert("Ya existe un usuario con ese correo.");
 
         const usuario = {
 
             nombre:
-            document.getElementById(
-                "nombre"
-            ).value,
+                document.getElementById(
+                    "nombre"
+                ).value,
 
             apellido:
-            document.getElementById(
-                "apellido"
-            ).value,
+                document.getElementById(
+                    "apellido"
+                ).value,
 
             correo:
-            document.getElementById(
-                "correo"
-            ).value,
+                document.getElementById(
+                    "correo"
+                ).value,
 
             contrasena:
-            document.getElementById(
-                "contrasena"
-            ).value
+                document.getElementById(
+                    "contrasena"
+                ).value
 
         };
 
@@ -41,7 +49,7 @@ formulario.addEventListener(
         );
 
         window.location.href =
-        "login.html";
+            "login.html";
 
     }
 );
