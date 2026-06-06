@@ -18,9 +18,9 @@
             <nav>
                 <a href="../index.html">Inicio</a>
                 <a href="./reservas.html">Mis reservas</a>
-            <a href="./ofertas.html">Ofertas</a>
-            <a href="./contacto.html">Contacto</a>
-            <a href="./login.html">Iniciar sesion</a>
+                <a href="./ofertas.html">Ofertas</a>
+                <a href="./contacto.html">Contacto</a>
+                <a href="./login.html">Iniciar sesion</a>
             </nav>
         </header>
 
@@ -53,8 +53,9 @@
 
         <main class="c">
             <h2>Resultados de Búsqueda</h2>
+            <div id="informacion-busqueda"></div>
 
-            <div class="card">
+            <div class="card" data-destino="Madrid" data-tipo="directo">
                 <div>
                     <p>Buenos Aires → Madrid</p>
                 </div>
@@ -70,12 +71,14 @@
                 </div>
                 <div>
                     <p>$390 USD</p>
-                    <a href="./detalle-de-vuelo-bsas-madrid.html"><button>Seleccionar</button></a>
+                    <button onclick="reservar('Buenos Aires - Madrid')">
+                        SELECCIONAR
+                    </button>
                 </div>
 
             </div>
 
-            <div class="card">
+          <div class="card" data-destino="Lima" data-tipo="escala">
                 <div>
                     <p>Buenos Aires → Lima</p>
                 </div>
@@ -92,11 +95,13 @@
                 </div>
                 <div>
                     <p>$540 USD</p>
-                    <a href="./detalle-de-vuelo-bsas-lima.html"><button>Seleccionar</button></a>
+                    <button onclick="reservar('Buenos Aires - Lima')">
+                        SELECCIONAR
+                    </button>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-destino="Rio de Janeiro" data-tipo="directo">
                 <div>
                     <p>Buenos Aires → Miami</p>
                 </div>
@@ -111,7 +116,9 @@
                 </div>
                 <div>
                     <p>$200 USD</p>
-                    <a href="./detalle-de-vuelo-bsas-miami.html"><button>Seleccionar</button></a>
+                    <button onclick="reservar('Buenos Aires - Miami')">
+                        SELECCIONAR
+                    </button>
                 </div>
             </div>
 
@@ -133,7 +140,8 @@
         </footer>
 
     </div>
-
+    <script src="../JS/busqueda.js"></script>
+    <script src="../JS/reservas.js"></script>
 </body>
 
 </html>
