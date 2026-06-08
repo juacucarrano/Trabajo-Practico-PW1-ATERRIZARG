@@ -29,6 +29,13 @@ p {
     margin: 1vh 0;
 }
 
+#nav-cerrar-sesion {
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: #ce0000;
+    border-radius: 0.5rem;
+}
+
 h2 {
     margin-bottom: 2vh;
 }
@@ -181,6 +188,10 @@ button {
 .buscador label {
     font-weight: bold;
     color: #6c63ff;
+}
+
+.oculto {
+    display: none;
 }
 
 @media (max-width: 700px) {

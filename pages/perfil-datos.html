@@ -21,7 +21,9 @@
                 <a href="./reservas.html">Mis reservas</a>
                 <a href="./ofertas.html">Ofertas</a>
                 <a href="./contacto.html">Contacto</a>
-                <a href="./login.html" id="linkLogin">Iniciar sesión</a>
+                <a href="./perfil.html" class="selected-nav" id="nav-perfil">Perfil</a>
+                <a href="./login.html" id="nav-iniciar-sesion">Iniciar sesion</a>
+                <a href="../index.html" onclick="cerrarSesion()" id="nav-cerrar-sesion">Cerrar sesion</a>
 
             </nav>
         </header>
@@ -50,21 +52,21 @@
                             <label for="nombre">
                                 <span>Nombres</span>
                                 <input type="text" name="name" placeholder="Como figura en el documento de viaje"
-                                    class="input-perfil" value="Juan García" id="nombre" required>
+                                    class="input-perfil" value="" id="nombre" required>
                             </label>
                         </div>
                         <div class="form-apellido">
                             <label for="apellido">
                                 <span>Apellidos</span>
                                 <input type="text" name="lastName" placeholder="Como figura en el documento de viaje"
-                                    class="input-perfil" value="Lopez" id="apellido" required>
+                                    class="input-perfil" value="" id="apellido" required>
                             </label>
                         </div>
                         <div class="form-nacionalidad">
                             <label for="nacionalidad">
                                 <span>Nacionalidad</span>
                                 <input type="text" name="nacionality" placeholder="Ingresá tu país de nacimiento"
-                                    class="input-perfil" value="Argentina" id="nacionalidad" required>
+                                    class="input-perfil" value="" id="nacionalidad" required>
                             </label>
                         </div>
                         <div class="form-genero">
@@ -253,21 +255,21 @@
                                     <label class="label-tel-1" for="cod-pais">
                                         <span>Código de país</span>
                                         <div class="form-prefijo-pais">
-                                            <input id="cod-pais" type="tel" name="cod-pais" class="input-tel cod" placeholder="+"
-                                                value="+ 54">
+                                            <input id="cod-pais" type="tel" name="cod-pais" class="input-tel cod" placeholder="+ xx"
+                                                value="">
                                         </div>
                                     </label>
                                     <label class="label-tel-2" for="cod-area">
                                         <span>Código de área</span>
                                         <div>
-                                            <input id="cod-area" type="tel" name="cod-area" class="input-tel area" placeholder="011" value="911">
+                                            <input id="cod-area" type="tel" name="cod-area" class="input-tel area" placeholder="011" value="">
                                         </div>
                                     </label>
                                     <label class="label-tel-3" for="nro-tel">
                                         <span>Número de teléfono</span>
                                         <div>
                                             <input id="nro-tel" type="tel" name="nro-tel" class="input-tel nro"
-                                                placeholder="22334455" value="1134344545">
+                                                placeholder="22334455" value="">
                                         </div>
                                     </label>
                                     <div class="form-boton">

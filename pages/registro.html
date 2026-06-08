@@ -21,7 +21,9 @@
                 <a href="./reservas.html">Mis reservas</a>
                 <a href="./ofertas.html">Ofertas</a>
                 <a href="./contacto.html">Contacto</a>
-                <a href="./login.html" id="linkLogin">Iniciar sesión</a>
+                <a href="./perfil.html" id="nav-perfil">Perfil</a>
+                <a href="./login.html" id="nav-iniciar-sesion">Iniciar sesion</a>
+                <a href="../index.html" onclick="cerrarSesion()" id="nav-cerrar-sesion">Cerrar sesion</a>
 
             </nav>
         </header>
@@ -30,41 +32,49 @@
             <h2>Registrate</h2>
             <form>
 
-                <label for="correo">
-                    <p>Ingrese su Correo</p>
+                <div class="form-group">
+                    <label for="correo">Ingrese su Correo</label>
                     <input id="correo" type="email" placeholder="Email" required>
-                </label>
-                <label for="nombre">
-                    <p>Ingrese su nombre</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="nombre">Ingrese su nombre</label>
                     <input id="nombre" type="text" placeholder="Nombre completo" required>
-                </label>
-                <label for="apellido">
-                    <p>Ingrese su apellido</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="apellido">Ingrese su apellido</label>
                     <input id="apellido" type="text" placeholder="Apellido" required>
-                </label>
-                <label for="contrasena">
-                    <p>Ingrese su contraseña</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="contrasena">Ingrese su contraseña</label>
                     <input id="contrasena" type="password" placeholder="Contraseña" required>
-                </label>
-                <label for="contrasena-confirmar">
-                    <p>Ingrésela nuevamente</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="contrasena-confirmar">Ingrésela nuevamente</label>
                     <input id="contrasena-confirmar" type="password" placeholder="Contraseña" required>
-                </label>
+                </div>
+
                 <button type="submit">Ingresar</button>
             </form>
             <p>¿Ya tenés cuenta? <a href="./login.html">Iniciá sesión</a></p>
         </main>
         <footer>
             <div>
-  <p class="footerContacto">© 2026 ATERRIZARG. Todos los derechos reservados</p>
-                <p class="footerContacto"><img class="icono" src="../images/envelope-open-solid.png" alt="Email"> Email: contacto@aterrizarg.com</p>
-                <p class="footerContacto"><img class="icono" src="../images/phone-solid.png" alt="Teléfono"> Teléfono: +54 11 1234-5678</p>
-                <p class="footerContacto"><img class="icono" src="../images/map-pin-solid.png" alt="Ubicación"> Buenos Aires, Argentina</p>
+                <p class="footerContacto">© 2026 ATERRIZARG. Todos los derechos reservados</p>
+                <p class="footerContacto"><img class="icono" src="../images/envelope-open-solid.png" alt="Email"> Email:
+                    contacto@aterrizarg.com</p>
+                <p class="footerContacto"><img class="icono" src="../images/phone-solid.png" alt="Teléfono"> Teléfono:
+                    +54 11 1234-5678</p>
+                <p class="footerContacto"><img class="icono" src="../images/map-pin-solid.png" alt="Ubicación"> Buenos
+                    Aires, Argentina</p>
             </div>
         </footer>
     </div>
-<script src="../JS/registro.js"></script>
-<script src="../JS/navbar.js"></script>
+    <script src="../JS/registro.js"></script>
+    <script src="../JS/navbar.js"></script>
 </body>
 
 </html>

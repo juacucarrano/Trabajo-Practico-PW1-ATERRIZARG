@@ -20,8 +20,10 @@
                 <a href="./reservas.html">Mis reservas</a>
                 <a href="./ofertas.html">Ofertas</a>
                 <a href="./contacto.html">Contacto</a>
-                <a href="./login.html" id="linkLogin">Iniciar sesión</a>
-
+                <a href="./perfil.html" id="nav-perfil">Perfil</a>
+                <a href="./login.html" id="nav-iniciar-sesion">Iniciar sesion</a>
+                <a href="../index.html" onclick="cerrarSesion()" id="nav-cerrar-sesion">Cerrar sesion</a>
+                
             </nav>
         </header>
 
@@ -29,29 +31,34 @@
             <h2>Iniciar Sesión</h2>
             <form>
 
-                <label for="email">
-                    <p>Ingrese el email</p>
-                    <input id="email" type="email" placeholder="Email">
-                </label>
-                <label for="contrasena">
-                    <p>Ingrese la contraseña</p>
-                    <input id="contrasena" type="password" placeholder="Contraseña">
-                </label>
+                <div class="form-group">
+                    <label for="email">Ingrese el email</label>
+                    <input id="email" type="email" placeholder="Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contrasena">Ingrese la contraseña</label>
+                    <input id="contrasena" type="password" placeholder="Contraseña" required>
+                </div>
+
                 <button type="submit">Ingresar</button>
             </form>
             <p>¿No tenés cuenta? <a href="./registro.html">Registrate</a></p>
         </main>
         <footer>
             <div>
-  <p class="footerContacto">© 2026 ATERRIZARG. Todos los derechos reservados</p>
-                <p class="footerContacto"><img class="icono" src="../images/envelope-open-solid.png" alt="Email"> Email: contacto@aterrizarg.com</p>
-                <p class="footerContacto"><img class="icono" src="../images/phone-solid.png" alt="Teléfono"> Teléfono: +54 11 1234-5678</p>
-                <p class="footerContacto"><img class="icono" src="../images/map-pin-solid.png" alt="Ubicación"> Buenos Aires, Argentina</p>
+                <p class="footerContacto">© 2026 ATERRIZARG. Todos los derechos reservados</p>
+                <p class="footerContacto"><img class="icono" src="../images/envelope-open-solid.png" alt="Email"> Email:
+                    contacto@aterrizarg.com</p>
+                <p class="footerContacto"><img class="icono" src="../images/phone-solid.png" alt="Teléfono"> Teléfono:
+                    +54 11 1234-5678</p>
+                <p class="footerContacto"><img class="icono" src="../images/map-pin-solid.png" alt="Ubicación"> Buenos
+                    Aires, Argentina</p>
             </div>
         </footer>
     </div>
-<script src="../JS/login.js"></script>
-<script src="../JS/navbar.js"></script>
+    <script src="../JS/login.js"></script>
+    <script src="../JS/navbar.js"></script>
 </body>
 
 </html>

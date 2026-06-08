@@ -1,15 +1,28 @@
-const linkLogin =
-document.getElementById("linkLogin");
+const estaLogeado = localStorage.getItem("logueado");
 
-const logueado =
-localStorage.getItem("logueado");
+const botonPerfil = document.getElementById("nav-perfil");
+const botonLogin = document.getElementById("nav-iniciar-sesion")
+const botonCerrarSesion = document.getElementById("nav-cerrar-sesion");
 
-if(logueado === "true"){
+if(estaLogeado==="true"){
+    botonPerfil.classList.remove("oculto");
+    botonCerrarSesion.classList.remove("oculto");
 
-    linkLogin.innerHTML =
-    "Mi Perfil";
+    botonLogin.classList.add("oculto");
+} else {
+    botonLogin.classList.remove("oculto");
 
-    linkLogin.href =
-    "./perfil.html";
+    botonPerfil.classList.add("oculto");
+    botonCerrarSesion.classList.add("oculto");
+}
+
+function cerrarSesion(){
+
+    localStorage.removeItem(
+        "logueado"
+    );
+
+    window.location.href =
+    "../index.html";
 
 }
