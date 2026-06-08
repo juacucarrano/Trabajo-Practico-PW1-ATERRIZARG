@@ -65,7 +65,7 @@ function reservar(vuelo){
     );
 
     window.location.href =
-    "checkout.html";
+    "confirmacion-reserva.html";
 }
 
 const checkDirecto =
