@@ -1,6 +1,8 @@
 const formulario =
     document.querySelector("form");
 
+const listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
 formulario.addEventListener(
     "submit",
     function (e) {
@@ -12,8 +14,13 @@ formulario.addEventListener(
             return;
         }
 
-        const usuarioExistente = JSON.parse(localStorage.getItem("usuario"));
-        if(usuarioExistente && usuarioExistente.correo === correo) alert("Ya existe un usuario con ese correo.");
+        const existe = listaUsuarios.some((usuario) => {
+            return usuario.correo === document.getElementById("correo").value;
+        })
+        if (existe) {
+            alert("Ya existe un usuario con ese correo.");
+            return;
+        }
 
         const usuario = {
 
@@ -38,18 +45,22 @@ formulario.addEventListener(
                 ).value
 
         };
+        
+        listaUsuarios.push(usuario);
 
         localStorage.setItem(
-            "usuario",
-            JSON.stringify(usuario)
+            "usuarios",
+            JSON.stringify(listaUsuarios)
         );
 
         alert(
             "Usuario registrado"
         );
 
+
         window.location.href =
             "login.html";
 
     }
 );
+
