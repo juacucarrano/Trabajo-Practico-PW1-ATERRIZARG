@@ -1,66 +1,45 @@
-const formulario =
-    document.querySelector("form");
+document.addEventListener("DOMContentLoaded", () => {
+    const formulario = document.querySelector("form");
 
-const listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-formulario.addEventListener(
-    "submit",
-    function (e) {
-
+    formulario.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        if (document.getElementById("contrasena").value !== document.getElementById("contrasena-confirmar").value) {
+        const nombre = document.getElementById("nombre").value.trim();
+        const apellido = document.getElementById("apellido").value.trim();
+        const correo = document.getElementById("correo").value.trim().toLowerCase();
+        const contrasena = document.getElementById("contrasena").value;
+        const contrasenaConfirmar = document.getElementById("contrasena-confirmar").value;
+
+        if (!nombre || !apellido || !correo || !contrasena || !contrasenaConfirmar) {
+            alert("Por favor complete todos los campos.");
+            return;
+        }
+
+        if (contrasena !== contrasenaConfirmar) {
             alert("Las contraseñas no coinciden");
             return;
         }
 
-        const existe = listaUsuarios.some((usuario) => {
-            return usuario.correo === document.getElementById("correo").value;
-        })
+        const listaUsuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
+
+        const existe = listaUsuarios.some((usuario) => usuario.correo === correo);
         if (existe) {
             alert("Ya existe un usuario con ese correo.");
             return;
         }
 
         const usuario = {
-
-            nombre:
-                document.getElementById(
-                    "nombre"
-                ).value,
-
-            apellido:
-                document.getElementById(
-                    "apellido"
-                ).value,
-
-            correo:
-                document.getElementById(
-                    "correo"
-                ).value,
-
-            contrasena:
-                document.getElementById(
-                    "contrasena"
-                ).value
-
+            nombre,
+            apellido,
+            correo,
+            contrasena,
         };
-        
+
         listaUsuarios.push(usuario);
+        localStorage.setItem("usuarios", JSON.stringify(listaUsuarios));
 
-        localStorage.setItem(
-            "usuarios",
-            JSON.stringify(listaUsuarios)
-        );
-
-        alert(
-            "Usuario registrado"
-        );
-
-
-        window.location.href =
-            "login.html";
-
-    }
-);
+        alert("Usuario registrado");
+        window.location.href = "login.html";
+    });
+});
 
