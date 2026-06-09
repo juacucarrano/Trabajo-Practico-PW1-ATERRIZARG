@@ -52,41 +52,44 @@
                             <label for="nombre">
                                 <span>Nombres</span>
                                 <input type="text" name="name" placeholder="Como figura en el documento de viaje"
-                                    class="input-perfil" value="" id="nombre" required>
+                                    class="input-perfil" value="" id="nombre" required disabled autocomplete="on">
                             </label>
                         </div>
                         <div class="form-apellido">
                             <label for="apellido">
                                 <span>Apellidos</span>
                                 <input type="text" name="lastName" placeholder="Como figura en el documento de viaje"
-                                    class="input-perfil" value="" id="apellido" required>
+                                    class="input-perfil" value="" id="apellido" required disabled>
                             </label>
                         </div>
                         <div class="form-nacionalidad">
                             <label for="nacionalidad">
                                 <span>Nacionalidad</span>
                                 <input type="text" name="nacionality" placeholder="Ingresá tu país de nacimiento"
-                                    class="input-perfil" value="" id="nacionalidad" required>
+                                    class="input-perfil" value="" id="nacionalidad" required disabled>
+                            </label>
+                        </div>
+                        <div class="form-documento">
+                            <label for="documento">
+                                <span>Documento</span>
+                                <input type="tel" name="document" placeholder="Número de documento" class="input-perfil"
+                                    value="" id="documento" required disabled>
                             </label>
                         </div>
                         <div class="form-genero">
-                            <span>Género</span>
-                            <div>
-                                <label for="femenino">
-                                    <input type="radio" name="genre" value="Femenino" id="femenino" required>
-                                    <span>Femenino</span>
-                                </label>
-                                <label for="masculino">
-                                    <input type="radio" name="genre" value="Masculino" id="masculino">
-                                    <span>Masculino</span>
-                                </label>
-                            </div>
+                            <label for="genero">
+                                <span>Género</span>
+                                <select id="genero" name="genero" required disabled>
+                                    <option value="Femenino">Femenino</option>
+                                    <option value="Masculino">Masculino</option>
+                                </select>
+                            </label>
                         </div>
                         <div class="form-fec-nac">
-                            <label for="fecha-nac">
+                            <label for="dia-nac">
                                 <span>Fecha de nacimiento</span>
                                 <div>
-                                    <select name="fecha-nacimiento" id="fecha-nac" required>
+                                    <select name="dia-nacimiento" id="dia-nac" required disabled>
                                         <option value="" disabled selected hidden>Día</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -120,7 +123,7 @@
                                         <option value="30">30</option>
                                         <option value="31">31</option>
                                     </select>
-                                    <select name="mes-nacimiento" id="mes-nac" required>
+                                    <select name="mes-nacimiento" id="mes-nac" required disabled>
                                         <option value="" disabled selected hidden>Mes</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -135,7 +138,7 @@
                                         <option value="11">11</option>
                                         <option value="12">12</option>
                                     </select>
-                                    <select name="anio-nacimiento" id="anio-nac" required>
+                                    <select name="anio-nacimiento" id="anio-nac" required disabled>
                                         <option value="" disabled selected hidden>Año</option>
                                         <option value="2026">2026</option>
                                         <option value="2025">2025</option>
@@ -255,14 +258,15 @@
                                     <label class="label-tel-1" for="cod-pais">
                                         <span>Código de país</span>
                                         <div class="form-prefijo-pais">
-                                            <input id="cod-pais" type="tel" name="cod-pais" class="input-tel cod" placeholder="+ xx"
-                                                value="">
+                                            <input id="cod-pais" type="tel" name="cod-pais" class="input-tel cod"
+                                                placeholder="+ xx" value="">
                                         </div>
                                     </label>
                                     <label class="label-tel-2" for="cod-area">
                                         <span>Código de área</span>
                                         <div>
-                                            <input id="cod-area" type="tel" name="cod-area" class="input-tel area" placeholder="011" value="">
+                                            <input id="cod-area" type="tel" name="cod-area" class="input-tel area"
+                                                placeholder="011" value="">
                                         </div>
                                     </label>
                                     <label class="label-tel-3" for="nro-tel">
@@ -287,7 +291,7 @@
                     <fieldset id="field-email" name="email">
                         <p>Agregá emails de respaldo</p>
                         <div class="correo-verificado">
-                            <span>JuanGarcia@gmail.com</span>
+                            <span id="correo-verificado"></span>
                             <span>verificado</span>
                         </div>
                         <details>
@@ -296,7 +300,8 @@
                                 <label for="email-nuevo">
                                     <span>Correo electrónico</span>
                                     <div class="form-correo">
-                                        <input type="email" name="email" id="email-nuevo" placeholder="minombre@ejemplo.com">
+                                        <input type="email" name="email" id="email-nuevo"
+                                            placeholder="minombre@ejemplo.com" autocomplete="off">
                                     </div>
                                 </label>
                                 <div class="form-boton">
@@ -316,14 +321,18 @@
 
         <footer>
             <div>
-  <p class="footerContacto">© 2026 ATERRIZARG. Todos los derechos reservados</p>
-                <p class="footerContacto"><img class="icono" src="../images/envelope-open-solid.png" alt="Email"> Email: contacto@aterrizarg.com</p>
-                <p class="footerContacto"><img class="icono" src="../images/phone-solid.png" alt="Teléfono"> Teléfono: +54 11 1234-5678</p>
-                <p class="footerContacto"><img class="icono" src="../images/map-pin-solid.png" alt="Ubicación"> Buenos Aires, Argentina</p>
+                <p class="footerContacto">© 2026 ATERRIZARG. Todos los derechos reservados</p>
+                <p class="footerContacto"><img class="icono" src="../images/envelope-open-solid.png" alt="Email"> Email:
+                    contacto@aterrizarg.com</p>
+                <p class="footerContacto"><img class="icono" src="../images/phone-solid.png" alt="Teléfono"> Teléfono:
+                    +54 11 1234-5678</p>
+                <p class="footerContacto"><img class="icono" src="../images/map-pin-solid.png" alt="Ubicación"> Buenos
+                    Aires, Argentina</p>
             </div>
         </footer>
     </div>
     <script src="../JS/navbar.js"></script>
+    <script src="../JS/perfil.js"></script>
 </body>
 
 </html>

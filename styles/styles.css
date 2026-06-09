@@ -17,7 +17,7 @@ body {
 .selected-nav {
     background-color: #6c63ff;
     color: #ffffff;
-    box-shadow: 2px 6px 14px 0px rgba(0, 0, 0, 0.66);
+    box-shadow: 0px 0px 0px 5px rgba(111, 99, 255, 0.15);
 }
 
 p {
@@ -30,9 +30,14 @@ p {
 }
 
 #nav-cerrar-sesion {
-    font-size: 1.2rem;
+    margin: 0.5vh 0 0.5vh 2vh;
+    text-decoration: none;
     color: #ffffff;
     background-color: #ce0000;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 2rem;
+    padding: 1vh;
     border-radius: 0.5rem;
 }
 
@@ -209,8 +214,9 @@ button {
         grid-column: 1/2;
         padding: 1vh;
     }
+
     .c-detalles {
-    height: fit-content;
+        height: fit-content;
     }
 
     .logo {
@@ -218,14 +224,26 @@ button {
     }
 
     header nav a {
-        font-size: 12px;
+        font-size: 1rem;
         padding: 0.1vh 0.5vh;
         margin: 0.5vh 0 0.5vh 1vh;
+    }
+
+    .selected-nav {
+        box-shadow: none;
     }
 
     p {
         font-size: 0.9rem;
         padding-left: 1vh;
+    }
+
+    #nav-cerrar-sesion {
+        font-size: 0.9rem;
+        padding-left: 1vh;
+        font-size: 12px;
+        padding: 0.1vh 0.5vh;
+        margin: 0.5vh 0 0.5vh 1vh;
     }
 
     h2 {
@@ -280,7 +298,7 @@ button {
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .card {
         flex-direction: column;
         text-align: center;

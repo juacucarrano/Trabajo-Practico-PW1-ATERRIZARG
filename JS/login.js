@@ -9,7 +9,7 @@ formulario.addEventListener(
 
         e.preventDefault();
 
-        const email = document.getElementById("email").value;
+        const email = document.getElementById("email").value.trim().toLowerCase();
         const contrasena = document.getElementById("contrasena").value;
 
         const usuarioCoincidencia = usuarios.find(u => u.correo === email);
@@ -17,7 +17,7 @@ formulario.addEventListener(
         if(usuarioCoincidencia && usuarioCoincidencia.contrasena === contrasena){
 
             localStorage.setItem("logueado", "true");
-            localStorage.setItem("usuarioLogeado", usuarioCoincidencia.correo);
+            localStorage.setItem("usuarioLogueado", usuarioCoincidencia.correo);
 
             alert("Bienvenido " + usuarioCoincidencia.nombre);
             window.location.href = "perfil.html";

@@ -3,15 +3,6 @@ button {
     padding: 1rem;
 }
 
-#nav-cerrar-sesion {
-    font-size: 1.2rem;
-    color: #ffffff;
-    background-color: #ce0000;
-    padding: 0.5vh 1vhrgb(255, 99, 99);
-    border-radius: 0.5rem;
-    margin: 1vh 0 1vh 3rem;
-}
-
 .c .main-perfil-vacio {
     width: 100%;
 }
@@ -56,6 +47,11 @@ button {
     grid-row: 1/2;
 }
 
+.form-documento {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
 .form-fec-nac {
     grid-column: 1/2;
     grid-row: 3/4;
@@ -63,7 +59,7 @@ button {
 
 .form-genero {
     grid-column: 2/3;
-    grid-row: 2/3;
+    grid-row: 3/4;
 }
 
 .form-nacionalidad {
@@ -73,7 +69,7 @@ button {
 
 .form-boton {
     grid-column: 2/3;
-    grid-row: 3/4;
+    grid-row: 4/5;
 }
 
 .contenedor-gral {
@@ -106,6 +102,11 @@ button {
     flex-direction: column;
 }
 
+.c-perfil .form-documento label {
+    display: flex;
+    flex-direction: column;
+}
+
 .c-perfil .form-genero {
     display: flex;
     flex-direction: column;
@@ -122,14 +123,14 @@ button {
 }
 
 .c-perfil input {
-    border: 1px gray solid;
+    border: 1px rgb(204, 204, 204) solid;
     border-radius: 6px;
     padding: 0.5rem;
     font-size: 1rem;
 }
 
 .c-perfil select {
-    border: 1px gray solid;
+    border: 1px solid rgb(204, 204, 204);
     border-radius: 6px;
     padding: 0.5rem;
     font-size: 1rem;

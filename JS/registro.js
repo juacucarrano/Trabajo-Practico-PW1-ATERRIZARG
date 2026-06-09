@@ -6,11 +6,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const nombre = document.getElementById("nombre").value.trim();
         const apellido = document.getElementById("apellido").value.trim();
+        const diaNac = document.getElementById("dia-nac").value;
+        const mesNac = document.getElementById("mes-nac").value;
+        const anioNac = document.getElementById("anio-nac").value;
+        const fechaNac = new Date(anioNac, mesNac - 1 , diaNac);
+        const genero = document.getElementById("genero").value;
+        const nacionalidad = document.getElementById("nacionalidad").value;
+        const documento = document.getElementById("documento").value.trim();
         const correo = document.getElementById("correo").value.trim().toLowerCase();
         const contrasena = document.getElementById("contrasena").value;
         const contrasenaConfirmar = document.getElementById("contrasena-confirmar").value;
 
-        if (!nombre || !apellido || !correo || !contrasena || !contrasenaConfirmar) {
+        if (!nombre || !apellido || !diaNac || !mesNac || !anioNac || !genero || !nacionalidad || !documento || !correo || !contrasena || !contrasenaConfirmar) {
             alert("Por favor complete todos los campos.");
             return;
         }
@@ -31,6 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const usuario = {
             nombre,
             apellido,
+            fechaNac,
+            genero,
+            nacionalidad,
+            documento,
             correo,
             contrasena,
         };
@@ -42,4 +53,3 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "login.html";
     });
 });
-

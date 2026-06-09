@@ -42,7 +42,23 @@
     width: 100%;
     margin-bottom: 1.7rem;
     border-radius: 6px;
-    border: 1px solid gray;
+    border: 1px solid rgb(204, 204, 204);
+}
+
+.main-iniciar-sesion select {
+    padding: .5rem;
+    width: 100%;
+    margin-bottom: 1.7rem;
+    border-radius: 6px;
+    border: 1px solid rgb(204, 204, 204);
+    font-size: 1rem;
+}
+
+.contenedor-fechas {
+    display: flex;
+    gap: 10px;
+    max-width: 80%;
+    min-width: 65%;
 }
 
 .main-iniciar-sesion button {
@@ -63,6 +79,9 @@
         grid-column: 1 / 2;
         width: 100%;
     }
+    .contenedor-fechas {
+    max-width: 100%;
+}
 }
 
 @media screen and (max-width: 480px) {
