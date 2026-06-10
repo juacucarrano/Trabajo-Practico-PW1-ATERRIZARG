@@ -30,14 +30,14 @@
 
         <main class="main-contacto">
             <h2>Contacto</h2>
-            <form>
+            <form action="https://formspree.io/f/mlgkwraj" method="POST" name="form-contacto" id="form-contacto">
                 <label for="nombre-apellido">
                     <p>Ingresá nombre y apellido</p>
-                    <input id="nombre-apellido" type="text" placeholder="Ingresá tu nombre" required>
+                    <input id="nombre-apellido" name="nombre" type="text" placeholder="Ingresá tu nombre" required>
                 </label>
                 <label for="email-contacto">
                     <p>Email de contacto</p>
-                    <input id="email-contacto" type="email" placeholder="Ingresá tu email" required>
+                    <input id="email-contacto" name="email" type="email" placeholder="Ingresá tu email" required>
                 </label>
                 <label for="asunto">
                     <p>Asunto</p>
@@ -56,7 +56,7 @@
                 </label>
                 <label for="mensaje">
                     <p>Tu mensaje (opcional)</p>
-                    <textarea id="mensaje"></textarea>
+                    <textarea id="mensaje" name="mensaje"></textarea>
                 </label>
                 <button type="submit">Enviar</button>
             </form>
@@ -77,6 +77,7 @@
     </div>
 
     <script src="../JS/navbar.js"></script>
+    <script src="../JS/contacto.js"></script>
 </body>
 
 </html>
