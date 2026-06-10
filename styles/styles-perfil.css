@@ -28,50 +28,6 @@ button {
     font-family: Arial, sans-serif;
 }
 
-.c-perfil #field-datos {
-    display: grid;
-    width: 100%;
-    height: auto;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    gap: 1rem 2rem;
-}
-
-.form-nombre {
-    grid-column: 1/2;
-    grid-row: 1/2;
-}
-
-.form-apellido {
-    grid-column: 2/3;
-    grid-row: 1/2;
-}
-
-.form-documento {
-    grid-column: 2/3;
-    grid-row: 2/3;
-}
-
-.form-fec-nac {
-    grid-column: 1/2;
-    grid-row: 3/4;
-}
-
-.form-genero {
-    grid-column: 2/3;
-    grid-row: 3/4;
-}
-
-.form-nacionalidad {
-    grid-column: 1/2;
-    grid-row: 2/3;
-}
-
-.form-boton {
-    grid-column: 2/3;
-    grid-row: 4/5;
-}
-
 .contenedor-gral {
     margin: 1.5rem 0;
 }
@@ -85,41 +41,6 @@ button {
     border: none;
     border-radius: 1rem;
     padding: 1rem;
-}
-
-.c-perfil .form-nombre label {
-    display: flex;
-    flex-direction: column;
-}
-
-.c-perfil .form-apellido label {
-    display: flex;
-    flex-direction: column;
-}
-
-.c-perfil .form-nacionalidad label {
-    display: flex;
-    flex-direction: column;
-}
-
-.c-perfil .form-documento label {
-    display: flex;
-    flex-direction: column;
-}
-
-.c-perfil .form-genero {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.c-perfil .form-genero div {
-    padding: 0.5rem 0;
-}
-
-.c-perfil .form-fec-nac label {
-    display: flex;
-    flex-direction: column;
 }
 
 .c-perfil input {
@@ -333,12 +254,38 @@ button {
     text-decoration: none;
 }
 
-@media screen and (max-width:600px) {
-    .c-perfil #field-datos {
-        display: flex;
-        flex-direction: column;
-    }
+.tarjeta-perfil-datos {
+    background-color: white;
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 15px;
+}
 
+.dato-bloque {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.alerta-bloqueo {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #664d03;
+}
+
+.oculto {
+    display: none !important;
+}
+
+@media screen and (max-width:600px) {
     .c-perfil .contenedor-labels-grid {
         display: flex;
         flex-direction: column;
@@ -348,10 +295,51 @@ button {
 }
 
 @media screen and (max-width: 480px) {
-    .btn-eliminar, .btn-cancelar {
+
+    .btn-eliminar,
+    .btn-cancelar {
         width: 100%;
     }
+
     .contenido-extra textarea {
         width: 100%;
     }
+}
+
+.c-perfil .correos-respaldo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.c-perfil .correo-respaldo-fila {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.c-perfil .correo-respaldo-fila span {
+    font-size: 0.9rem;
+    color: #555;
+    background-color: #f1f3f9;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+}
+
+.c-perfil .btn-borrar-respaldo {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    background-color: #c21010;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    line-height: 1;
+    transition: background-color 0.2s ease;
+}
+
+.c-perfil .btn-borrar-respaldo:hover {
+    background-color: #a81313;
 }

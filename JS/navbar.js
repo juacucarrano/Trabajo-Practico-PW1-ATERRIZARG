@@ -4,7 +4,7 @@ const botonPerfil = document.getElementById("nav-perfil");
 const botonLogin = document.getElementById("nav-iniciar-sesion")
 const botonCerrarSesion = document.getElementById("nav-cerrar-sesion");
 
-if(estaLogeado==="true"){
+if (estaLogeado === "true") {
     botonPerfil.classList.remove("oculto");
     botonCerrarSesion.classList.remove("oculto");
 
@@ -16,13 +16,11 @@ if(estaLogeado==="true"){
     botonCerrarSesion.classList.add("oculto");
 }
 
-function cerrarSesion(){
+function cerrarSesion() {
 
-    localStorage.removeItem(
-        "logueado"
-    );
+    localStorage.removeItem("logueado");
+    localStorage.removeItem("usuarioLogueado");
 
-    window.location.href =
-    "../index.html";
+    window.location.href = "../index.html";
 
 }

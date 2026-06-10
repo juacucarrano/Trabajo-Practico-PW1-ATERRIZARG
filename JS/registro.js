@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const diaNac = document.getElementById("dia-nac").value;
         const mesNac = document.getElementById("mes-nac").value;
         const anioNac = document.getElementById("anio-nac").value;
-        const fechaNac = new Date(anioNac, mesNac - 1 , diaNac);
+        const fechaNac = new Date(anioNac, mesNac - 1, diaNac);
         const genero = document.getElementById("genero").value;
         const nacionalidad = document.getElementById("nacionalidad").value;
         const documento = document.getElementById("documento").value.trim();
@@ -44,6 +44,14 @@ document.addEventListener("DOMContentLoaded", () => {
             documento,
             correo,
             contrasena,
+
+            contacto: {
+                prefPais: "",
+                codArea: "",
+                numTel: ""
+            },
+
+            mailsRespaldo: []
         };
 
         listaUsuarios.push(usuario);
