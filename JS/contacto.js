@@ -14,13 +14,21 @@ function enviarFormulario(e) {
 
     fetch(urlFormstree, {
         method: "POST",
-        body: datosParaEnviar
+        body: datosParaEnviar,
+        headers: {
+            'Accept': 'application/json'
+        }
     })
-        .then(res => res.text())
-        .then(data => {
-            console.log(data);
+        .then(res => {
+            if (res.ok) {
+                alert("Mensaje enviado con éxito");
+                form.reset();
+            } else {
+                alert("No se pudo enviar el mensaje");
+            }
         })
-        .catch(err => {
-            console.log(err);
-        })
+        .catch(error => {
+            console.error("Error en la petición:", error);
+            alert("Ocurrió un error de red al intentar enviar el mensaje.");
+        });
 }
