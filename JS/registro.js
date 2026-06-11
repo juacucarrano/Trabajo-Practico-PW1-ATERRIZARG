@@ -48,10 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
             contacto: {
                 prefPais: "",
                 codArea: "",
-                numTel: ""
+                nroTel: ""
             },
 
-            mailsRespaldo: []
+            mailsRespaldo: [],
+
+            listaTarjetas: []
         };
 
         listaUsuarios.push(usuario);

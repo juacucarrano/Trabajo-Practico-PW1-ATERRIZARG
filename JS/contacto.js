@@ -27,8 +27,8 @@ function enviarFormulario(e) {
                 alert("No se pudo enviar el mensaje");
             }
         })
-        .catch(error => {
-            console.error("Error en la petición:", error);
-            alert("Ocurrió un error de red al intentar enviar el mensaje.");
+        .catch(err => {
+            console.error("Error al enviar el formulario:", err);
+            alert("Ocurrió un error al intentar enviar el mensaje. Por favor, intente de nuevo.");
         });
 }

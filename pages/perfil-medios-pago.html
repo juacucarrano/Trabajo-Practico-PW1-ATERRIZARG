@@ -1,11 +1,16 @@
-<form action="./perfil-medios-pago.html" method="post">
+<form action="./perfil-medios-pago.html" id="form-medios-pago">
     <h2>Medios de pago</h2>
     <div class="contenedor-gral">
         <h3>Tarjetas de crédito</h3>
-        <fieldset id="field-tarjeta" name="telefono">
+        <fieldset id="field-tarjeta" name="tarjeta">
             <div class="form-tarjeta">
                 <p>Ingresá los datos de tus tarjetas de crédito.</p>
-                <details>
+                <div class="oculto tarjetas-guardadas" id="div-tarjetas-guardadas">
+                    <div class="oculto tarjeta-fila" id="tarjeta-fila-0"></div>
+                    <div class="oculto tarjeta-fila" id="tarjeta-fila-1"></div>
+                    <div class="oculto tarjeta-fila" id="tarjeta-fila-2"></div>
+                </div>
+                <details id="tarjetas-details">
                     <summary>Agregar tarjeta</summary>
                     <div class="contenedor-labels-grid">
                         <label class="label-tarjeta-1" for="nro-tarjeta">
@@ -87,7 +92,7 @@
         <fieldset id="field-facturacion" name="facturacion">
             <p>Completá tus datos de facturación.</p>
             <details>
-                <summary>Agregar datos de facturación</summary>
+                <summary>Agregar o edita tus datos de facturación</summary>
                 <div class="contenedor-labels-grid">
                     <label for="pais">
                         <span>País</span>
@@ -157,3 +162,4 @@
         </fieldset>
     </div>
 </form>
+<script src="perfil-medios-pago.js" type="module"></script>
