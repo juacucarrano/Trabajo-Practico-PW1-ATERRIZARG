@@ -106,5 +106,117 @@ if(checkDirecto){
 
         }
     );
+    const checkEscalas =
+document.getElementById("escalas");
+
+if(checkEscalas){
+
+    checkEscalas.addEventListener(
+        "change",
+        function(){
+
+            tarjetas.forEach(function(card){
+
+                if(checkEscalas.checked){
+
+                    if(
+                        card.dataset.tipo !==
+                        "escala"
+                    ){
+                        card.style.display =
+                        "none";
+                    }
+                    else{
+                        card.style.display =
+                        "flex";
+                    }
+
+                }
+                else{
+                    card.style.display =
+                    "flex";
+                }
+
+            });
+
+        }
+    );
+
+}
+const Flybondi =
+document.getElementById("Flybondi");
+
+if(Flybondi){
+
+    Flybondi.addEventListener(
+        "change",
+        function(){
+
+            tarjetas.forEach(function(card){
+
+                if(Flybondi.checked){
+
+                    if(
+                        card.dataset.aerolinea !==
+                        "Flybondi"
+                    ){
+                        card.style.display =
+                        "none";
+                    }
+                    else{
+                        card.style.display =
+                        "flex";
+                    }
+
+                }
+                else{
+                    card.style.display =
+                    "flex";
+                }
+
+            });
+
+        }
+    );
+
+}
+
+const AerolineasArgentinas =
+document.getElementById("AerolineasArgentinas");
+
+if(AerolineasArgentinas){
+
+    AerolineasArgentinas.addEventListener(
+        "change",
+        function(){
+
+            tarjetas.forEach(function(card){
+
+                if(AerolineasArgentinas.checked){
+
+                    if(
+                        card.dataset.aerolinea !==
+                        "AerolineasArgentinas"
+                    ){
+                        card.style.display =
+                        "none";
+                    }
+                    else{
+                        card.style.display =
+                        "flex";
+                    }
+
+                }
+                else{
+                    card.style.display =
+                    "flex";
+                }
+
+            });
+
+        }
+    );
+
+}
 
 }
