@@ -53,7 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             mailsRespaldo: [],
 
-            listaTarjetas: []
+            listaTarjetas: [],
+
+            datosFacturacion: []
         };
 
         listaUsuarios.push(usuario);
