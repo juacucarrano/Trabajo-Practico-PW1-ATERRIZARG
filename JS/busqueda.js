@@ -68,155 +68,58 @@ function reservar(vuelo){
     "confirmacion-reserva.html";
 }
 
-const checkDirecto =
-document.getElementById("directo");
+const checkDirecto = document.getElementById("directo");
+const checkEscalas = document.getElementById("escalas");
+const Flybondi = document.getElementById("Flybondi");
+const AerolineasArgentinas = document.getElementById("AerolineasArgentinas");
+const mano = document.getElementById("de-mano");
+const cabina = document.getElementById("cabina");
+const despachar = document.getElementById("despachar");
 
-if(checkDirecto){
-
-    const tarjetas =
-    document.querySelectorAll(".card");
-
-    checkDirecto.addEventListener(
-        "change",
-        function(){
-
-            tarjetas.forEach(function(card){
-
-                if(checkDirecto.checked){
-
-                    if(
-                        card.dataset.tipo !==
-                        "directo"
-                    ){
-                        card.style.display =
-                        "none";
-                    }
-                    else{
-                        card.style.display =
-                        "flex";
-                    }
-
-                }
-                else{
-                    card.style.display =
-                    "flex";
-                }
-
-            });
-
-        }
-    );
-    const checkEscalas =
-document.getElementById("escalas");
-
-if(checkEscalas){
-
-    checkEscalas.addEventListener(
-        "change",
-        function(){
-
-            tarjetas.forEach(function(card){
-
-                if(checkEscalas.checked){
-
-                    if(
-                        card.dataset.tipo !==
-                        "escala"
-                    ){
-                        card.style.display =
-                        "none";
-                    }
-                    else{
-                        card.style.display =
-                        "flex";
-                    }
-
-                }
-                else{
-                    card.style.display =
-                    "flex";
-                }
-
-            });
-
-        }
-    );
-
-}
-const Flybondi =
-document.getElementById("Flybondi");
-
-if(Flybondi){
-
-    Flybondi.addEventListener(
-        "change",
-        function(){
-
-            tarjetas.forEach(function(card){
-
-                if(Flybondi.checked){
-
-                    if(
-                        card.dataset.aerolinea !==
-                        "Flybondi"
-                    ){
-                        card.style.display =
-                        "none";
-                    }
-                    else{
-                        card.style.display =
-                        "flex";
-                    }
-
-                }
-                else{
-                    card.style.display =
-                    "flex";
-                }
-
-            });
-
-        }
-    );
-
+function obtenerOpcionesEquipaje(card){
+    return (card.dataset.equipaje || "")
 }
 
-const AerolineasArgentinas =
-document.getElementById("AerolineasArgentinas");
+function mostrarTarjetasPorFiltro(){
+    const tiposSeleccionados = [];
+    const aerolineasSeleccionadas = [];
+    const equipajeSeleccionado = [];
 
-if(AerolineasArgentinas){
+    if(checkDirecto?.checked) tiposSeleccionados.push("directo");
+    if(checkEscalas?.checked) tiposSeleccionados.push("escala");
+    if(Flybondi?.checked) aerolineasSeleccionadas.push("Flybondi");
+    if(AerolineasArgentinas?.checked) aerolineasSeleccionadas.push("AerolineasArgentinas");
+    if(mano?.checked) equipajeSeleccionado.push("de-mano");
+    if(cabina?.checked) equipajeSeleccionado.push("cabina");
+    if(despachar?.checked) equipajeSeleccionado.push("despachar");
 
-    AerolineasArgentinas.addEventListener(
-        "change",
-        function(){
+    tarjetas.forEach(function(card){
+        const tipo = (card.dataset.tipo || "").toLowerCase();
+        const aerolinea = card.dataset.aerolinea || "";
+        const equipajeOpciones = obtenerOpcionesEquipaje(card);
 
-            tarjetas.forEach(function(card){
+        let visible = true;
 
-                if(AerolineasArgentinas.checked){
-
-                    if(
-                        card.dataset.aerolinea !==
-                        "AerolineasArgentinas"
-                    ){
-                        card.style.display =
-                        "none";
-                    }
-                    else{
-                        card.style.display =
-                        "flex";
-                    }
-
-                }
-                else{
-                    card.style.display =
-                    "flex";
-                }
-
-            });
-
+        if(tiposSeleccionados.length > 0 && !tiposSeleccionados.includes(tipo)){
+            visible = false;
         }
-    );
 
+        if(aerolineasSeleccionadas.length > 0 && !aerolineasSeleccionadas.includes(aerolinea)){
+            visible = false;
+        }
+
+        if(equipajeSeleccionado.length > 0 && !equipajeSeleccionado.every(function(opcion){
+            return equipajeOpciones.includes(opcion);
+        })){
+            visible = false;
+        }
+
+        card.style.display = visible ? "flex" : "none";
+    });
 }
 
-}
+[checkDirecto, checkEscalas, Flybondi, AerolineasArgentinas, mano, cabina, despachar].forEach(function(input){
+    if(input){
+        input.addEventListener("change", mostrarTarjetasPorFiltro);
+    }
+});
