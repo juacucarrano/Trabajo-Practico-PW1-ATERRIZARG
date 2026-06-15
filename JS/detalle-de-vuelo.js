@@ -11,22 +11,19 @@ const avionData = [
 const container = document.querySelector(".asiento-container");
 function renderAvion() {
     avionData.forEach(item => {
-        // 1. Crear y agregar el número de fila
+
         const numDiv = document.createElement("div");
         numDiv.className = "numero";
         numDiv.textContent = item.fila;
         container.appendChild(numDiv);
 
-        // 2. Agregar asientos izquierda
         item.izq.forEach(asientoId => crearSvg(asientoId));
 
-        // 3. Agregar el pasillo
         const pasilloDiv = document.createElement("div");
         pasilloDiv.className = "pasillo";
         pasilloDiv.textContent = item.pasillo;
         container.appendChild(pasilloDiv);
 
-        // 4. Agregar asientos derecha
         item.der.forEach(asientoId => crearSvg(asientoId));
     });
 }
@@ -35,21 +32,15 @@ function crearSvg(asiento) {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("viewBox", "0 0 24 24");
     
-    // Asignamos la clase según el estado (disponible u ocupado)
     svg.classList.add(asiento.estado, "svg"); 
     
     svg.innerHTML = '<path d="M4,18v3h3v-3h10v3h3v-6H4V18z M19,10h3v3h-3V10z M2,10h3v3H2V10z M17,13H7V5c0-1.1,0.9-2,2-2h6c1.1,0,2,0.9,2,2V13z" />';
     
-    // Solo agregamos el evento de clic si está disponible
     if (asiento.estado === "disponible") {
         svg.addEventListener("click", () => {
-            // Lógica de selección
             svg.classList.toggle("seleccionado");
-            console.log("Seleccionaste: " + asiento.id);
-
         });
     } else {
-        // Opcional: Cambiar cursor para indicar que no es clickeable
         svg.style.cursor = "not-allowed";
     }
     
@@ -57,13 +48,10 @@ function crearSvg(asiento) {
 }
 renderAvion();
 
-// En cualquier página, primero verifica si hay alguien logueado
+
 const usuarioEmail = localStorage.getItem("usuarioLogueado");
 
 if (!usuarioEmail) {
     alert("Debes iniciar sesión para seleccionar asientos.");
     window.location.href = "login.html";
-} else {
-    // Si hay usuario, puedes cargar los asientos
-    console.log("Usuario actual: " + usuarioEmail);
 }
