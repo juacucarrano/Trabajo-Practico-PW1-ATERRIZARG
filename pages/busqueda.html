@@ -30,8 +30,11 @@
             <h3>Filtrar por</h3>
 
             <details>
-                <summary>Precio</summary>
-                <input type="range">
+                <summary>Precio máximo</summary>
+
+                <input type="range" id="precio" min="0" max="600" step="10" value="600">
+
+                <p id="precio-actual">$600 USD</p>
             </details>
 
             <details>
@@ -43,7 +46,8 @@
             <details>
                 <summary>Aerolínea</summary>
                 <label for="Flybondi"> <input type="checkbox" id="Flybondi"> Flybondi</label>
-                <label for="AerolineasArgentinas"> <input type="checkbox" id="AerolineasArgentinas"> Aerolineas argentinas</label>
+                <label for="AerolineasArgentinas"> <input type="checkbox" id="AerolineasArgentinas"> Aerolineas
+                    argentinas</label>
             </details>
             <details>
                 <summary>Equipaje</summary>
@@ -57,7 +61,8 @@
             <h2>Resultados de Búsqueda</h2>
             <div id="informacion-busqueda"></div>
 
-            <div class="card" data-destino="Madrid" data-tipo="directo" data-aerolinea="Flybondi" data-equipaje="de-mano cabina">
+            <div class="card" data-destino="Madrid" data-tipo="directo" data-aerolinea="Flybondi"
+                data-equipaje="de-mano cabina" data-precio="390">
                 <div>
                     <p>Buenos Aires → Madrid</p>
                 </div>
@@ -83,7 +88,8 @@
 
             </div>
 
-            <div class="card" data-destino="Lima" data-tipo="escala" data-aerolinea="AerolineasArgentinas" data-equipaje="de-mano cabina despachar">
+            <div class="card" data-destino="Lima" data-tipo="escala" data-aerolinea="AerolineasArgentinas"
+                data-equipaje="de-mano cabina despachar" data-precio="540">
                 <div>
                     <p>Buenos Aires → Lima</p>
                 </div>
@@ -109,7 +115,8 @@
                 </div>
             </div>
 
-            <div class="card" data-destino="Miami" data-tipo="directo" data-aerolinea="Flybondi" data-equipaje="de-mano">
+            <div class="card" data-destino="Miami" data-tipo="directo" data-aerolinea="Flybondi"
+                data-equipaje="de-mano" data-precio="200">
                 <div>
                     <p>Buenos Aires → Miami</p>
                 </div>
