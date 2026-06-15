@@ -27,6 +27,7 @@
     height: 70%;
     padding-top: 2em;
     justify-items: center;
+    gap: 0.5em;
 }
 
 .grid-detalles {
@@ -45,10 +46,16 @@ svg {
 
 .disponible {
     fill: #6c63ff;
+    cursor: pointer;
 }
 
 .ocupado {
     fill: #b6b6b7;
+    cursor: not-allowed;
+}
+
+.seleccionado {
+    fill: rgb(237, 71, 71);
 }
 
 .botones-container {
@@ -69,23 +76,19 @@ svg {
     border-right: 1px solid rgb(170, 169, 169);
 }
 
+
+
 a {
     text-decoration: none;
 }
 
 .disponible:hover {
-    fill: #b6b6b7;
+    fill: rgb(170, 97, 97);
     cursor: pointer;
     transition: 0.2s;
 }
 
-.disponible:focus {
-    fill: rgb(237, 71, 71);
-}
 
-.ocupado:focus {
-    outline: none;
-}
 
 .ida-vuelta {
     color: black;
