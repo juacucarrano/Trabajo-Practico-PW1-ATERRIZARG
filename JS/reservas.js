@@ -1,14 +1,7 @@
-const logueado =
-localStorage.getItem("logueado");
-
-if(logueado !== "true"){
-
-    alert("Debe iniciar sesión");
-
-    window.location.href =
-    "login.html";
-
-}
+const usuario =
+localStorage.getItem(
+    "usuarioLogueado"
+);
 
 const lista =
 document.getElementById(
@@ -18,26 +11,71 @@ document.getElementById(
 const reservas =
 JSON.parse(
     localStorage.getItem(
-        "reservas"
+        "reservas_" + usuario
+    )
+) || [];
+
+if(reservas.length === 0){
+
+    lista.innerHTML = `
+        <p>No tienes reservas realizadas.</p>
+    `;
+
+}
+else{
+
+    reservas.forEach(function(reserva){
+
+    const card =
+    document.createElement("div");
+
+    card.classList.add("card");
+
+    card.innerHTML = `
+        <p>${reserva.origen} → ${reserva.destino}</p>
+        <p>${reserva.horario}</p>
+    `;
+
+    card.addEventListener(
+        "click",
+        function(){
+
+            localStorage.setItem(
+                "reservaSeleccionada",
+                JSON.stringify(reserva)
+            );
+
+            location.reload();
+
+        }
+    );
+
+    lista.appendChild(card);
+
+    });
+
+}
+const reservaSeleccionada =
+JSON.parse(
+    localStorage.getItem(
+        "reservaSeleccionada"
     )
 );
 
-if(reservas){
+if(reservaSeleccionada){
 
-    for(
-        let i = 0;
-        i < reservas.length;
-        i++
-    ){
+    document.getElementById("ruta-ida").textContent =
+    reservaSeleccionada.origen +
+    " → " +
+    reservaSeleccionada.destino;
 
-        const p =
-        document.createElement("p");
+    document.getElementById("hora-salida").textContent =
+    reservaSeleccionada.horario;
 
-        p.textContent =
-        reservas[i];
+    document.getElementById("duracion").textContent =
+    reservaSeleccionada.duracion;
 
-        lista.appendChild(p);
-
-    }
+    document.getElementById("numero-vuelo").textContent =
+    reservaSeleccionada.numeroVuelo;
 
 }

@@ -44,28 +44,69 @@ document.getElementById(
 <p>Destino: ${destino}</p>
 `;
 
-function reservar(vuelo) {
+function reservar(
+    origen,
+    destino,
+    aerolinea,
+    precio,
+    horario,
+    duracion,
+    numeroVuelo
+){
 
     const logueado =
-        localStorage.getItem("logueado");
+    localStorage.getItem("logueado");
 
-    if (logueado !== "true") {
+    if(logueado !== "true"){
 
         alert("Debe iniciar sesión");
 
         window.location.href =
-            "login.html";
+        "login.html";
 
         return;
     }
 
+    const usuario =
+    localStorage.getItem(
+        "usuarioLogueado"
+    );
+
+    let reservas =
+    JSON.parse(
+        localStorage.getItem(
+            "reservas_" + usuario
+        )
+    ) || [];
+
+    const nuevaReserva = {
+
+    origen: origen,
+    destino: destino,
+    aerolinea: aerolinea,
+    precio: precio,
+    horario: horario,
+    duracion: duracion,
+    numeroVuelo: numeroVuelo
+
+};
+
+    reservas.push(
+        nuevaReserva
+    );
+
+    localStorage.setItem(
+        "reservas_" + usuario,
+        JSON.stringify(reservas)
+    );
+
     localStorage.setItem(
         "vueloSeleccionado",
-        vuelo
+        JSON.stringify(nuevaReserva)
     );
 
     window.location.href =
-        "./detalle-de-vuelo.html";
+    "./detalle-de-vuelo.html";
 }
 
 const checkDirecto = document.getElementById("directo");

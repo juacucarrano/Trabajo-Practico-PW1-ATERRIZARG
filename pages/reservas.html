@@ -32,19 +32,6 @@
 
             <div id="lista-reservas"></div>
 
-            <a href="./reservas.html">
-                <div class="card selected">
-                    <p>Buenos Aires → Madrid</p>
-                    <p>08:40</p>
-                </div>
-            </a>
-
-            <a href="./reserva-bsas-lima.html">
-                <div class="card">
-                    <p>Buenos Aires → Lima</p>
-                    <p>12:00</p>
-                </div>
-            </a>
 
         </main>
 
@@ -56,64 +43,36 @@
                 </summary>
 
                 <div class="flight-section">
-                    <h3>Vuelo de Ida</h3>
+                    <h3>Vuelo</h3>
                     <div class="flight-info">
                         <div class="info-row">
                             <span class="label">Ruta:</span>
-                            <span class="value">Buenos Aires (EZE) → Madrid (MAD)</span>
+                            <span class="value" id="ruta-ida"></span>
                         </div>
                         <div class="info-row">
                             <span class="label">Fecha:</span>
-                            <span class="value">15 de junio de 2026</span>
+                            <span class="value" id="fecha-ida"></span>
                         </div>
                         <div class="info-row">
                             <span class="label">Hora de Salida:</span>
-                            <span class="value">22:30</span>
+                            <span class="value" id="hora-salida"></span>
                         </div>
                         <div class="info-row">
                             <span class="label">Hora de Llegada:</span>
-                            <span class="value">10:45 (+1 día)</span>
+                            <span class="value" id="hora-llegada"></span>
                         </div>
                         <div class="info-row">
                             <span class="label">Duración:</span>
-                            <span class="value">12 horas 15 minutos</span>
+                            <span class="value" id="duracion"></span>
                         </div>
                         <div class="info-row">
                             <span class="label">Número de Vuelo:</span>
-                            <span class="value">AR-2185</span>
+                            <span class="value" id="numero-vuelo"></span>
                         </div>
                     </div>
                 </div>
 
-                <div class="flight-section">
-                    <h3>Vuelo de Vuelta</h3>
-                    <div class="flight-info">
-                        <div class="info-row">
-                            <span class="label">Ruta:</span>
-                            <span class="value">Madrid (MAD) → Buenos Aires (EZE)</span>
-                        </div>
-                        <div class="info-row">
-                            <span class="label">Fecha:</span>
-                            <span class="value">22 de junio de 2026</span>
-                        </div>
-                        <div class="info-row">
-                            <span class="label">Hora de Salida:</span>
-                            <span class="value">14:00</span>
-                        </div>
-                        <div class="info-row">
-                            <span class="label">Hora de Llegada:</span>
-                            <span class="value">06:30 (+1 día)</span>
-                        </div>
-                        <div class="info-row">
-                            <span class="label">Duración:</span>
-                            <span class="value">12 horas 30 minutos</span>
-                        </div>
-                        <div class="info-row">
-                            <span class="label">Número de Vuelo:</span>
-                            <span class="value">AR-2810</span>
-                        </div>
-                    </div>
-                </div>
+            
             </details>
 
             <details class="confirmacion-container payment-summary accordion-item">
@@ -173,7 +132,7 @@
 
     </div>
 </body>
-<script src="../JS/misReservas.js"></script>
+<script src="../JS/reservas.js"></script>
 <script src="../JS/navbar.js"></script>
 
 </html>
