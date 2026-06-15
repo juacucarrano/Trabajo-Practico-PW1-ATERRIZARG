@@ -2,11 +2,9 @@ const mailLogueado = localStorage.getItem("usuarioLogueado");
 const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 const usuarioActual = usuarios.find(u => u.correo === mailLogueado);
 
-autocompletarDatos();
-
 function autocompletarDatos() {
     if (!usuarioActual) return;
-
+    console.log(usuarioActual);
     const perfNombre = document.getElementById("perf-nombre");
     const perfDoc = document.getElementById("perf-doc");
     const perfFecha = document.getElementById("perf-fecha");
@@ -133,9 +131,13 @@ function inicializarFormulario() {
             const codArea = document.getElementById("cod-area").value.trim();
             const nroTel = document.getElementById("nro-tel").value.trim();
 
+            const regexPrefPais = /^\+[1-9]\d{0,3}$/;
+            if (!regexPrefPais.test(prefPais)) {
+                alert("Ingrese un prefijo con formáto válido: +000");
+                return;
+            }
 
-
-            if (prefPais && codArea && nroTel && prefijoValido(prefPais)) {
+            if (prefPais && codArea && nroTel) {
                 const contacto = {
                     prefPais,
                     codArea,

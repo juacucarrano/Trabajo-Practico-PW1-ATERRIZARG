@@ -3,7 +3,6 @@ import { autocompletarDatos } from "./perfil-datos.js";
 const mailLogueado = localStorage.getItem("usuarioLogueado");
 const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 const usuarioActual = usuarios.find(u => u.correo === mailLogueado);
-const formHTML = document.getElementById("form-medios-pago");
 
 
 // {
@@ -16,99 +15,174 @@ const formHTML = document.getElementById("form-medios-pago");
 // }
 
 function inicializarFormulario() {
-    const form = document.getElementById("form-medios-pago");
-    if (form) {
-        form.addEventListener("submit", function (e) {
+    if (!usuarioActual) return;
+
+    const formTarjeta = document.getElementById("form-medios-pago");
+    const formFacturacion = document.getElementById("form-facturacion");
+
+    autocompletarFacturacion();
+    renderizarTarjetasGuardadas();
+    verificarCantidadDeTarjetas();
+
+    if (formTarjeta) {
+        formTarjeta.addEventListener("submit", function (e) {
             e.preventDefault();
+            const nroTarjeta = document.getElementById("nro-tarjeta").value;
+            const regexTarjeta = /^\d{4}(?:[- ]?\d{4}){3}$/;
 
-            const formData = new FormData(form);
+            if (!regexTarjeta.test(nroTarjeta)) {
+                alert("El número de tarjeta debe tener 16 dígitos y no puede contener letras ni simbolos.");
+                return;
+            }
 
-            const tarjeta = {};
-            const nroTarjeta = formData.get("nro-tarjeta");
-            const titular = formData.get("titular-tarjeta");
-            const mesVto = formData.get("mes-vto");
-            const documento = formData.get("documento");
-            const anioVto = formData.get("anio-vto");
-            const codigoSeg = formData.get("cod-seguridad");
+            const titular = document.getElementById("titular-tarjeta").value;
+            const regexTitular = /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{0,50}$/;
+            if (!regexTitular.test(titular)) {
+                alert("El titular de la tarjeta debe tener máximo 50 letras y no puede contener números ni símbolos.");
+                return;
+            }
 
-            console.log(nroTarjeta, titular, mesVto, anioVto, codigoSeg);
-            if ((nroTarjeta || titular || mesVto || anioVto || codigoSeg) &&
-                !(nroTarjeta && titular && mesVto && anioVto && codigoSeg)) {
-                verificarNuevaTarjeta(nroTarjeta, titular, mesVto, anioVto, documento, codigoSeg, tarjeta);
+            const mesVto = document.getElementById("mes-vto").value;
+            const anioVto = document.getElementById("anio-vto").value;
+
+            const regexDocumento = /^[A-Za-z0-9.\s-]{5,15}$/;
+            const documento = document.getElementById("documento").value;
+            if (!regexDocumento.test(documento)) {
+                alert("El documento debe tener entre 5 y 15 caracteres y no puede contener símbolos.");
+                return;
+            }
+
+            const regexCVV = /^\d{3,4}$/;
+            const codigoSeg = document.getElementById("cvv").value;
+            if (!regexCVV.test(codigoSeg)) {
+                alert("El código de seguridad debe tener entre 3 y 4 dígitos.");
+                return;
+            }
+
+            const fechaActual = new Date();
+            const mesActual = fechaActual.getMonth() + 1;
+            const anioActual = fechaActual.getFullYear();
+
+            let anioParseado = parseInt(anioVto);
+            if (anioParseado < 100) {
+                anioParseado += 2000;
+            }
+
+            if (anioParseado < anioActual || (anioParseado === anioActual && parseInt(mesVto) < mesActual)) {
+                alert("La tarjeta esta vencida");
+                return;
+            }
+
+            const tarjeta = {
+                nroTarjeta: nroTarjeta,
+                titular: titular,
+                mesVto: mesVto,
+                anioVto: anioVto,
+                documento: documento,
+                codigoSeg: codigoSeg
+            };
+
+            if (tarjeta.nroTarjeta && tarjeta.titular && tarjeta.mesVto && tarjeta.anioVto && tarjeta.documento && tarjeta.codigoSeg) {
+                guardarNuevaTarjeta(tarjeta);
+            } else {
+                alert("No se ingresaron todos los datos");
             }
         })
     }
+
+    if (formFacturacion) {
+        const inputPais = document.getElementById("pais");
+        if (inputPais) {
+            const details = inputPais.closest("details");
+            if (details) {
+                const boton = details.querySelector("button");
+                if (boton) {
+                    boton.addEventListener("click", function (e) {
+                        if (this.textContent === "Editar") {
+                            e.preventDefault();
+                            cambiarEstadoFacturacion(false);
+                        }
+                    });
+                }
+            }
+        }
+
+        formFacturacion.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const pais = document.getElementById("pais").value;
+            const domicilio = document.getElementById("domicilio").value;
+            const localidad = document.getElementById("localidad").value;
+            const provincia = document.getElementById("provincia").value;
+            const codPostal = document.getElementById("cod-postal").value;
+
+            if (!pais || !domicilio || !localidad || !provincia || !codPostal) {
+                alert("No se ingresaron todos los datos");
+                return;
+            }
+
+            if (!pais) {
+                alert("Debe ingresar un pais");
+                return;
+            }
+
+            const regexDomicilio = /^[A-Za-z0-9ÁÉÍÓÚáéíóúÑñ\s.,#°-]+$/;
+
+            if (!regexDomicilio.test(domicilio)) {
+                alert("El domicilio no es válido. Solo se permiten letras, números, espacios y caracteres básicos (., # - °).");
+                return;
+            }
+
+            const regexLocalidad = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
+
+            if (!regexLocalidad.test(localidad)) {
+                alert("La localidad debe contener solo letras y espacios.");
+                return;
+            }
+
+            const regexProvincia = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
+            if (!regexProvincia.test(provincia)) {
+                alert("La provincia debe contener solo letras y espacios.");
+                return;
+            }
+
+            const regexCodPostal = /^(?:\d{4}|[A-Za-z]\d{4}[A-Za-z]{3})$/;
+            if (!regexCodPostal.test(codPostal)) {
+                alert("El código postal debe ser de 4 dígitos (ej: 1425) o formato CPA (ej: C1024CWN)");
+                return;
+            }
+
+            const datosFacturacion = {
+                pais: pais,
+                domicilio: domicilio,
+                localidad: localidad,
+                provincia: provincia,
+                codPostal: codPostal,
+            };
+            usuarioActual.datosFacturacion = datosFacturacion;
+            localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+            alert("Datos de facturación guardados");
+            cambiarEstadoFacturacion(true);
+            console.log(datosFacturacion);
+        });
+    }
 }
 
-function verificarNuevaTarjeta(nroTarjeta, titular, mesVto, anioVto, documento, codigoSeg, tarjeta) {
-
-    if (usuarioActual.listaTarjetas) {
-
-        if (usuarioActual.listaTarjetas.length >= 3) {
-            alert("No es posible guardar más de 3 tarjetas.");
-            return;
-        }
-
-        if ((nroTarjeta || titular || mesVto || anioVto || documento || codigoSeg) && !(nroTarjeta && titular && mesVto && anioVto && documento && codigoSeg)) {
-            alert("No se ingresaron todos los datos");
-            return;
-        }
+function guardarNuevaTarjeta(tarjeta) {
+    if (!usuarioActual.listaTarjetas) {
+        usuarioActual.listaTarjetas = [];
     }
-    if (nroTarjeta.length !== 16) {
-        alert("El numero de tarjeta debe tener 16 digitos");
-        return;
-    } else if (isNaN(nroTarjeta)) {
-        alert("El numero de tarjeta debe tener solo numeros");
+
+    if (usuarioActual.listaTarjetas.length >= 3) {
+        alert("No es posible guardar más de 3 tarjetas.");
         return;
     }
-    tarjeta.nroTarjeta = nroTarjeta;
-
-
-    // NOMBRE DEL TITULAR DE TARJETA
-    const regexNoLetras = /[^a-zA-ZáéíóúÁÉÍÓÚñÑ'\s]/;
-    if (regexNoLetras.test(titular)) {
-        alert("El titular de la tarjeta debe tener solo letras");
-        return;
-    }
-    tarjeta.titular = titular;
-
-    // MES Y AÑO VTO
-    const fechaActual = new Date();
-    const mesActual = fechaActual.getMonth() + 1;
-    const anioActual = fechaActual.getFullYear();
-
-    if (parseInt(anioVto) < anioActual || (parseInt(anioVto) === anioActual && parseInt(mesVto) < mesActual)) {
-        alert("La fecha de vencimiento no puede ser anterior a la fecha actual");
-        return;
-    }
-    tarjeta.mesVto = mesVto;
-    tarjeta.anioVto = anioVto;
-
-    // DNI 
-    if (isNaN(documento)) {
-        alert("El documento debe tener solo numeros");
-        return;
-    }
-    if (documento.length < 7 || documento.length > 8) {
-        alert("El documento debe tener entre 7 y 8 digitos");
-        return;
-    }
-    tarjeta.documento = documento;
-
-    // CODIGO SEGURIDAD
-    if (isNaN(codigoSeg)) {
-        alert("El codigo de seguridad debe tener solo numeros");
-        return;
-    }
-    if (codigoSeg.length !== 3 && codigoSeg.length !== 4) {
-        alert("El codigo de seguridad debe tener entre 3 y 4 digitos");
-        return;
-    }
-    tarjeta.codigoSeg = codigoSeg;
 
     usuarioActual.listaTarjetas.push(tarjeta);
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
-    formHTML.reset();
+    const formTarjeta = document.getElementById("form-medios-pago");
+    if (formTarjeta) formTarjeta.reset();
     alert("Tarjeta guardada");
 
     renderizarTarjetasGuardadas();
@@ -126,6 +200,11 @@ function renderizarTarjetasGuardadas() {
     }
     for (let i = 0; i < 3; i++) {
         let div = document.getElementById("tarjeta-fila-" + i);
+
+        if (!usuarioActual.listaTarjetas[i]) {
+            continue;
+        }
+
         let tarjetaGuardada = usuarioActual.listaTarjetas[i];
         let ultimosCuatroNumeros = tarjetaGuardada.nroTarjeta.slice(-4);
 
@@ -164,6 +243,52 @@ function verificarCantidadDeTarjetas() {
         }
     }
 }
+window.borrarTarjeta = function (indice) {
+    usuarioActual.listaTarjetas.splice(indice, 1);
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    renderizarTarjetasGuardadas();
+    verificarCantidadDeTarjetas();
+}
 
+function cambiarEstadoFacturacion(deshabilitar) {
+    const pais = document.getElementById("pais");
+    const domicilio = document.getElementById("domicilio");
+    const localidad = document.getElementById("localidad");
+    const provincia = document.getElementById("provincia");
+    const codPostal = document.getElementById("cod-postal");
+    if (pais) pais.disabled = deshabilitar;
+    if (domicilio) domicilio.disabled = deshabilitar;
+    if (localidad) localidad.disabled = deshabilitar;
+    if (provincia) provincia.disabled = deshabilitar;
+    if (codPostal) codPostal.disabled = deshabilitar;
+
+    if (pais) {
+        const details = pais.closest("details");
+        if (details) {
+            const boton = details.querySelector("button");
+            if (boton) {
+                boton.textContent = deshabilitar ? "Editar" : "Agregar";
+            }
+        }
+    }
+}
+
+function autocompletarFacturacion() {
+    if (usuarioActual && usuarioActual.datosFacturacion && usuarioActual.datosFacturacion.pais) {
+        const pais = document.getElementById("pais");
+        const domicilio = document.getElementById("domicilio");
+        const localidad = document.getElementById("localidad");
+        const provincia = document.getElementById("provincia");
+        const codPostal = document.getElementById("cod-postal");
+
+        if (pais) pais.value = usuarioActual.datosFacturacion.pais || "";
+        if (domicilio) domicilio.value = usuarioActual.datosFacturacion.domicilio || "";
+        if (localidad) localidad.value = usuarioActual.datosFacturacion.localidad || "";
+        if (provincia) provincia.value = usuarioActual.datosFacturacion.provincia || "";
+        if (codPostal) codPostal.value = usuarioActual.datosFacturacion.codPostal || "";
+
+        cambiarEstadoFacturacion(true);
+    }
+}
 
 export { inicializarFormulario };

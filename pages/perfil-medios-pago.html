@@ -17,8 +17,7 @@
                             <span>Número</span>
                             <div class="form-nro-tarjeta">
                                 <input id="nro-tarjeta" type="tel" name="nro-tarjeta" class="input-tarj nro"
-                                    placeholder="Ingrese los 16 dígitos de la tarjeta" maxlength="16"
-                                    pattern="[0-9]{16}" required>
+                                    placeholder="Ingrese los 16 dígitos de la tarjeta">
                             </div>
                         </label>
                         <label class="label-tarjeta-2" for="titular-tarjeta">
@@ -65,14 +64,14 @@
                             <span>Documento</span>
                             <div>
                                 <input id="documento" type="tel" name="documento" class="input-tarj titular"
-                                    placeholder="Número" maxlength="18" pattern="[0-9]{5,18}" required>
+                                    placeholder="Número">
                             </div>
                         </label>
                         <label class="label-tarjeta-5" for="cvv">
                             <span>Código de seguridad (CVV)</span>
                             <div>
-                                <input id="cvv" type="tel" name="cod-seguridad" class="input-tarj cvv" placeholder="***"
-                                    maxlength="4" pattern="[0-9]{3,4}" required>
+                                <input id="cvv" type="tel" name="cod-seguridad" class="input-tarj cvv"
+                                    placeholder="***">
                             </div>
                         </label>
                         <div class="form-boton">
@@ -86,7 +85,7 @@
     </div>
 </form>
 
-<form action="./perfil-medios-pago.html" method="post">
+<form action="./perfil-medios-pago.html" id="form-facturacion">
     <div class="contenedor-gral">
         <h3>Facturación</h3>
         <fieldset id="field-facturacion" name="facturacion">
@@ -97,61 +96,58 @@
                     <label for="pais">
                         <span>País</span>
                         <div class="form-domicilio">
-                            <input id="pais" type="text" name="pais" class="input-domicilio pais"
-                                placeholder="Ej: Argentina" required>
+                            <select id="pais" name="pais">
+                                <option value="" disabled selected hidden>Seleccione un país</option>
+                                <option value="alemania">Alemania</option>
+                                <option value="argentina">Argentina</option>
+                                <option value="australia">Australia</option>
+                                <option value="bolivia">Bolivia</option>
+                                <option value="brasil">Brasil</option>
+                                <option value="canada">Canadá</option>
+                                <option value="chile">Chile</option>
+                                <option value="colombia">Colombia</option>
+                                <option value="cuba">Cuba</option>
+                                <option value="espana">España</option>
+                                <option value="estados-unidos">Estados Unidos</option>
+                                <option value="francia">Francia</option>
+                                <option value="italia">Italia</option>
+                                <option value="japon">Japón</option>
+                                <option value="mexico">México</option>
+                                <option value="paraguay">Paraguay</option>
+                                <option value="peru">Perú</option>
+                                <option value="reino-unido">Reino Unido</option>
+                                <option value="uruguay">Uruguay</option>
+                                <option value="venezuela">Venezuela</option>
+                                <option value="otro">Otro</option>
+                            </select>
                         </div>
                     </label>
                     <label for="domicilio">
                         <span>Domicilio</span>
                         <div class="form-domicilio">
                             <input id="domicilio" type="text" name="domicilio" class="input-domicilio domicilio"
-                                placeholder="Calle y número (Ej: Av. Mayo 123)" required>
+                                placeholder="Calle y número (Ej: Av. Mayo 123)">
                         </div>
                     </label>
                     <label for="localidad">
                         <span>Localidad</span>
                         <div class="form-localidad">
                             <input id="localidad" type="text" name="localidad" class="input-domicilio localidad"
-                                placeholder="Ej: San Justo" required>
+                                placeholder="Ej: San Justo">
                         </div>
                     </label>
                     <label for="provincia">
                         <span>Provincia</span>
                         <div class="form-provincia">
-                            <select name="provincia" class="input-domicilio provincia" id="provincia" required>
-                                <option value="" disabled selected hidden>Seleccioná tu provincia</option>
-                                <option value="caba">Ciudad Autónoma de Buenos Aires</option>
-                                <option value="buenos-aires">Buenos Aires</option>
-                                <option value="catamarca">Catamarca</option>
-                                <option value="chaco">Chaco</option>
-                                <option value="chubut">Chubut</option>
-                                <option value="cordoba">Córdoba</option>
-                                <option value="corrientes">Corrientes</option>
-                                <option value="entre-rios">Entre Ríos</option>
-                                <option value="formosa">Formosa</option>
-                                <option value="jujuy">Jujuy</option>
-                                <option value="la-pampa">La Pampa</option>
-                                <option value="la-rioja">La Rioja</option>
-                                <option value="mendoza">Mendoza</option>
-                                <option value="misiones">Misiones</option>
-                                <option value="neuquen">Neuquén</option>
-                                <option value="rio-negro">Río Negro</option>
-                                <option value="salta">Salta</option>
-                                <option value="san-juan">San Juan</option>
-                                <option value="san-luis">San Luis</option>
-                                <option value="santa-cruz">Santa Cruz</option>
-                                <option value="santa-fe">Santa Fe</option>
-                                <option value="santiago-del-estero">Santiago del Estero</option>
-                                <option value="tierra-del-fuego">Tierra del Fuego</option>
-                                <option value="tucuman">Tucumán</option>
-                            </select>
+                            <input id="provincia" type="text" name="provincia" class="input-domicilio provincia"
+                                placeholder="Ej: Buenos Aires">
                         </div>
                     </label>
                     <label for="cod-postal">
                         <span>Código postal</span>
                         <div class="form-cod-postal">
                             <input id="cod-postal" type="text" name="cod-postal" class="input-domicilio cod-postal"
-                                placeholder="Ej: 1704 o B0704" maxlength="10" pattern="[A-Za-z0-9\s-]{3,10}" required>
+                                placeholder="Ej: 1704 o B0704" maxlength="10">
                         </div>
                     </label>
                     <div class="form-boton">
