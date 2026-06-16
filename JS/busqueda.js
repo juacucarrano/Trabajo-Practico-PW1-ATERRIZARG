@@ -51,7 +51,10 @@ function reservar(
     precio,
     horario,
     duracion,
-    numeroVuelo
+    numeroVuelo,
+    fechaSalida,
+    horarioSalida,
+    horarioLlegada
 ){
 
     const logueado =
@@ -87,7 +90,10 @@ function reservar(
     precio: precio,
     horario: horario,
     duracion: duracion,
-    numeroVuelo: numeroVuelo
+    numeroVuelo: numeroVuelo,
+    fechaSalida: fechaSalida,
+    horarioSalida: horarioSalida,
+    horarioLlegada: horarioLlegada
 
 };
 

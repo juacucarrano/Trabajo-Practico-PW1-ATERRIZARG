@@ -30,19 +30,12 @@
         <aside class="b">
             <h3>Detalle de vuelo</h3>
             <div class="detalle-card">
-                <p class="ida-vuelta">Ida: Buenos Aires (EZE) → Lima (LIM)
-                </p>
-                <p class="ida-vuelta">15/06-07:00 -----■-----■ 15/06-10:00</p>
-                <p class="ida-vuelta">Vuelo directo</p>
-            </div>
-            <div class="detalle-card">
-                <p class="ida-vuelta">Vuelta: Lima (LIM) → Buenos Aires (EZE)
-                </p>
-                <p class="ida-vuelta">22/06-23:30 -----■-----■ 23/06-06:10</p>
-                <p class="ida-vuelta">Vuelo directo</p>
+                <p class="ida-vuelta" id="ruta-vuelo"></p>
+                <p class="ida-vuelta" id="horario-vuelo"></p>
+                <p class="ida-vuelta" id="tipo-vuelo"></p>
             </div>
             <div class="total">
-                <p class="ida-vuelta">Total: $540 USD</p>
+                <p class="ida-vuelta" id="precio-vuelo"></p>
             </div>
         </aside>
 
@@ -71,9 +64,9 @@
                 <button><a href="../pages/busqueda.html">
                         <p>volver</p>
                     </a></button>
-                <button class="continuar"><a href="../pages/Checkout.html">
-                        <p>continuar</p>
-                    </a></button>
+                <button class="continuar" onclick="location.href='../pages/Checkout.html'">
+                    Continuar
+                </button>
             </div>
         </main>
 

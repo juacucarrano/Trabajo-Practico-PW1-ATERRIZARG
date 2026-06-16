@@ -1,81 +1,86 @@
 const usuario =
-localStorage.getItem(
-    "usuarioLogueado"
-);
+    localStorage.getItem(
+        "usuarioLogueado"
+    );
 
 const lista =
-document.getElementById(
-    "lista-reservas"
-);
+    document.getElementById(
+        "lista-reservas"
+    );
 
 const reservas =
-JSON.parse(
-    localStorage.getItem(
-        "reservas_" + usuario
-    )
-) || [];
+    JSON.parse(
+        localStorage.getItem(
+            "reservas_" + usuario
+        )
+    ) || [];
 
-if(reservas.length === 0){
+if (reservas.length === 0) {
 
     lista.innerHTML = `
         <p>No tienes reservas realizadas.</p>
     `;
 
 }
-else{
+else {
 
-    reservas.forEach(function(reserva){
+    reservas.forEach(function (reserva) {
 
-    const card =
-    document.createElement("div");
+        const card =
+            document.createElement("div");
 
-    card.classList.add("card");
+        card.classList.add("card");
 
-    card.innerHTML = `
+        card.innerHTML = `
         <p>${reserva.origen} → ${reserva.destino}</p>
         <p>${reserva.horario}</p>
     `;
 
-    card.addEventListener(
-        "click",
-        function(){
+        card.addEventListener(
+            "click",
+            function () {
 
-            localStorage.setItem(
-                "reservaSeleccionada",
-                JSON.stringify(reserva)
-            );
+                localStorage.setItem(
+                    "reservaSeleccionada",
+                    JSON.stringify(reserva)
+                );
 
-            location.reload();
+                location.reload();
 
-        }
-    );
+            }
+        );
 
-    lista.appendChild(card);
+        lista.appendChild(card);
 
     });
 
 }
 const reservaSeleccionada =
-JSON.parse(
-    localStorage.getItem(
-        "reservaSeleccionada"
-    )
-);
+    JSON.parse(
+        localStorage.getItem(
+            "reservaSeleccionada"
+        )
+    );
 
-if(reservaSeleccionada){
+if (reservaSeleccionada) {
 
     document.getElementById("ruta-ida").textContent =
-    reservaSeleccionada.origen +
-    " → " +
-    reservaSeleccionada.destino;
+        reservaSeleccionada.origen +
+        " → " +
+        reservaSeleccionada.destino;
+
+    document.getElementById("fecha-ida").textContent =
+        reservaSeleccionada.fechaSalida;
 
     document.getElementById("hora-salida").textContent =
-    reservaSeleccionada.horario;
+        reservaSeleccionada.horarioSalida;
+
+    document.getElementById("hora-llegada").textContent =
+        reservaSeleccionada.horarioLlegada;
 
     document.getElementById("duracion").textContent =
-    reservaSeleccionada.duracion;
+        reservaSeleccionada.duracion;
 
     document.getElementById("numero-vuelo").textContent =
-    reservaSeleccionada.numeroVuelo;
-
+        reservaSeleccionada.numeroVuelo;
 }

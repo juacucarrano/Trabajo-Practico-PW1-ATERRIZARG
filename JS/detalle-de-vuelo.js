@@ -1,57 +1,164 @@
 const avionData = [
-    { fila: 1, izq: [{id: "1A", estado: "disponible"}, {id: "1B", estado: "disponible"}, {id: "1C", estado: "disponible"}, {id: "1D", estado: "disponible"}], pasillo: "P", der: [{id: "1E", estado: "disponible"}, {id: "1F", estado: "disponible"}, {id: "1G", estado: "disponible"}, {id: "1H", estado: "disponible"}] },
-    { fila: 2, izq: [{id: "2A", estado: "disponible"}, {id: "2B", estado: "disponible"}, {id: "2C", estado: "disponible"}, {id: "2D", estado: "disponible"}], pasillo: "A", der: [{id: "2E", estado: "disponible"}, {id: "2F", estado: "disponible"}, {id: "2G", estado: "disponible"}, {id: "2H", estado: "disponible"}] },
-    { fila: 3, izq: [{id: "3A", estado: "disponible"}, {id: "3B", estado: "disponible"}, {id: "3C", estado: "disponible"}, {id: "3D", estado: "disponible"}], pasillo: "S", der: [{id: "3E", estado: "disponible"}, {id: "3F", estado: "disponible"}, {id: "3G", estado: "disponible"}, {id: "3H", estado: "disponible"}] },
-    { fila: 4, izq: [{id: "4A", estado: "disponible"}, {id: "4B", estado: "disponible"}, {id: "4C", estado: "disponible"}, {id: "4D", estado: "disponible"}], pasillo: "I", der: [{id: "4E", estado: "disponible"}, {id: "4F", estado: "disponible"}, {id: "4G", estado: "disponible"}, {id: "4H", estado: "disponible"}] },
-    { fila: 5, izq: [{id: "5A", estado: "disponible"}, {id: "5B", estado: "disponible"}, {id: "5C", estado: "disponible"}, {id: "5D", estado: "disponible"}], pasillo: "L", der: [{id: "5E",estado: "disponible"}, {id: "5F", estado: "disponible"}, {id: "5G", estado: "disponible"}, {id: "5H", estado: "disponible"}] },
-    { fila: 6, izq: [{id: "6A", estado: "disponible"}, {id: "6B", estado: "disponible"}, {id: "6C", estado: "disponible"}, {id: "6D", estado: "disponible"}], pasillo: "L", der: [{id: "6E", estado: "disponible"}, {id: "6F", estado: "disponible"}, {id: "6G", estado: "disponible"}, {id: "6H", estado: "disponible"}] },
-    { fila: 7, izq: [{id: "7A", estado: "disponible"}, {id: "7B", estado: "disponible"}, {id: "7C", estado: "disponible"}, {id: "7D", estado: "disponible"}], pasillo: "O", der: [{id: "7E", estado: "disponible"}, {id: "7F", estado: "disponible"}, {id: "7G", estado: "disponible"}, {id: "7H", estado: "disponible"}] }
+    { fila: 1, izq: ["1A", "1B", "1C", "1D"], pasillo: "P", der: ["1E", "1F", "1G", "1H"] },
+    { fila: 2, izq: ["2A", "2B", "2C", "2D"], pasillo: "A", der: ["2E", "2F", "2G", "2H"] },
+    { fila: 3, izq: ["3A", "3B", "3C", "3D"], pasillo: "S", der: ["3E", "3F", "3G", "3H"] },
+    { fila: 4, izq: ["4A", "4B", "4C", "4D"], pasillo: "I", der: ["4E", "4F", "4G", "4H"] },
+    { fila: 5, izq: ["5A", "5B", "5C", "5D"], pasillo: "L", der: ["5E", "5F", "5G", "5H"] },
+    { fila: 6, izq: ["6A", "6B", "6C", "6D"], pasillo: "L", der: ["6E", "6F", "6G", "6H"] },
+    { fila: 7, izq: ["7A", "7B", "7C", "7D"], pasillo: "O", der: ["7E", "7F", "7G", "7H"] }
 ];
 
-const container = document.querySelector(".asiento-container");
+const container =
+    document.querySelector(
+        ".asiento-container"
+    );
+
+const vuelo =
+    JSON.parse(
+        localStorage.getItem(
+            "vueloSeleccionado"
+        )
+    );
+
+const claveAsientos =
+    "asientos_" +
+    vuelo.numeroVuelo;
+
+const asientosOcupados =
+    JSON.parse(
+        localStorage.getItem(
+            claveAsientos
+        )
+    ) || [];
+
 function renderAvion() {
-    avionData.forEach(item => {
 
-        const numDiv = document.createElement("div");
-        numDiv.className = "numero";
-        numDiv.textContent = item.fila;
-        container.appendChild(numDiv);
+    avionData.forEach(function (fila) {
 
-        item.izq.forEach(asientoId => crearSvg(asientoId));
+        const numero =
+            document.createElement("div");
 
-        const pasilloDiv = document.createElement("div");
-        pasilloDiv.className = "pasillo";
-        pasilloDiv.textContent = item.pasillo;
-        container.appendChild(pasilloDiv);
+        numero.className = "numero";
+        numero.textContent = fila.fila;
 
-        item.der.forEach(asientoId => crearSvg(asientoId));
+        container.appendChild(numero);
+
+        fila.izq.forEach(crearAsiento);
+
+        const pasillo =
+            document.createElement("div");
+
+        pasillo.className = "pasillo";
+        pasillo.textContent = fila.pasillo;
+
+        container.appendChild(pasillo);
+
+        fila.der.forEach(crearAsiento);
+
     });
+
 }
 
-function crearSvg(asiento) {
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("viewBox", "0 0 24 24");
-    
-    svg.classList.add(asiento.estado, "svg"); 
-    
-    svg.innerHTML = '<path d="M4,18v3h3v-3h10v3h3v-6H4V18z M19,10h3v3h-3V10z M2,10h3v3H2V10z M17,13H7V5c0-1.1,0.9-2,2-2h6c1.1,0,2,0.9,2,2V13z" />';
-    
-    if (asiento.estado === "disponible") {
-        svg.addEventListener("click", () => {
-            svg.classList.toggle("seleccionado");
-        });
-    } else {
-        svg.style.cursor = "not-allowed";
+function crearAsiento(id) {
+
+    const svg =
+        document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "svg"
+        );
+
+    svg.setAttribute(
+        "viewBox",
+        "0 0 24 24"
+    );
+
+    svg.innerHTML =
+        `<path d="M4,18v3h3v-3h10v3h3v-6H4V18z M19,10h3v3h-3V10z M2,10h3v3H2V10z M17,13H7V5c0-1.1,0.9-2,2-2h6c1.1,0,2,0.9,2,2V13z"/>`;
+
+    svg.classList.add("svg");
+
+    if (asientosOcupados.includes(id)) {
+
+        svg.classList.add("ocupado");
+
     }
-    
+    else {
+
+        svg.classList.add("disponible");
+
+        svg.addEventListener(
+            "click",
+            function () {
+
+                const confirmar =
+                    confirm(
+                        "¿Reservar asiento " +
+                        id +
+                        "?"
+                    );
+
+                if (!confirmar) {
+                    return;
+                }
+
+                asientosOcupados.push(id);
+
+                localStorage.setItem(
+                    claveAsientos,
+                    JSON.stringify(
+                        asientosOcupados
+                    )
+                );
+
+                localStorage.setItem(
+                    "asientoSeleccionado",
+                    id
+                );
+
+                svg.classList.remove(
+                    "disponible"
+                );
+
+                svg.classList.add(
+                    "ocupado"
+                );
+
+            }
+        );
+
+    }
+
     container.appendChild(svg);
+
 }
+
 renderAvion();
 
+console.log(vuelo);
 
-const usuarioEmail = localStorage.getItem("usuarioLogueado");
+if(vuelo){
 
-if (!usuarioEmail) {
-    alert("Debes iniciar sesión para seleccionar asientos.");
-    window.location.href = "login.html";
+    document.getElementById(
+        "ruta-vuelo"
+    ).textContent =
+    vuelo.origen +
+    " → " +
+    vuelo.destino;
+
+    document.getElementById(
+        "horario-vuelo"
+    ).textContent =
+    vuelo.horario;
+
+    document.getElementById(
+        "tipo-vuelo"
+    ).textContent =
+    vuelo.aerolinea;
+
+    document.getElementById(
+        "precio-vuelo"
+    ).textContent =
+    "Total: $" +
+    vuelo.precio;
+
 }
