@@ -59,6 +59,27 @@ function renderAvion() {
 
 }
 
+function continuarCheckout(){
+
+    const asiento =
+    localStorage.getItem(
+        "asientoSeleccionado"
+    );
+
+    if(!asiento){
+
+        alert(
+            "Debe seleccionar un asiento"
+        );
+
+        return;
+    }
+
+    window.location.href =
+    "./checkout.html";
+
+}
+
 function crearAsiento(id) {
 
     const svg =

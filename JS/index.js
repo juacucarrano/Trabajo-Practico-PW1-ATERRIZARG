@@ -1,19 +1,64 @@
-const formulario = document.querySelector(".buscador");
+const destinos = [
+    "Madrid",
+    "Lima",
+    "Miami"
+];
 
-formulario.addEventListener("submit", function (e) {
-  const origen = document.getElementById("origen").value;
-  const destino = document.getElementById("destino").value;
-  const fechaIda = document.getElementById("fecha-ida").value;
-  const fechaVuelta = document.getElementById("fecha-vuelta").value;
-  const pasajeros = document.getElementById("pasajeros").value;
-  const clase = document.getElementById("clase").value;
+const selectDestino =
+document.getElementById("destino");
 
-  if (origen === "" || destino === "") {
-    alert("Complete origen y destino");
-    e.preventDefault();
-    return;
-  }
+destinos.forEach(function(destino){
 
-  const busqueda = { origen, destino, fechaIda, fechaVuelta, pasajeros, clase };
-  localStorage.setItem("busqueda", JSON.stringify(busqueda));
+    const option =
+    document.createElement("option");
+
+    option.value = destino;
+    option.textContent = destino;
+
+    selectDestino.appendChild(option);
+
 });
+
+const formulario =
+document.querySelector(".buscador");
+
+formulario.addEventListener(
+    "submit",
+    function(e){
+
+        const destino =
+        document.getElementById("destino").value;
+
+        const pasajeros =
+        document.getElementById("pasajeros").value;
+
+        const clase =
+        document.getElementById("clase").value;
+
+        if(destino === ""){
+
+            alert("Seleccione un destino");
+
+            e.preventDefault();
+
+            return;
+        }
+
+        const busqueda = {
+
+            origen: "Buenos Aires",
+            destino: destino,
+            pasajeros: pasajeros,
+            clase: clase
+
+        };
+
+        localStorage.setItem(
+            "busqueda",
+            JSON.stringify(busqueda)
+        );
+
+        console.log(busqueda);
+
+    }
+);

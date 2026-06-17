@@ -29,27 +29,27 @@
 
         <section class="section-container passenger-data">
             <h3 id="resumen-vuelo"></h3>
-            <form>
+            <form id="checkout-form">
                 <div class="form-group">
                     <label for="nombre-completo">Nombre Completo *</label>
-                    <input id="nombre-completo" type="text" placeholder="Ej: Juan García López"
-                        value="Juan García López">
+                    <input id="nombre-completo" type="text" required>
                 </div>
 
                 <div class="form-group">
                     <label for="documento">Documento *</label>
-                    <input id="documento" type="text" placeholder="Ej: 12345678">
+                    <input id="documento" type="text" required>
                 </div>
 
                 <div class="form-group">
                     <label for="correo-electronico">Correo Electrónico *</label>
-                    <input id="correo-electronico" type="email" placeholder="Ej: correo@email.com"
-                        value="JuanGarcia@gmail.com">
+                    <input id="correo-electronico" type="email" placeholder="Ej: correo@email.com" required>
+                    value="JuanGarcia@gmail.com">
                 </div>
 
                 <div class="form-group">
                     <label for="telefono">Teléfono</label>
-                    <input id="telefono" type="tel" placeholder="Ej: +54 9 11 1234-5678" value="+54 9 1134344545">
+                    <input id="telefono" type="tel" placeholder="Ej: +54 9 11 1234-5678" value="+54 9 1134344545"
+                        required>
                     <span class="optional-text">(Opcional)</span>
                 </div>
             </form>
@@ -128,17 +128,22 @@
 
             <div class="summary-item">
                 <span class="summary-item-label">Ruta:</span>
-                <span class="summary-item-value">Buenos Aires → Madrid</span>
+                <span class="summary-item-value" id="ruta-vuelo"></span>
             </div>
 
             <div class="summary-item">
-                <span class="summary-item-label">Ida:</span>
-                <span class="summary-item-value">15/06/2026</span>
+                <span class="summary-item-label">Fecha:</span>
+                <span class="summary-item-value" id="fecha-vuelo"></span>
             </div>
 
             <div class="summary-item">
-                <span class="summary-item-label">Vuelta:</span>
-                <span class="summary-item-value">22/06/2026</span>
+                <span class="summary-item-label">Horario:</span>
+                <span class="summary-item-value" id="horario-vuelo"></span>
+            </div>
+
+            <div class="summary-item">
+                <span class="summary-item-label">Vuelo:</span>
+                <span class="summary-item-value" id="numero-vuelo"></span>
             </div>
 
             <div class="summary-item">
@@ -148,7 +153,7 @@
 
             <div class="summary-item">
                 <span class="summary-item-label">Subtotal:</span>
-                <span class="summary-item-value">$550 USD</span>
+                <span class="summary-item-value" id="precio-vuelo"></span>
             </div>
 
             <div class="discount-section">
@@ -159,13 +164,14 @@
 
             <div class="total-section">
                 <div class="label">Total a Pagar</div>
-                <div class="amount">$550 USD</div>
+                <div class="amount" id="total-vuelo"></div>
             </div>
         </section>
-
         <div class="submit-btn">
             <button type="button" class="cancel" onclick="window.history.back()">Cancelar</button>
-            <button type="button" onclick="window.location.href='confirmacion-reserva.html'">Confirmar y Pagar</button>
+            <button type="submit" form="checkout-form">
+                Confirmar y Pagar
+            </button>
         </div>
 
 
@@ -182,7 +188,7 @@
         </footer>
 
     </div>
-    
+    <script src="../JS/checkout.js"></script>
     <script src="../JS/navbar.js"></script>
 </body>
 

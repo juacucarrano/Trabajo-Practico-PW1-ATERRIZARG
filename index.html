@@ -31,23 +31,18 @@
 
             <form class="buscador" action="./pages/busqueda.html" method="get">
 
-                <label for="origen">Origen</label>
-                <input id="origen" type="text" placeholder="Ej: Buenos Aires">
-
                 <label for="destino">Destino</label>
-                <input id="destino" type="text" placeholder="Ej: Madrid">
 
-                <label for="fecha-ida">Fecha de ida</label>
-                <input id="fecha-ida" type="date">
-
-                <label for="fecha-vuelta">Fecha de vuelta</label>
-                <input id="fecha-vuelta" type="date">
+                <select id="destino" required>
+                    <option value="">Seleccione un destino</option>
+                </select>
 
                 <label for="pasajeros">Número de pasajeros</label>
-                <input id="pasajeros" type="number" min="1" value="1">
+                <input id="pasajeros" type="number" min="1" value="1" required>
 
                 <label for="clase">Clase</label>
-                <select id="clase">
+                <select id="clase" required>
+                    <option value="">Seleccione una clase</option>
                     <option>Turista</option>
                     <option>Ejecutiva</option>
                     <option>Primera clase</option>
