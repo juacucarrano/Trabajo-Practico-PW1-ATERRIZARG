@@ -1,10 +1,10 @@
-const estaLogeado = localStorage.getItem("logueado");
+const usuarioLogueado = localStorage.getItem("usuarioLogueado");
 
 const botonPerfil = document.getElementById("nav-perfil");
 const botonLogin = document.getElementById("nav-iniciar-sesion")
 const botonCerrarSesion = document.getElementById("nav-cerrar-sesion");
 
-if (estaLogeado === "true") {
+if (usuarioLogueado) {
     botonPerfil.classList.remove("oculto");
     botonCerrarSesion.classList.remove("oculto");
 
@@ -18,7 +18,6 @@ if (estaLogeado === "true") {
 
 function cerrarSesion() {
 
-    localStorage.removeItem("logueado");
     localStorage.removeItem("usuarioLogueado");
 
     window.location.href = "../index.html";

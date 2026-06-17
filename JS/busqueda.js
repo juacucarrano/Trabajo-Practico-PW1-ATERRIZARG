@@ -62,10 +62,10 @@ function reservar(
     horarioLlegada
 ) {
 
-    const logueado =
-        localStorage.getItem("logueado");
+    const usuarioLogueado =
+        localStorage.getItem("usuarioLogueado");
 
-    if (logueado !== "true") {
+    if (!usuarioLogueado) {
 
         alert("Debe iniciar sesión");
 
