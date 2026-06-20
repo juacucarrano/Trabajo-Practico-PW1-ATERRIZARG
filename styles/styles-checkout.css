@@ -144,6 +144,10 @@
     color: #6c63ff;
 }
 
+.oculto {
+    display: none !important;
+}
+
 .flight-summary {
     grid-column: 3;
     grid-row: 2;

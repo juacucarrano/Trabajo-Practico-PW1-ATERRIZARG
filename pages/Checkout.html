@@ -32,24 +32,23 @@
             <form id="checkout-form">
                 <div class="form-group">
                     <label for="nombre-completo">Nombre Completo *</label>
-                    <input id="nombre-completo" type="text" required>
+                    <input id="nombre-completo" type="text" >
                 </div>
 
                 <div class="form-group">
                     <label for="documento">Documento *</label>
-                    <input id="documento" type="text" required>
+                    <input id="documento" type="text" >
                 </div>
 
                 <div class="form-group">
                     <label for="correo-electronico">Correo Electrónico *</label>
-                    <input id="correo-electronico" type="email" placeholder="Ej: correo@email.com" required>
-                    value="JuanGarcia@gmail.com">
+                    <input id="correo-electronico" type="email" placeholder="Ej: correo@email.com" >
                 </div>
 
                 <div class="form-group">
                     <label for="telefono">Teléfono</label>
-                    <input id="telefono" type="tel" placeholder="Ej: +54 9 11 1234-5678" value="+54 9 1134344545"
-                        required>
+                    <input id="telefono" type="tel" placeholder="Ej: +54 9 11 1234-5678"
+                        >
                     <span class="optional-text">(Opcional)</span>
                 </div>
             </form>
@@ -65,11 +64,6 @@
                 </div>
 
                 <div class="payment-option">
-                    <input type="radio" id="paypal" name="payment" value="paypal">
-                    <label for="paypal">🅿️ PayPal</label>
-                </div>
-
-                <div class="payment-option">
                     <input type="radio" id="transfer" name="payment" value="transfer">
                     <label for="transfer">🏦 Transferencia Bancaria</label>
                 </div>
@@ -79,13 +73,13 @@
                 <div class="form-group">
                     <label for="numero-tarjeta">Número de Tarjeta *</label>
                     <input id="numero-tarjeta" type="text" placeholder="1234 5678 9012 3456" maxlength="16"
-                        pattern="[0-9]{16}" required>
+                        pattern="[0-9]{16}" >
                 </div>
                 <div class="card-details-grid">
                     <div class="form-group">
                         <label for="vencimiento">Vencimiento *</label>
                         <div>
-                            <select name="mes-vto" id="mes-vto" required>
+                            <select name="mes-vto" id="mes-vto" >
                                 <option value="" disabled selected hidden>Mes</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -100,7 +94,7 @@
                                 <option value="11">11</option>
                                 <option value="12">12</option>
                             </select>
-                            <select name="anio-vto" id="anio-vto" required>
+                            <select name="anio-vto" id="anio-vto" >
                                 <option value="" disabled selected hidden>Año</option>
                                 <option value="2026">2026</option>
                                 <option value="2027">2027</option>
@@ -117,8 +111,29 @@
                     </div>
                     <div class="form-group">
                         <label for="cvv">CVV *</label>
-                        <input id="cvv" type="text" placeholder="123" maxlength="16" pattern="[0-9]{3}" required>
+                        <input id="cvv" type="text" placeholder="123" maxlength="16" pattern="[0-9]{3}" >
                     </div>
+                </div>
+            </div>
+
+            <div id="paypalDetails" class="card-details oculto">
+                <div class="form-group" style="text-align: center;">
+                    <p style="color: #333; font-weight: 500; margin-bottom: 2vh;">Iniciá sesión en PayPal desde la
+                        ventana emergente para pagar de forma segura:</p>
+                    <div id="paypal-button-container"></div>
+                </div>
+            </div>
+
+            <div id="transferDetails" class="card-details oculto">
+                <div
+                    style="background-color: #f0efff; padding: 1.5vh; border-radius: 0.5rem; font-size: 0.95rem; line-height: 1.6;">
+                    <p style="margin: 0; color: #6c63ff; font-weight: bold; margin-bottom: 1vh;">Datos para la
+                        transferencia:</p>
+                    <div><b>Banco:</b> Banco AterrizArG</div>
+                    <div><b>CBU:</b> 0000003100012345678901</div>
+                    <div><b>Alias:</b> aterrizarg.vuelos.pesos</div>
+                    <p style="margin: 0; margin-top: 1vh; font-size: 0.85rem; color: #666;">* Por favor, envía el
+                        comprobante a contacto@aterrizarg.com indicando tu número de documento.</p>
                 </div>
             </div>
         </section>
@@ -188,6 +203,7 @@
         </footer>
 
     </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
     <script src="../JS/checkout.js"></script>
     <script src="../JS/navbar.js"></script>
 </body>
