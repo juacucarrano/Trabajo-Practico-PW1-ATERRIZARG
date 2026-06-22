@@ -19,15 +19,50 @@ if (!vuelo) {
     window.location.href = "../index.html";
 }
 
-// =========================
-// MOSTRAR RESUMEN DEL VUELO
-// =========================
+// mostramos el resumen del vuelo y los pasajeros
+const busqueda = JSON.parse(localStorage.getItem("busqueda")) || {};
+const cantidadPasajeros = busqueda.pasajeros || 1;
+let descuentoAplicado = 0;
+const totalBase = vuelo.precio * cantidadPasajeros;
+
 document.getElementById("ruta-vuelo").textContent = `${vuelo.origen} → ${vuelo.destino}`;
 document.getElementById("fecha-vuelo").textContent = vuelo.fechaSalida;
 document.getElementById("horario-vuelo").textContent = `${vuelo.horarioSalida} - ${vuelo.horarioLlegada}`;
 document.getElementById("numero-vuelo").textContent = vuelo.numeroVuelo;
 document.getElementById("precio-vuelo").textContent = `$${vuelo.precio}`;
-document.getElementById("total-vuelo").textContent = `$${vuelo.precio}`;
+
+// actualizamos la cantidad de pasajeros en el html
+const summaryItems = document.querySelectorAll(".summary-item");
+summaryItems.forEach(item => {
+    if (item.querySelector(".summary-item-label")?.textContent.trim() === "Pasajeros:") {
+        item.querySelector(".summary-item-value").textContent = cantidadPasajeros;
+    }
+});
+
+function actualizarTotal() {
+    const finalTotal = totalBase - descuentoAplicado;
+    document.getElementById("total-vuelo").textContent = `$${finalTotal}`;
+}
+actualizarTotal();
+
+// aca aplicamos el codigo de descuento
+const inputDescuento = document.getElementById("codigo-descuento");
+const btnDescuento = document.querySelector(".apply-discount-btn");
+
+if (btnDescuento && inputDescuento) {
+    btnDescuento.addEventListener("click", function () {
+        const codigo = inputDescuento.value.trim().toUpperCase();
+        if (codigo === "DESCUENTO10" || codigo === "ATERRIZARG") {
+            descuentoAplicado = Math.round(totalBase * 0.1); // 10% de descuento
+            alert(`¡Código aplicado correctamente! Descuento de $${descuentoAplicado} USD.`);
+        } else {
+            alert("Código de descuento inválido");
+            descuentoAplicado = 0;
+            inputDescuento.value = "";
+        }
+        actualizarTotal();
+    });
+}
 
 // =================================
 // CAMBIO DINÁMICO DE MÉTODOS DE PAGO
@@ -42,7 +77,7 @@ const opcionesPago = document.querySelectorAll('input[name="payment"]');
 
 // Escuchamos cuando el usuario cambia de opción de pago
 opcionesPago.forEach(radio => {
-    radio.addEventListener("change", function(e) {
+    radio.addEventListener("change", function (e) {
         const metodoSeleccionado = e.target.value; // "creditCard", "paypal" o "transfer"
 
         // Ocultamos todos los contenedores primero
@@ -79,7 +114,7 @@ const formulario = document.getElementById("checkout-form");
 // =========================
 // GUARDAR RESERVA
 // =========================
-formulario.addEventListener("submit", function(e) {
+formulario.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const nombre = document.getElementById("nombre-completo").value.trim();
@@ -109,17 +144,17 @@ formulario.addEventListener("submit", function(e) {
     if (documento.length < 6 || documento.length > 9) {
         alert("Ingrese un documento válido")
         return;
-
     }
-
-
 
     // 2. Validar datos de tarjeta SOLO si está seleccionada la opción "creditCard"
     const metodoPagoActual = document.querySelector('input[name="payment"]:checked').value;
+    let tarjetaMascara = "No aplica";
     if (metodoPagoActual === "creditCard") {
         if (numeroTarjeta === "" || mes === "" || anio === "" || cvv === "") {
             alert("Complete los datos de su tarjeta de crédito");
             return;
+        } else {
+            tarjetaMascara = "**** **** **** " + numeroTarjeta.slice(-4);
         }
     }
 
@@ -138,13 +173,16 @@ formulario.addEventListener("submit", function(e) {
         destino: vuelo.destino,
         aerolinea: vuelo.aerolinea,
         precio: vuelo.precio,
-        horario: vuelo.horario,
+        cantidadDePasajeros: cantidadPasajeros,
+        descuento: descuentoAplicado,
         duracion: vuelo.duracion,
         numeroVuelo: vuelo.numeroVuelo,
         fechaSalida: vuelo.fechaSalida,
         horarioSalida: vuelo.horarioSalida,
         horarioLlegada: vuelo.horarioLlegada,
-        metodoPago: metodoPagoActual, // Guardamos también qué método usó
+        metodoPago: metodoPagoActual,
+        tarjetaInfo: tarjetaMascara,
+        fechaDePago: new Date(),
         pasajero: {
             nombre: nombre,
             documento: documento,

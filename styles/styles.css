@@ -199,68 +199,68 @@ button {
     display: none;
 }
 
-.vuelo-card{
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:30px;
+.vuelo-card {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
 }
 
-.vuelo-logo{
-    min-width:180px;
-    text-align:center;
+.vuelo-logo {
+    min-width: 180px;
+    text-align: center;
 }
 
-.logo-aerolinea{
-    width:120px;
-    height:auto;
+.logo-aerolinea {
+    width: 120px;
+    height: auto;
 }
 
-.vuelo-logo h4{
-    color:#6c63ff;
-    margin-top:10px;
+.vuelo-logo h4 {
+    color: #6c63ff;
+    margin-top: 10px;
 }
 
-.vuelo-info{
-    flex:1;
+.vuelo-info {
+    flex: 1;
 }
 
-.ruta{
-    font-size:1.5rem;
-    font-weight:bold;
-    color:#6c63ff;
-    margin-bottom:15px;
+.ruta {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #6c63ff;
+    margin-bottom: 15px;
 }
 
-.datos-vuelo{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
+.datos-vuelo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.datos-vuelo span{
-    background:#6c63ff;
-    color:white;
-    padding:8px 12px;
-    border-radius:10px;
-    font-size:1rem;
+.datos-vuelo span {
+    background: #6c63ff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 1rem;
 }
 
-.vuelo-precio{
-    min-width:180px;
-    text-align:center;
+.vuelo-precio {
+    min-width: 180px;
+    text-align: center;
 }
 
-.vuelo-precio h2{
-    color:#6c63ff;
-    font-size:2rem;
-    margin-bottom:10px;
+.vuelo-precio h2 {
+    color: #6c63ff;
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
-.vuelo-precio button{
-    width:100%;
-    font-weight:bold;
+.vuelo-precio button {
+    width: 100%;
+    font-weight: bold;
 }
 
 @media (max-width: 700px) {
@@ -303,9 +303,8 @@ button {
     }
 
     #nav-cerrar-sesion {
-        font-size: 0.9rem;
+        font-size: 1rem;
         padding-left: 1vh;
-        font-size: 12px;
         padding: 0.1vh 0.5vh;
         margin: 0.5vh 0 0.5vh 1vh;
     }
