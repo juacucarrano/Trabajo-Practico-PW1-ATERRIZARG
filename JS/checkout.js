@@ -100,6 +100,7 @@ opcionesPago.forEach(radio => {
             document.getElementById("mes-vto").required = true;
             document.getElementById("anio-vto").required = true;
             document.getElementById("cvv").required = true;
+            inicializarTarjetasGuardadasCheckout();
         } else if (metodoSeleccionado === "paypal") {
             detallesPaypal.classList.remove("oculto");
         } else if (metodoSeleccionado === "transfer") {
@@ -213,3 +214,68 @@ formulario.addEventListener("submit", function (e) {
     alert("Pago realizado correctamente");
     window.location.href = "./reservas.html";
 });
+
+// =================================
+// TARJETAS GUARDADAS EN CHECKOUT
+// =================================
+function inicializarTarjetasGuardadasCheckout() {
+    const mailLogueado = localStorage.getItem("usuarioLogueado");
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    const usuarioActual = usuarios.find(u => u.correo === mailLogueado);
+    const tarjetasGuardadas = usuarioActual?.listaTarjetas || [];
+
+    const contenedor = document.getElementById("contenedor-tarjetas-guardadas-checkout");
+    const lista = document.getElementById("lista-tarjetas-checkout");
+
+    if (!contenedor || !lista) return;
+
+    if (tarjetasGuardadas.length === 0) {
+        contenedor.classList.add("oculto");
+        return;
+    }
+
+    contenedor.classList.remove("oculto");
+    lista.innerHTML = "";
+
+    tarjetasGuardadas.forEach((tarjeta, index) => {
+        const item = document.createElement("div");
+        item.className = "tarjeta-item-checkout";
+
+        const ultimosCuatro = tarjeta.nroTarjeta.slice(-4);
+
+        item.innerHTML = `
+            <div class="tarjeta-info-checkout">
+                <span class="icono-tarjeta-item">💳</span>
+                <div>
+                    <div class="nro">**** **** **** ${ultimosCuatro}</div>
+                    <div class="titular">${tarjeta.titular}</div>
+                </div>
+            </div>
+            <button type="button" class="btn-seleccionar-tarjeta">Seleccionar</button>
+        `;
+
+        item.querySelector(".btn-seleccionar-tarjeta").addEventListener("click", () => {
+            cargarTarjetaFormulario(tarjeta);
+        });
+
+        lista.appendChild(item);
+    });
+
+    // Cargar automáticamente la primera tarjeta
+    cargarTarjetaFormulario(tarjetasGuardadas[0]);
+}
+
+function cargarTarjetaFormulario(tarjeta) {
+    const inputNumero = document.getElementById("numero-tarjeta");
+    const selectMes = document.getElementById("mes-vto");
+    const selectAnio = document.getElementById("anio-vto");
+    const inputCvv = document.getElementById("cvv");
+
+    if (inputNumero) inputNumero.value = tarjeta.nroTarjeta || "";
+    if (selectMes) selectMes.value = tarjeta.mesVto || "";
+    if (selectAnio) selectAnio.value = tarjeta.anioVto || "";
+    if (inputCvv) inputCvv.value = tarjeta.codigoSeg || "";
+}
+
+// Inicializar al cargar la página
+inicializarTarjetasGuardadasCheckout();
