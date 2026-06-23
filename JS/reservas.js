@@ -4,7 +4,7 @@ const lista = document.getElementById("lista-reservas");
 
 const reservas = JSON.parse(localStorage.getItem("reservas_" + usuario)) || [];
 
-// aca mostramos todos los datos de la reserva que toco el usuario
+// Mostramos todos los datos de la reserva que toco el usuario
 function mostrarDetallesDeReserva(reserva) {
     if (!reserva) return;
 
@@ -16,7 +16,7 @@ function mostrarDetallesDeReserva(reserva) {
     document.getElementById("duracion").textContent = reserva.duracion;
     document.getElementById("numero-vuelo").textContent = reserva.numeroVuelo;
 
-    // aca calculamos el total del pago
+    // calculamos el total del pago
     const cantPasajeros = reserva.cantidadDePasajeros || 1;
     const precioUnitario = reserva.precio || 0;
     const descuento = reserva.descuento || 0;
@@ -63,7 +63,7 @@ if (reservas.length === 0) {
             <p>${reserva.horarioSalida} - ${reserva.horarioLlegada}</p>
         `;
 
-        // si hace click, cambiamos los datos al toque sin recargar la pagina
+        // si hace click, cambiamos los datos sin recargar la pagina
         card.addEventListener("click", function () {
             // desmarcamos las otras tarjetas y pintamos la que clickeo
             lista.querySelectorAll(".card").forEach(c => c.classList.remove("selected"));

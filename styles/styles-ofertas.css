@@ -70,7 +70,14 @@ div.card-oferta {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.473);
     margin: 0;
     color: #6c63ff;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+
+.card-oferta:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
 
 .links-cards {
     text-decoration: none;

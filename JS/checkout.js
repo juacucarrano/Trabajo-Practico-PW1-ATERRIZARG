@@ -19,7 +19,9 @@ if (!vuelo) {
     window.location.href = "../index.html";
 }
 
-// mostramos el resumen del vuelo y los pasajeros
+// =========================
+// MOSTRAR RESUMEN DEL VUELO Y PASAJEROS
+// =========================
 const busqueda = JSON.parse(localStorage.getItem("busqueda")) || {};
 const cantidadPasajeros = busqueda.pasajeros || 1;
 let descuentoAplicado = 0;
@@ -31,7 +33,7 @@ document.getElementById("horario-vuelo").textContent = `${vuelo.horarioSalida} -
 document.getElementById("numero-vuelo").textContent = vuelo.numeroVuelo;
 document.getElementById("precio-vuelo").textContent = `$${vuelo.precio}`;
 
-// actualizamos la cantidad de pasajeros en el html
+// Actualizar cantidad de pasajeros en el HTML
 const summaryItems = document.querySelectorAll(".summary-item");
 summaryItems.forEach(item => {
     if (item.querySelector(".summary-item-label")?.textContent.trim() === "Pasajeros:") {
@@ -45,7 +47,7 @@ function actualizarTotal() {
 }
 actualizarTotal();
 
-// aca aplicamos el codigo de descuento
+// Aplicar Código de Descuento
 const inputDescuento = document.getElementById("codigo-descuento");
 const btnDescuento = document.querySelector(".apply-discount-btn");
 
@@ -196,6 +198,9 @@ formulario.addEventListener("submit", function (e) {
     // =========================
     reservas.push(reservaCompleta);
     localStorage.setItem("reservas_" + usuario, JSON.stringify(reservas));
+
+    // Dejar la nueva reserva como seleccionada
+    localStorage.setItem("reservaSeleccionada", JSON.stringify(reservaCompleta));
 
     // =========================
     // LIMPIAR TEMPORAL

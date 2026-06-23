@@ -1,5 +1,5 @@
 const vuelos = [
-
+    // --- MADRID ---
     {
         id: 1,
         origen: "Buenos Aires",
@@ -14,7 +14,6 @@ const vuelos = [
         horarioLlegada: "20:00",
         duracion: "12h"
     },
-
     {
         id: 2,
         origen: "Buenos Aires",
@@ -29,9 +28,24 @@ const vuelos = [
         horarioLlegada: "23:00",
         duracion: "13h"
     },
-
     {
         id: 3,
+        origen: "Buenos Aires",
+        destino: "Madrid",
+        aerolinea: "AerolineasArgentinas",
+        precio: 620,
+        tipo: "directo",
+        equipaje: ["de-mano", "cabina", "despachar"],
+        numeroVuelo: "AR102",
+        fechaSalida: "17/06/2026",
+        horarioSalida: "13:00",
+        horarioLlegada: "01:00",
+        duracion: "12h"
+    },
+
+    // --- LIMA ---
+    {
+        id: 4,
         origen: "Buenos Aires",
         destino: "Lima",
         aerolinea: "AerolineasArgentinas",
@@ -43,6 +57,169 @@ const vuelos = [
         horarioSalida: "09:00",
         horarioLlegada: "13:00",
         duracion: "4h"
-    }
+    },
+    {
+        id: 5,
+        origen: "Buenos Aires",
+        destino: "Lima",
+        aerolinea: "Flybondi",
+        precio: 190,
+        tipo: "escala",
+        equipaje: ["de-mano"],
+        numeroVuelo: "FB302",
+        fechaSalida: "18/06/2026",
+        horarioSalida: "11:00",
+        horarioLlegada: "16:30",
+        duracion: "5h 30m"
+    },
 
+    // --- MIAMI ---
+    {
+        id: 6,
+        origen: "Buenos Aires",
+        destino: "Miami",
+        aerolinea: "AerolineasArgentinas",
+        precio: 450,
+        tipo: "directo",
+        equipaje: ["de-mano", "cabina"],
+        numeroVuelo: "AR401",
+        fechaSalida: "16/06/2026",
+        horarioSalida: "23:00",
+        horarioLlegada: "07:00",
+        duracion: "9h"
+    },
+    {
+        id: 7,
+        origen: "Buenos Aires",
+        destino: "Miami",
+        aerolinea: "Flybondi",
+        precio: 390,
+        tipo: "escala",
+        equipaje: ["de-mano"],
+        numeroVuelo: "FB402",
+        fechaSalida: "19/06/2026",
+        horarioSalida: "06:00",
+        horarioLlegada: "16:00",
+        duracion: "11h"
+    },
+
+    // --- RÍO DE JANEIRO ---
+    {
+        id: 8,
+        origen: "Buenos Aires",
+        destino: "Río de Janeiro",
+        aerolinea: "Flybondi",
+        precio: 230,
+        tipo: "directo",
+        equipaje: ["de-mano", "cabina"],
+        numeroVuelo: "FB501",
+        fechaSalida: "18/06/2026",
+        horarioSalida: "10:00",
+        horarioLlegada: "14:00",
+        duracion: "4h",
+    },
+    {
+        id: 9,
+        origen: "Buenos Aires",
+        destino: "Río de Janeiro",
+        aerolinea: "AerolineasArgentinas",
+        precio: 420,
+        tipo: "directo",
+        equipaje: ["de-mano", "cabina", "despachar"],
+        numeroVuelo: "AR502",
+        fechaSalida: "21/06/2026",
+        horarioSalida: "14:00",
+        horarioLlegada: "18:00",
+        duracion: "4h"
+    },
+
+    // --- BARILOCHE ---
+    {
+        id: 10,
+        origen: "Buenos Aires",
+        destino: "Bariloche",
+        aerolinea: "AerolineasArgentinas",
+        precio: 60,
+        tipo: "directo",
+        equipaje: ["de-mano", "cabina"],
+        numeroVuelo: "AR601",
+        fechaSalida: "20/06/2026",
+        horarioSalida: "12:00",
+        horarioLlegada: "14:20",
+        duracion: "2h 20m",
+    },
+    {
+        id: 11,
+        origen: "Buenos Aires",
+        destino: "Bariloche",
+        aerolinea: "Flybondi",
+        precio: 135,
+        tipo: "directo",
+        equipaje: ["de-mano", "cabina"],
+        numeroVuelo: "FB602",
+        fechaSalida: "22/06/2026",
+        horarioSalida: "08:00",
+        horarioLlegada: "10:20",
+        duracion: "2h 20m"
+    },
+
+    // --- MENDOZA ---
+    {
+        id: 12,
+        origen: "Buenos Aires",
+        destino: "Mendoza",
+        aerolinea: "Flybondi",
+        precio: 50,
+        tipo: "directo",
+        equipaje: ["de-mano"],
+        numeroVuelo: "FB701",
+        fechaSalida: "22/06/2026",
+        horarioSalida: "15:00",
+        horarioLlegada: "17:00",
+        duracion: "2h",
+    },
+    {
+        id: 13,
+        origen: "Buenos Aires",
+        destino: "Mendoza",
+        aerolinea: "AerolineasArgentinas",
+        precio: 110,
+        tipo: "directo",
+        equipaje: ["de-mano", "cabina"],
+        numeroVuelo: "AR702",
+        fechaSalida: "24/06/2026",
+        horarioSalida: "18:00",
+        horarioLlegada: "20:00",
+        duracion: "2h"
+    },
+
+    // --- PUERTO IGUAZÚ ---
+    {
+        id: 14,
+        origen: "Buenos Aires",
+        destino: "Puerto Iguazú",
+        aerolinea: "AerolineasArgentinas",
+        precio: 55,
+        tipo: "escala",
+        equipaje: ["de-mano", "cabina"],
+        numeroVuelo: "AR801",
+        fechaSalida: "25/06/2026",
+        horarioSalida: "07:00",
+        horarioLlegada: "11:30",
+        duracion: "4h 30m",
+    },
+    {
+        id: 15,
+        origen: "Buenos Aires",
+        destino: "Puerto Iguazú",
+        aerolinea: "Flybondi",
+        precio: 125,
+        tipo: "directo",
+        equipaje: ["de-mano"],
+        numeroVuelo: "FB802",
+        fechaSalida: "26/06/2026",
+        horarioSalida: "13:00",
+        horarioLlegada: "15:00",
+        duracion: "2h"
+    }
 ];

@@ -4,7 +4,11 @@
 const destinos = [
     "Madrid",
     "Lima",
-    "Miami"
+    "Miami",
+    "Río de Janeiro",
+    "Bariloche",
+    "Mendoza",
+    "Puerto Iguazú"
 ];
 
 const selectDestino = document.getElementById("destino");
