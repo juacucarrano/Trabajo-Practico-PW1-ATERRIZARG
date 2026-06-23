@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/calendario.css">
+</head>
+
+<body>
+    <div class="grid-calendario">
+
+        <header class="a">
+            <img class="logo-card" src="../images/LOGO ATERRIZARG.png" alt="Logo">
+            <div class="logo">ATERRIZARG</div>
+            <nav>
+                <a href="../index.html">Inicio</a>
+                <a href="./reservas.html">Mis reservas</a>
+                <a href="./ofertas.html">Ofertas</a>
+                <a href="./contacto.html">Contacto</a>
+                <a href="./perfil.html" id="nav-perfil">Perfil</a>
+                <a href="./login.html" id="nav-iniciar-sesion">Iniciar sesion</a>
+                <a href="../index.html" onclick="cerrarSesion()" id="nav-cerrar-sesion">Cerrar sesion</a>
+            </nav>
+        </header>
+
+        <main class="main-calendario">
+            <h2>Seleccioná una fecha disponible</h2>
+            <form action="./busqueda.html">
+
+                <div class="calendario">
+                    <div class="header-mes" id="mes-anio">Junio 2026</div>
+
+                    <div class="dias-semana">
+                        <div>Dom</div>
+                        <div>Lun</div>
+                        <div>Mar</div>
+                        <div>Mié</div>
+                        <div>Jue</div>
+                        <div>Vie</div>
+                        <div>Sáb</div>
+                    </div>
+
+                    <div class="grid-dias" id="contenedor-dias"></div>
+                </div>
+
+                <div class="pasajeros-container">
+                    <label for="pasajeros">Cantidad de pasajeros:</label>
+                    <select id="pasajeros" name="pasajeros" required>
+                        <option value="1">1 Pasajero</option>
+                        <option value="2">2 Pasajeros</option>
+                        <option value="3">3 Pasajeros</option>
+                        <option value="4">4 Pasajeros</option>
+                        <option value="5">5 Pasajeros</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="buscar-oferta">Buscar vuelos disponibles</button>
+            </form>
+        </main>
+        <footer>
+            <div>
+                <p>© 2023 ATERRIZARG. Todos los derechos reservados.</p>
+                <p>📧 contacto@aterrizarg.com</p>
+                <p>📞 +54 11 1234-5678</p>
+                <p>📍 Buenos Aires, Argentina</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../JS/vuelos.js"></script>
+    <script src="../JS/calendario.js"></script>
+    <script src="../JS/navbar.js"></script>
+</body>
+
+</html>

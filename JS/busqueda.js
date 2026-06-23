@@ -3,64 +3,77 @@
 // =========================
 
 const busqueda =
-JSON.parse(
-    localStorage.getItem("busqueda")
-);
+    JSON.parse(
+        localStorage.getItem("busqueda")
+    );
+const idDeVueloOferta = busqueda.id || "";
 
 const destino =
-busqueda?.destino || "";
+    busqueda?.destino || "";
 
 function mostrarVuelos() {
 
     const contenedor =
-    document.getElementById(
-        "contenedor-vuelos"
-    );
+        document.getElementById(
+            "contenedor-vuelos"
+        );
 
     contenedor.innerHTML = "";
 
-    vuelos.forEach(function(vuelo){
-
-        if(vuelo.destino !== destino){
-            return;
+    if (idDeVueloOferta) {
+        const vuelo = vuelos.find(function (v) {
+            return v.id === idDeVueloOferta;
+        });
+        if (vuelo) {
+            agregarCardAlContenedor(vuelo, contenedor);
         }
+    } else {
+        vuelos.forEach(function (vuelo) {
+            if (vuelo.destino !== destino) {
+                return;
+            }
+            agregarCardAlContenedor(vuelo, contenedor);
+        });
+    }
+}
 
-        const card =
+function agregarCardAlContenedor(vuelo, contenedor) {
+    const card =
         document.createElement("div");
 
-        card.className = "card";
+    card.className = "card";
 
-        card.dataset.destino =
+    card.dataset.destino =
         vuelo.destino;
 
-        card.dataset.tipo =
+    card.dataset.tipo =
         vuelo.tipo;
 
-        card.dataset.aerolinea =
+    card.dataset.aerolinea =
         vuelo.aerolinea;
 
-        card.dataset.equipaje =
+    card.dataset.equipaje =
         vuelo.equipaje.join(",");
 
-        card.dataset.precio =
+    card.dataset.precio =
         vuelo.precio;
 
-        let logoAerolinea = "";
+    let logoAerolinea = "";
 
-if (vuelo.aerolinea === "AerolineasArgentinas") {
+    if (vuelo.aerolinea === "AerolineasArgentinas") {
 
-    logoAerolinea =
-    "../images/aerolineasargentinas-logo-l.png";
+        logoAerolinea =
+            "../images/aerolineasargentinas-logo-l.png";
 
-}
-else if (vuelo.aerolinea === "Flybondi") {
+    }
+    else if (vuelo.aerolinea === "Flybondi") {
 
-    logoAerolinea =
-    "../images/Flybondi_logo_simple.svg.png";
+        logoAerolinea =
+            "../images/Flybondi_logo_simple.svg.png";
 
-}
+    }
 
-card.innerHTML = `
+    card.innerHTML = `
 
 <div class="vuelo-card">
 
@@ -97,11 +110,10 @@ card.innerHTML = `
             <span>⏳ ${vuelo.duracion}</span>
 
             <span>
-                ${
-                    vuelo.tipo === "directo"
-                    ? "🟢 Directo"
-                    : "🟠 Escala"
-                }
+                ${vuelo.tipo === "directo"
+            ? "🟢 Directo"
+            : "🟠 Escala"
+        }
             </span>
 
             <span>
@@ -130,41 +142,38 @@ card.innerHTML = `
 
 `;
 
-        contenedor.appendChild(card);
-
-    });
-
+    contenedor.appendChild(card);
 }
 
 // =========================
 // RESERVAR VUELO
 // =========================
 
-function reservar(id){
+function reservar(id) {
 
     const usuarioLogueado =
-    localStorage.getItem(
-        "usuarioLogueado"
-    );
+        localStorage.getItem(
+            "usuarioLogueado"
+        );
 
-    if(!usuarioLogueado){
+    if (!usuarioLogueado) {
 
-    alert(
-        "Debe iniciar sesión"
-    );
+        alert(
+            "Debe iniciar sesión"
+        );
 
-    window.location.href =
-    "./login.html";
+        window.location.href =
+            "./login.html";
 
-    return;
-}
+        return;
+    }
 
     const vueloSeleccionado =
-    vuelos.find(function(vuelo){
+        vuelos.find(function (vuelo) {
 
-        return vuelo.id === id;
+            return vuelo.id === id;
 
-    });
+        });
 
     localStorage.setItem(
         "vueloSeleccionado",
@@ -174,7 +183,7 @@ function reservar(id){
     );
 
     window.location.href =
-    "./detalle-de-vuelo.html";
+        "./detalle-de-vuelo.html";
 
 }
 // =========================
@@ -251,7 +260,7 @@ function mostrarTarjetasPorFiltro() {
     const equipajeSeleccionado = [];
 
     const tarjetas =
-    document.querySelectorAll(".card");
+        document.querySelectorAll(".card");
 
     if (checkDirecto?.checked) {
         tiposSeleccionados.push(

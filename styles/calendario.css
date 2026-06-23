@@ -131,3 +131,30 @@
         font-size: 0.8rem;
     }
 }
+
+.pasajeros-container {
+    width: 100%;
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.pasajeros-container label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #6c63ff;
+}
+
+.pasajeros-container select {
+    padding: 0.7rem;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    color: #333;
+}

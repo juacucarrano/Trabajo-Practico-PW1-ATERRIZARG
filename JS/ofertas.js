@@ -29,7 +29,7 @@ function cambiarImagenes() {
     const contenedorOfertas = document.getElementById("contenedor-ofertas");
     masBaratosAMostrar.forEach((v, index) => {
         contenedorOfertas.innerHTML += `
-        <a href="./sub-pages/calendario.html" class="links-cards">
+        <a href="./calendario.html" class="links-cards" onclick="seleccionarOferta(${v.id})">
                         <div class="card-oferta">
                             <div class="imagen-oferta">
                                 <img src="${imagenes[v.destino]}" alt="">
@@ -46,5 +46,9 @@ function cambiarImagenes() {
                     </a>
         `
     });
+}
 
+function seleccionarOferta(vueloId) {
+    const vueloSeleccionado = vuelos.find(v => v.id === vueloId);
+    localStorage.setItem("ofertaSeleccionada", JSON.stringify(vueloSeleccionado));
 }
