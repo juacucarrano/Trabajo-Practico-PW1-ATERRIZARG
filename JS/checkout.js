@@ -171,10 +171,29 @@ formulario.addEventListener("submit", function (e) {
     // =========================
     // RESERVA COMPLETA
     // =========================
+    const asientosSeleccionados =
+        JSON.parse(
+            localStorage.getItem(
+                "asientosSeleccionados"
+            )
+        ) || [];
+
+    const claveAsientos =
+        "asientos_" +
+        vuelo.numeroVuelo;
+
+    const asientosOcupados =
+        JSON.parse(
+            localStorage.getItem(
+                claveAsientos
+            )
+        ) || [];
+
     const reservaCompleta = {
         origen: vuelo.origen,
         destino: vuelo.destino,
         aerolinea: vuelo.aerolinea,
+        asientos: asientosSeleccionados,
         precio: vuelo.precio,
         cantidadDePasajeros: cantidadPasajeros,
         descuento: descuentoAplicado,
@@ -202,12 +221,35 @@ formulario.addEventListener("submit", function (e) {
 
     // Dejar la nueva reserva como seleccionada
     localStorage.setItem("reservaSeleccionada", JSON.stringify(reservaCompleta));
+    asientosSeleccionados.forEach(
+        function (asiento) {
+
+            if (
+                !asientosOcupados.includes(
+                    asiento
+                )
+            ) {
+                asientosOcupados.push(
+                    asiento
+                );
+            }
+
+        }
+    );
+
+    localStorage.setItem(
+        claveAsientos,
+        JSON.stringify(
+            asientosOcupados
+        )
+    );
 
     // =========================
     // LIMPIAR TEMPORAL
     // =========================
     localStorage.removeItem("vueloSeleccionado");
-
+    localStorage.removeItem("asientosSeleccionados");
+    localStorage.removeItem("asientoSeleccionado");
     // =========================
     // CONFIRMAR
     // =========================

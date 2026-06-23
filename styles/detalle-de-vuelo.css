@@ -52,6 +52,7 @@ svg {
 .ocupado {
     fill: #b6b6b7;
     cursor: not-allowed;
+    pointer-events: none;
 }
 
 .seleccionado {
