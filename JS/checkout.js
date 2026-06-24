@@ -6,18 +6,17 @@ const usuarioLogueado = localStorage.getItem("usuarioLogueado");
 if (!usuarioLogueado) {
     alert("Debe iniciar sesión");
     window.location.href = "./login.html";
-}
+} else {
+    // =========================
+    // OBTENER VUELO SELECCIONADO
+    // =========================
+    const vuelo = JSON.parse(localStorage.getItem("vueloSeleccionado"));
 
-// =========================
-// OBTENER VUELO SELECCIONADO
-// =========================
-const vuelo = JSON.parse(localStorage.getItem("vueloSeleccionado"));
-
-// Si no hay vuelo seleccionado
-if (!vuelo) {
-    alert("No hay ningún vuelo seleccionado");
-    window.location.href = "../index.html";
-}
+    // Si no hay vuelo seleccionado
+    if (!vuelo) {
+        alert("No hay ningún vuelo seleccionado");
+        window.location.href = "../index.html";
+    } else {
 
 // =========================
 // MOSTRAR RESUMEN DEL VUELO Y PASAJEROS
@@ -321,3 +320,5 @@ function cargarTarjetaFormulario(tarjeta) {
 
 // Inicializar al cargar la página
 inicializarTarjetasGuardadasCheckout();
+    }
+}

@@ -20,153 +20,193 @@ const vuelo =
         )
     );
 
-const claveAsientos =
-    "asientos_" +
-    vuelo.numeroVuelo;
+if (!vuelo) {
+    alert("Debe seleccionar un vuelo primero.");
+    window.location.href = "./busqueda.html";
+} else {
+    const claveAsientos =
+        "asientos_" +
+        vuelo.numeroVuelo;
 
-const asientosOcupados =
-    JSON.parse(
-        localStorage.getItem(
-            claveAsientos
-        )
-    ) || [];
+    const asientosOcupados =
+        JSON.parse(
+            localStorage.getItem(
+                claveAsientos
+            )
+        ) || [];
 
-let asientosSeleccionados =
-    JSON.parse(
-        localStorage.getItem(
-            "asientosSeleccionados"
-        )
-    ) || [];
-
-
-function renderAvion() {
-
-    avionData.forEach(function (fila) {
-
-        const numero =
-            document.createElement("div");
-
-        numero.className = "numero";
-        numero.textContent = fila.fila;
-
-        container.appendChild(numero);
-
-        fila.izq.forEach(crearAsiento);
-
-        const pasillo =
-            document.createElement("div");
-
-        pasillo.className = "pasillo";
-        pasillo.textContent = fila.pasillo;
-
-        container.appendChild(pasillo);
-
-        fila.der.forEach(crearAsiento);
-
-    });
-
-}
-
-function continuarCheckout() {
-
-    const asientos =
+    let asientosSeleccionados =
         JSON.parse(
             localStorage.getItem(
                 "asientosSeleccionados"
             )
         ) || [];
 
-    const busqueda =
-        JSON.parse(
-            localStorage.getItem(
-                "busqueda"
-            )
-        );
 
-    const cantidadPasajeros =
-        busqueda?.pasajeros || 1;
+    function renderAvion() {
 
-    if (
-        asientos.length !==
-        cantidadPasajeros
-    ) {
-        alert(
-            "Debe seleccionar " +
-            cantidadPasajeros +
-            " asiento(s)"
-        );
-        return;
+        avionData.forEach(function (fila) {
+
+            const numero =
+                document.createElement("div");
+
+            numero.className = "numero";
+            numero.textContent = fila.fila;
+
+            container.appendChild(numero);
+
+            fila.izq.forEach(crearAsiento);
+
+            const pasillo =
+                document.createElement("div");
+
+            pasillo.className = "pasillo";
+            pasillo.textContent = fila.pasillo;
+
+            container.appendChild(pasillo);
+
+            fila.der.forEach(crearAsiento);
+
+        });
+
     }
 
-    window.location.href =
-        "./checkout.html";
+    function continuarCheckout() {
 
-}
+        const asientos =
+            JSON.parse(
+                localStorage.getItem(
+                    "asientosSeleccionados"
+                )
+            ) || [];
 
-function crearAsiento(id) {
+        const busqueda =
+            JSON.parse(
+                localStorage.getItem(
+                    "busqueda"
+                )
+            );
 
-    const svg =
-        document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "svg"
-        );
-
-    svg.setAttribute(
-        "viewBox",
-        "0 0 24 24"
-    );
-
-
-    svg.innerHTML =
-        `<path d="M4,18v3h3v-3h10v3h3v-6H4V18z M19,10h3v3h-3V10z M2,10h3v3H2V10z M17,13H7V5c0-1.1,0.9-2,2-2h6c1.1,0,2,0.9,2,2V13z"/>`;
-
-    svg.classList.add("svg");
-
-    if (asientosOcupados.includes(id)) {
-
-        svg.classList.add("ocupado");
-
-    } else {
-
-        svg.classList.add("disponible");
+        const cantidadPasajeros =
+            busqueda?.pasajeros || 1;
 
         if (
-            asientosSeleccionados.includes(id)
+            asientos.length !==
+            cantidadPasajeros
         ) {
-            svg.classList.remove(
-                "disponible"
+            alert(
+                "Debe seleccionar " +
+                cantidadPasajeros +
+                " asiento(s)"
             );
-
-            svg.classList.add(
-                "seleccionado"
-            );
+            return;
         }
 
-        svg.addEventListener(
-            "click",
-            function () {
+        window.location.href =
+            "./checkout.html";
 
-                const busqueda =
-                    JSON.parse(
-                        localStorage.getItem(
-                            "busqueda"
-                        )
-                    );
+    }
 
-                const cantidadPasajeros =
-                    busqueda?.pasajeros || 1;
+    function crearAsiento(id) {
 
-                // Si ya estaba seleccionado
-                if (
-                    asientosSeleccionados.includes(id)
-                ) {
+        const svg =
+            document.createElementNS(
+                "http://www.w3.org/2000/svg",
+                "svg"
+            );
 
-                    asientosSeleccionados =
-                        asientosSeleccionados.filter(
-                            function (asiento) {
-                                return asiento !== id;
-                            }
+        svg.setAttribute(
+            "viewBox",
+            "0 0 24 24"
+        );
+
+
+        svg.innerHTML =
+            `<path d="M4,18v3h3v-3h10v3h3v-6H4V18z M19,10h3v3h-3V10z M2,10h3v3H2V10z M17,13H7V5c0-1.1,0.9-2,2-2h6c1.1,0,2,0.9,2,2V13z"/>`;
+
+        svg.classList.add("svg");
+
+        if (asientosOcupados.includes(id)) {
+
+            svg.classList.add("ocupado");
+
+        } else {
+
+            svg.classList.add("disponible");
+
+            if (
+                asientosSeleccionados.includes(id)
+            ) {
+                svg.classList.remove(
+                    "disponible"
+                );
+
+                svg.classList.add(
+                    "seleccionado"
+                );
+            }
+
+            svg.addEventListener(
+                "click",
+                function () {
+
+                    const busqueda =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "busqueda"
+                            )
                         );
+
+                    const cantidadPasajeros =
+                        busqueda?.pasajeros || 1;
+
+                    // Si ya estaba seleccionado
+                    if (
+                        asientosSeleccionados.includes(id)
+                    ) {
+
+                        asientosSeleccionados =
+                            asientosSeleccionados.filter(
+                                function (asiento) {
+                                    return asiento !== id;
+                                }
+                            );
+
+                        localStorage.setItem(
+                            "asientosSeleccionados",
+                            JSON.stringify(
+                                asientosSeleccionados
+                            )
+                        );
+
+                        svg.classList.remove(
+                            "seleccionado"
+                        );
+
+                        svg.classList.add(
+                            "disponible"
+                        );
+
+                        return;
+                    }
+
+                    // Control de cantidad máxima
+                    if (
+                        asientosSeleccionados.length >=
+                        cantidadPasajeros
+                    ) {
+
+                        alert(
+                            "Solo puede seleccionar " +
+                            cantidadPasajeros +
+                            " asiento(s)"
+                        );
+
+                        return;
+                    }
+
+                    // Seleccionar asiento
+                    asientosSeleccionados.push(id);
 
                     localStorage.setItem(
                         "asientosSeleccionados",
@@ -176,63 +216,25 @@ function crearAsiento(id) {
                     );
 
                     svg.classList.remove(
-                        "seleccionado"
-                    );
-
-                    svg.classList.add(
                         "disponible"
                     );
 
-                    return;
-                }
-
-                // Control de cantidad máxima
-                if (
-                    asientosSeleccionados.length >=
-                    cantidadPasajeros
-                ) {
-
-                    alert(
-                        "Solo puede seleccionar " +
-                        cantidadPasajeros +
-                        " asiento(s)"
+                    svg.classList.add(
+                        "seleccionado"
                     );
 
-                    return;
                 }
+            );
 
-                // Seleccionar asiento
-                asientosSeleccionados.push(id);
+        }
 
-                localStorage.setItem(
-                    "asientosSeleccionados",
-                    JSON.stringify(
-                        asientosSeleccionados
-                    )
-                );
-
-                svg.classList.remove(
-                    "disponible"
-                );
-
-                svg.classList.add(
-                    "seleccionado"
-                );
-
-            }
-        );
+        container.appendChild(svg);
 
     }
 
-    container.appendChild(svg);
+    renderAvion();
 
-}
-
-renderAvion();
-
-console.log(vuelo);
-
-if (vuelo) {
+    console.log(vuelo);
 
     document.getElementById(
         "ruta-vuelo"
@@ -244,7 +246,7 @@ if (vuelo) {
     document.getElementById(
         "horario-vuelo"
     ).textContent =
-        vuelo.horario;
+        vuelo.horarioSalida + " - " + vuelo.horarioLlegada;
 
     document.getElementById(
         "tipo-vuelo"

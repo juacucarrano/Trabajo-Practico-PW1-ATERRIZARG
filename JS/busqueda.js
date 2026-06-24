@@ -6,74 +6,79 @@ const busqueda =
     JSON.parse(
         localStorage.getItem("busqueda")
     );
-const idDeVueloOferta = busqueda.id || "";
 
-const destino =
-    busqueda?.destino || "";
+if (!busqueda) {
+    alert("Debe realizar una búsqueda primero.");
+    window.location.href = "../index.html";
+} else {
+    const idDeVueloOferta = busqueda.id || "";
 
-function mostrarVuelos() {
+    const destino =
+        busqueda.destino || "";
 
-    const contenedor =
-        document.getElementById(
-            "contenedor-vuelos"
-        );
+    function mostrarVuelos() {
 
-    contenedor.innerHTML = "";
+        const contenedor =
+            document.getElementById(
+                "contenedor-vuelos"
+            );
 
-    if (idDeVueloOferta) {
-        const vuelo = vuelos.find(function (v) {
-            return v.id === idDeVueloOferta;
-        });
-        if (vuelo) {
-            agregarCardAlContenedor(vuelo, contenedor);
-        }
-    } else {
-        vuelos.forEach(function (vuelo) {
-            if (vuelo.destino !== destino) {
-                return;
+        contenedor.innerHTML = "";
+
+        if (idDeVueloOferta) {
+            const vuelo = vuelos.find(function (v) {
+                return v.id === idDeVueloOferta;
+            });
+            if (vuelo) {
+                agregarCardAlContenedor(vuelo, contenedor);
             }
-            agregarCardAlContenedor(vuelo, contenedor);
-        });
-    }
-}
-
-function agregarCardAlContenedor(vuelo, contenedor) {
-    const card =
-        document.createElement("div");
-
-    card.className = "card";
-
-    card.dataset.destino =
-        vuelo.destino;
-
-    card.dataset.tipo =
-        vuelo.tipo;
-
-    card.dataset.aerolinea =
-        vuelo.aerolinea;
-
-    card.dataset.equipaje =
-        vuelo.equipaje.join(",");
-
-    card.dataset.precio =
-        vuelo.precio;
-
-    let logoAerolinea = "";
-
-    if (vuelo.aerolinea === "AerolineasArgentinas") {
-
-        logoAerolinea =
-            "../images/aerolineasargentinas-logo-l.png";
-
-    }
-    else if (vuelo.aerolinea === "Flybondi") {
-
-        logoAerolinea =
-            "../images/Flybondi_logo_simple.svg.png";
-
+        } else {
+            vuelos.forEach(function (vuelo) {
+                if (vuelo.destino !== destino) {
+                    return;
+                }
+                agregarCardAlContenedor(vuelo, contenedor);
+            });
+        }
     }
 
-    card.innerHTML = `
+    function agregarCardAlContenedor(vuelo, contenedor) {
+        const card =
+            document.createElement("div");
+
+        card.className = "card";
+
+        card.dataset.destino =
+            vuelo.destino;
+
+        card.dataset.tipo =
+            vuelo.tipo;
+
+        card.dataset.aerolinea =
+            vuelo.aerolinea;
+
+        card.dataset.equipaje =
+            vuelo.equipaje.join(",");
+
+        card.dataset.precio =
+            vuelo.precio;
+
+        let logoAerolinea = "";
+
+        if (vuelo.aerolinea === "AerolineasArgentinas") {
+
+            logoAerolinea =
+                "../images/aerolineasargentinas-logo-l.png";
+
+        }
+        else if (vuelo.aerolinea === "Flybondi") {
+
+            logoAerolinea =
+                "../images/Flybondi_logo_simple.svg.png";
+
+        }
+
+        card.innerHTML = `
 
 <div class="vuelo-card">
 
@@ -111,9 +116,9 @@ function agregarCardAlContenedor(vuelo, contenedor) {
 
             <span>
                 ${vuelo.tipo === "directo"
-            ? "🟢 Directo"
-            : "🟠 Escala"
-        }
+                ? "🟢 Directo"
+                : "🟠 Escala"
+            }
             </span>
 
             <span>
@@ -142,277 +147,278 @@ function agregarCardAlContenedor(vuelo, contenedor) {
 
 `;
 
-    contenedor.appendChild(card);
-}
-
-// =========================
-// RESERVAR VUELO
-// =========================
-
-function reservar(id) {
-
-    const usuarioLogueado =
-        localStorage.getItem(
-            "usuarioLogueado"
-        );
-
-    if (!usuarioLogueado) {
-
-        alert(
-            "Debe iniciar sesión"
-        );
-
-        window.location.href =
-            "./login.html";
-
-        return;
+        contenedor.appendChild(card);
     }
 
-    const vueloSeleccionado =
-        vuelos.find(function (vuelo) {
+    // =========================
+    // RESERVAR VUELO
+    // =========================
 
-            return vuelo.id === id;
+    function reservar(id) {
 
-        });
+        const usuarioLogueado =
+            localStorage.getItem(
+                "usuarioLogueado"
+            );
 
-    localStorage.setItem(
-        "vueloSeleccionado",
-        JSON.stringify(
-            vueloSeleccionado
-        )
-    );
+        if (!usuarioLogueado) {
 
-    window.location.href =
-        "./detalle-de-vuelo.html";
+            alert(
+                "Debe iniciar sesión"
+            );
 
-}
-// =========================
-// FILTROS
-// =========================
-
-const checkDirecto =
-    document.getElementById("directo");
-
-const checkEscalas =
-    document.getElementById("escalas");
-
-const Flybondi =
-    document.getElementById("Flybondi");
-
-const AerolineasArgentinas =
-    document.getElementById("AerolineasArgentinas");
-
-const mano =
-    document.getElementById("de-mano");
-
-const cabina =
-    document.getElementById("cabina");
-
-const despachar =
-    document.getElementById("despachar");
-
-const precio =
-    document.getElementById("precio");
-
-const precioActual =
-    document.getElementById("precio-actual");
-
-// =========================
-// MOSTRAR VALOR DEL SLIDER
-// =========================
-
-if (precio) {
-
-    precio.addEventListener(
-        "input",
-        function () {
-
-            precioActual.textContent =
-                "$" +
-                precio.value +
-                " USD";
-
-        }
-    );
-
-}
-
-// =========================
-// OBTENER EQUIPAJE
-// =========================
-
-function obtenerOpcionesEquipaje(card) {
-
-    return (
-        card.dataset.equipaje || ""
-    );
-
-}
-
-// =========================
-// FILTRAR TARJETAS
-// =========================
-
-function mostrarTarjetasPorFiltro() {
-
-    const tiposSeleccionados = [];
-    const aerolineasSeleccionadas = [];
-    const equipajeSeleccionado = [];
-
-    const tarjetas =
-        document.querySelectorAll(".card");
-
-    if (checkDirecto?.checked) {
-        tiposSeleccionados.push(
-            "directo"
-        );
-    }
-
-    if (checkEscalas?.checked) {
-        tiposSeleccionados.push(
-            "escala"
-        );
-    }
-
-    if (Flybondi?.checked) {
-        aerolineasSeleccionadas.push(
-            "Flybondi"
-        );
-    }
-
-    if (AerolineasArgentinas?.checked) {
-        aerolineasSeleccionadas.push(
-            "AerolineasArgentinas"
-        );
-    }
-
-    if (mano?.checked) {
-        equipajeSeleccionado.push(
-            "de-mano"
-        );
-    }
-
-    if (cabina?.checked) {
-        equipajeSeleccionado.push(
-            "cabina"
-        );
-    }
-
-    if (despachar?.checked) {
-        equipajeSeleccionado.push(
-            "despachar"
-        );
-    }
-
-    tarjetas.forEach(function (card) {
-
-        // Respeta siempre el destino buscado
-        if (
-            card.dataset.destino !==
-            destino
-        ) {
-
-            card.style.display =
-                "none";
+            window.location.href =
+                "./login.html";
 
             return;
         }
 
-        const tipo =
-            (
-                card.dataset.tipo || ""
-            ).toLowerCase();
+        const vueloSeleccionado =
+            vuelos.find(function (vuelo) {
 
-        const aerolinea =
-            card.dataset.aerolinea || "";
+                return vuelo.id === id;
 
-        const equipajeOpciones =
-            obtenerOpcionesEquipaje(card);
+            });
 
-        const precioVuelo =
-            Number(card.dataset.precio);
-
-        let visible = true;
-
-        if (
-            tiposSeleccionados.length > 0 &&
-            !tiposSeleccionados.includes(tipo)
-        ) {
-
-            visible = false;
-
-        }
-
-        if (
-            aerolineasSeleccionadas.length > 0 &&
-            !aerolineasSeleccionadas.includes(aerolinea)
-        ) {
-
-            visible = false;
-
-        }
-
-        if (
-            equipajeSeleccionado.length > 0 &&
-            !equipajeSeleccionado.every(
-                function (opcion) {
-
-                    return equipajeOpciones.includes(
-                        opcion
-                    );
-
-                }
+        localStorage.setItem(
+            "vueloSeleccionado",
+            JSON.stringify(
+                vueloSeleccionado
             )
-        ) {
+        );
 
-            visible = false;
+        window.location.href =
+            "./detalle-de-vuelo.html";
 
-        }
+    }
+    // =========================
+    // FILTROS
+    // =========================
 
-        if (
-            precio &&
-            precioVuelo >
-            Number(precio.value)
-        ) {
+    const checkDirecto =
+        document.getElementById("directo");
 
-            visible = false;
+    const checkEscalas =
+        document.getElementById("escalas");
 
-        }
+    const Flybondi =
+        document.getElementById("Flybondi");
 
-        card.style.display =
-            visible
-                ? "flex"
-                : "none";
+    const AerolineasArgentinas =
+        document.getElementById("AerolineasArgentinas");
 
-    });
+    const mano =
+        document.getElementById("de-mano");
 
-}
+    const cabina =
+        document.getElementById("cabina");
 
-// =========================
-// EVENTOS DE FILTRO
-// =========================
+    const despachar =
+        document.getElementById("despachar");
 
-[
-    checkDirecto,
-    checkEscalas,
-    Flybondi,
-    AerolineasArgentinas,
-    mano,
-    cabina,
-    despachar,
-    precio
-].forEach(function (input) {
+    const precio =
+        document.getElementById("precio");
 
-    if (input) {
+    const precioActual =
+        document.getElementById("precio-actual");
 
-        input.addEventListener(
-            "change",
-            mostrarTarjetasPorFiltro
+    // =========================
+    // MOSTRAR VALOR DEL SLIDER
+    // =========================
+
+    if (precio) {
+
+        precio.addEventListener(
+            "input",
+            function () {
+
+                precioActual.textContent =
+                    "$" +
+                    precio.value +
+                    " USD";
+
+            }
         );
 
     }
 
-});
+    // =========================
+    // OBTENER EQUIPAJE
+    // =========================
 
-mostrarVuelos();
-mostrarTarjetasPorFiltro();
+    function obtenerOpcionesEquipaje(card) {
+
+        return (
+            card.dataset.equipaje || ""
+        );
+
+    }
+
+    // =========================
+    // FILTRAR TARJETAS
+    // =========================
+
+    function mostrarTarjetasPorFiltro() {
+
+        const tiposSeleccionados = [];
+        const aerolineasSeleccionadas = [];
+        const equipajeSeleccionado = [];
+
+        const tarjetas =
+            document.querySelectorAll(".card");
+
+        if (checkDirecto?.checked) {
+            tiposSeleccionados.push(
+                "directo"
+            );
+        }
+
+        if (checkEscalas?.checked) {
+            tiposSeleccionados.push(
+                "escala"
+            );
+        }
+
+        if (Flybondi?.checked) {
+            aerolineasSeleccionadas.push(
+                "Flybondi"
+            );
+        }
+
+        if (AerolineasArgentinas?.checked) {
+            aerolineasSeleccionadas.push(
+                "AerolineasArgentinas"
+            );
+        }
+
+        if (mano?.checked) {
+            equipajeSeleccionado.push(
+                "de-mano"
+            );
+        }
+
+        if (cabina?.checked) {
+            equipajeSeleccionado.push(
+                "cabina"
+            );
+        }
+
+        if (despachar?.checked) {
+            equipajeSeleccionado.push(
+                "despachar"
+            );
+        }
+
+        tarjetas.forEach(function (card) {
+
+            // Respeta siempre el destino buscado
+            if (
+                card.dataset.destino !==
+                destino
+            ) {
+
+                card.style.display =
+                    "none";
+
+                return;
+            }
+
+            const tipo =
+                (
+                    card.dataset.tipo || ""
+                ).toLowerCase();
+
+            const aerolinea =
+                card.dataset.aerolinea || "";
+
+            const equipajeOpciones =
+                obtenerOpcionesEquipaje(card);
+
+            const precioVuelo =
+                Number(card.dataset.precio);
+
+            let visible = true;
+
+            if (
+                tiposSeleccionados.length > 0 &&
+                !tiposSeleccionados.includes(tipo)
+            ) {
+
+                visible = false;
+
+            }
+
+            if (
+                aerolineasSeleccionadas.length > 0 &&
+                !aerolineasSeleccionadas.includes(aerolinea)
+            ) {
+
+                visible = false;
+
+            }
+
+            if (
+                equipajeSeleccionado.length > 0 &&
+                !equipajeSeleccionado.every(
+                    function (opcion) {
+
+                        return equipajeOpciones.includes(
+                            opcion
+                        );
+
+                    }
+                )
+            ) {
+
+                visible = false;
+
+            }
+
+            if (
+                precio &&
+                precioVuelo >
+                Number(precio.value)
+            ) {
+
+                visible = false;
+
+            }
+
+            card.style.display =
+                visible
+                    ? "flex"
+                    : "none";
+
+        });
+
+    }
+
+    // =========================
+    // EVENTOS DE FILTRO
+    // =========================
+
+    [
+        checkDirecto,
+        checkEscalas,
+        Flybondi,
+        AerolineasArgentinas,
+        mano,
+        cabina,
+        despachar,
+        precio
+    ].forEach(function (input) {
+
+        if (input) {
+
+            input.addEventListener(
+                "change",
+                mostrarTarjetasPorFiltro
+            );
+
+        }
+
+    });
+
+    mostrarVuelos();
+    mostrarTarjetasPorFiltro();
+}
