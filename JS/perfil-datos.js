@@ -174,6 +174,8 @@ function inicializarFormulario() {
             alert("Datos guardados");
         });
     }
+    const botonEliminar = document.getElementById("btn-eliminar");
+    botonEliminar.addEventListener("click", eliminarCuentaActual);
 }
 
 function prefijoValido(prefPais) {
@@ -207,6 +209,15 @@ function cambiarEstadoTelefono(deshabilitar) {
                 boton.textContent = deshabilitar ? "Editar" : "Agregar";
             }
         }
+    }
+}
+
+function eliminarCuentaActual(e) {
+    e.preventDefault();
+    if (confirm("¿Está seguro que desea eliminar su cuenta?")) {
+        const listaActualizada = usuarios.filter(u => u.correo !== mailLogueado);
+        localStorage.setItem("usuarios", JSON.stringify(listaActualizada));
+        cerrarSesion();
     }
 }
 
