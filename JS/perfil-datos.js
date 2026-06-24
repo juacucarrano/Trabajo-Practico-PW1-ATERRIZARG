@@ -131,11 +131,29 @@ function inicializarFormulario() {
             const codArea = document.getElementById("cod-area").value.trim();
             const nroTel = document.getElementById("nro-tel").value.trim();
 
-            const regexPrefPais = /^\+[1-9]\d{0,3}$/;
-            if (!regexPrefPais.test(prefPais)) {
-                alert("Ingrese un prefijo con formáto válido: +000");
-                return;
+            if (prefPais || codArea || nroTel) {
+                const regexPrefPais = /^\+[1-9]\d{0,3}$/;
+                if (!regexPrefPais.test(prefPais)) {
+                    alert("Ingrese un prefijo con formáto válido: +000");
+                    return;
+                }
+                if (codArea) {
+                    const regexCodArea = /^[1-9]\d{1,3}$/;
+                    if (!regexCodArea.test(codArea)) {
+                        alert("Ingrese un código de área con formáto válido: 000");
+                        return;
+                    }
+                }
+                if (nroTel) {
+                    const regexNroTel = /^[1-9]\d{6,14}$/;
+                    if (!regexNroTel.test(nroTel)) {
+                        alert("Ingrese un número de teléfono con formáto válido: 0000000");
+                        return;
+                    }
+                }
             }
+
+
 
             if (prefPais && codArea && nroTel) {
                 const contacto = {
@@ -150,6 +168,12 @@ function inicializarFormulario() {
             const nuevoEmail = document.getElementById("email-nuevo").value.toLowerCase().trim();
 
             if (nuevoEmail) {
+                const regexCorreo = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                if (!regexCorreo.test(nuevoEmail)) {
+                    alert("El formato del correo de respaldo no es válido.");
+                    return;
+                }
+
                 if (nuevoEmail !== mailLogueado && !usuarioActual.mailsRespaldo.includes(nuevoEmail) && usuarioActual.mailsRespaldo.length < 2) {
                     usuarioActual.mailsRespaldo.push(nuevoEmail);
                     renderizarMailsRespaldo();

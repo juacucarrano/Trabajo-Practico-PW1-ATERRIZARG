@@ -12,6 +12,11 @@ formulario.addEventListener(
         const email = document.getElementById("email").value.trim().toLowerCase();
         const contrasena = document.getElementById("contrasena").value;
 
+        if (!email || !contrasena) {
+            alert("Por favor complete todos los campos.");
+            return;
+        }
+
         const usuarioCoincidencia = usuarios.find(u => u.correo === email);
 
         if (usuarioCoincidencia && usuarioCoincidencia.contrasena === contrasena) {

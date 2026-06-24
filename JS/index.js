@@ -66,5 +66,6 @@ formulario.addEventListener("submit", function(e) {
 
     // 6. Almacenamiento
     localStorage.setItem("busqueda", JSON.stringify(busqueda));
+    localStorage.removeItem("asientosSeleccionados");
     console.log("Búsqueda guardada con éxito:", busqueda);
 });

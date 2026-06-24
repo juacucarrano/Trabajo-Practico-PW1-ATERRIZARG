@@ -9,6 +9,21 @@ form.addEventListener("submit", enviarFormulario);
 function enviarFormulario(e) {
     e.preventDefault();
 
+    const nombre = document.getElementById("nombre-apellido").value.trim();
+    const email = document.getElementById("email-contacto").value.trim();
+    const asuntoVal = document.getElementById("asunto").value;
+
+    if (!nombre || !email || !asuntoVal) {
+        alert("Por favor complete todos los campos obligatorios (Nombre, Email y Asunto).");
+        return;
+    }
+
+    const regexCorreo = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!regexCorreo.test(email)) {
+        alert("El formato del correo no es válido.");
+        return;
+    }
+
     const urlFormstree = form.action;
     const datosParaEnviar = new FormData(form);
 

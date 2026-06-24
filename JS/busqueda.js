@@ -187,6 +187,8 @@ if (!busqueda) {
             )
         );
 
+        localStorage.removeItem("asientosSeleccionados");
+
         window.location.href =
             "./detalle-de-vuelo.html";
 

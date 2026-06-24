@@ -45,7 +45,13 @@ if (!ofertaSeleccionada) {
         }
 
         const selectPasajeros = document.getElementById("pasajeros");
-        const cantidadPasajeros = parseInt(selectPasajeros.value) || 1;
+        const cantidadPasajeros = parseInt(selectPasajeros.value, 10);
+
+        if (isNaN(cantidadPasajeros) || cantidadPasajeros < 1) {
+            alert("Por favor, seleccione una cantidad válida de pasajeros.");
+            e.preventDefault();
+            return;
+        }
 
         const busqueda = {
             origen: ofertaSeleccionada.origen,
@@ -56,5 +62,6 @@ if (!ofertaSeleccionada) {
         };
 
         localStorage.setItem("busqueda", JSON.stringify(busqueda));
+        localStorage.removeItem("asientosSeleccionados");
     });
 }

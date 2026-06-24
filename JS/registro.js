@@ -21,6 +21,24 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Por favor complete todos los campos.");
             return;
         }
+        const regexContrasenia = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>_+\-\[\]\\\/]).{8,16}$/;
+
+        if (!regexContrasenia.test(contrasena)) {
+            alert("La contraseña debe tener entre 8 y 16 caracteres, contener al menos una letra, un número y un carácter especial.");
+            return;
+        }
+
+        const regexCorreo = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        if (!regexCorreo.test(correo)) {
+            alert("El formato del correo no es válido.");
+            return;
+        }
+
+        if (isNaN(documento)) {
+            alert("El documento no puede contener letras ni simbolos.");
+            return;
+        }
 
         if (contrasena !== contrasenaConfirmar) {
             alert("Las contraseñas no coinciden");
